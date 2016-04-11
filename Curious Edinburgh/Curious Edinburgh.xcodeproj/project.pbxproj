@@ -1,0 +1,528 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3BFED6201CBBEBFE00597967 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFED61F1CBBEBFE00597967 /* AppDelegate.swift */; };
+		3BFED6221CBBEBFE00597967 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFED6211CBBEBFE00597967 /* ViewController.swift */; };
+		3BFED6251CBBEBFE00597967 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BFED6231CBBEBFE00597967 /* Main.storyboard */; };
+		3BFED6281CBBEBFE00597967 /* Curious_Edinburgh.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3BFED6261CBBEBFE00597967 /* Curious_Edinburgh.xcdatamodeld */; };
+		3BFED62A1CBBEBFE00597967 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BFED6291CBBEBFE00597967 /* Assets.xcassets */; };
+		3BFED62D1CBBEBFE00597967 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BFED62B1CBBEBFE00597967 /* LaunchScreen.storyboard */; };
+		3BFED6381CBBEBFE00597967 /* Curious_EdinburghTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFED6371CBBEBFE00597967 /* Curious_EdinburghTests.swift */; };
+		3BFED6431CBBEBFE00597967 /* Curious_EdinburghUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFED6421CBBEBFE00597967 /* Curious_EdinburghUITests.swift */; };
+		3BFED6511CBBECCB00597967 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BFED6501CBBECCB00597967 /* MapKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3BFED6341CBBEBFE00597967 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BFED6141CBBEBFE00597967 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BFED61B1CBBEBFE00597967;
+			remoteInfo = "Curious Edinburgh";
+		};
+		3BFED63F1CBBEBFE00597967 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BFED6141CBBEBFE00597967 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BFED61B1CBBEBFE00597967;
+			remoteInfo = "Curious Edinburgh";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3BFED61C1CBBEBFE00597967 /* Curious Edinburgh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Curious Edinburgh.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BFED61F1CBBEBFE00597967 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3BFED6211CBBEBFE00597967 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3BFED6241CBBEBFE00597967 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3BFED6271CBBEBFE00597967 /* Curious_Edinburgh.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Curious_Edinburgh.xcdatamodel; sourceTree = "<group>"; };
+		3BFED6291CBBEBFE00597967 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3BFED62C1CBBEBFE00597967 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3BFED62E1CBBEBFE00597967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BFED6331CBBEBFE00597967 /* Curious EdinburghTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Curious EdinburghTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BFED6371CBBEBFE00597967 /* Curious_EdinburghTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curious_EdinburghTests.swift; sourceTree = "<group>"; };
+		3BFED6391CBBEBFE00597967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BFED63E1CBBEBFE00597967 /* Curious EdinburghUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Curious EdinburghUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BFED6421CBBEBFE00597967 /* Curious_EdinburghUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curious_EdinburghUITests.swift; sourceTree = "<group>"; };
+		3BFED6441CBBEBFE00597967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BFED6501CBBECCB00597967 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3BFED6191CBBEBFE00597967 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BFED6511CBBECCB00597967 /* MapKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BFED6301CBBEBFE00597967 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BFED63B1CBBEBFE00597967 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3BFED6131CBBEBFD00597967 = {
+			isa = PBXGroup;
+			children = (
+				3BFED6501CBBECCB00597967 /* MapKit.framework */,
+				3BFED61E1CBBEBFE00597967 /* Curious Edinburgh */,
+				3BFED6361CBBEBFE00597967 /* Curious EdinburghTests */,
+				3BFED6411CBBEBFE00597967 /* Curious EdinburghUITests */,
+				3BFED61D1CBBEBFE00597967 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3BFED61D1CBBEBFE00597967 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3BFED61C1CBBEBFE00597967 /* Curious Edinburgh.app */,
+				3BFED6331CBBEBFE00597967 /* Curious EdinburghTests.xctest */,
+				3BFED63E1CBBEBFE00597967 /* Curious EdinburghUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3BFED61E1CBBEBFE00597967 /* Curious Edinburgh */ = {
+			isa = PBXGroup;
+			children = (
+				3BFED61F1CBBEBFE00597967 /* AppDelegate.swift */,
+				3BFED6211CBBEBFE00597967 /* ViewController.swift */,
+				3BFED6231CBBEBFE00597967 /* Main.storyboard */,
+				3BFED6291CBBEBFE00597967 /* Assets.xcassets */,
+				3BFED62B1CBBEBFE00597967 /* LaunchScreen.storyboard */,
+				3BFED62E1CBBEBFE00597967 /* Info.plist */,
+				3BFED6261CBBEBFE00597967 /* Curious_Edinburgh.xcdatamodeld */,
+			);
+			path = "Curious Edinburgh";
+			sourceTree = "<group>";
+		};
+		3BFED6361CBBEBFE00597967 /* Curious EdinburghTests */ = {
+			isa = PBXGroup;
+			children = (
+				3BFED6371CBBEBFE00597967 /* Curious_EdinburghTests.swift */,
+				3BFED6391CBBEBFE00597967 /* Info.plist */,
+			);
+			path = "Curious EdinburghTests";
+			sourceTree = "<group>";
+		};
+		3BFED6411CBBEBFE00597967 /* Curious EdinburghUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3BFED6421CBBEBFE00597967 /* Curious_EdinburghUITests.swift */,
+				3BFED6441CBBEBFE00597967 /* Info.plist */,
+			);
+			path = "Curious EdinburghUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3BFED61B1CBBEBFE00597967 /* Curious Edinburgh */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BFED6471CBBEBFE00597967 /* Build configuration list for PBXNativeTarget "Curious Edinburgh" */;
+			buildPhases = (
+				3BFED6181CBBEBFE00597967 /* Sources */,
+				3BFED6191CBBEBFE00597967 /* Frameworks */,
+				3BFED61A1CBBEBFE00597967 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Curious Edinburgh";
+			productName = "Curious Edinburgh";
+			productReference = 3BFED61C1CBBEBFE00597967 /* Curious Edinburgh.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3BFED6321CBBEBFE00597967 /* Curious EdinburghTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BFED64A1CBBEBFE00597967 /* Build configuration list for PBXNativeTarget "Curious EdinburghTests" */;
+			buildPhases = (
+				3BFED62F1CBBEBFE00597967 /* Sources */,
+				3BFED6301CBBEBFE00597967 /* Frameworks */,
+				3BFED6311CBBEBFE00597967 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BFED6351CBBEBFE00597967 /* PBXTargetDependency */,
+			);
+			name = "Curious EdinburghTests";
+			productName = "Curious EdinburghTests";
+			productReference = 3BFED6331CBBEBFE00597967 /* Curious EdinburghTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3BFED63D1CBBEBFE00597967 /* Curious EdinburghUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BFED64D1CBBEBFE00597967 /* Build configuration list for PBXNativeTarget "Curious EdinburghUITests" */;
+			buildPhases = (
+				3BFED63A1CBBEBFE00597967 /* Sources */,
+				3BFED63B1CBBEBFE00597967 /* Frameworks */,
+				3BFED63C1CBBEBFE00597967 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BFED6401CBBEBFE00597967 /* PBXTargetDependency */,
+			);
+			name = "Curious EdinburghUITests";
+			productName = "Curious EdinburghUITests";
+			productReference = 3BFED63E1CBBEBFE00597967 /* Curious EdinburghUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3BFED6141CBBEBFE00597967 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Edina;
+				TargetAttributes = {
+					3BFED61B1CBBEBFE00597967 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					3BFED6321CBBEBFE00597967 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 3BFED61B1CBBEBFE00597967;
+					};
+					3BFED63D1CBBEBFE00597967 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 3BFED61B1CBBEBFE00597967;
+					};
+				};
+			};
+			buildConfigurationList = 3BFED6171CBBEBFE00597967 /* Build configuration list for PBXProject "Curious Edinburgh" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3BFED6131CBBEBFD00597967;
+			productRefGroup = 3BFED61D1CBBEBFE00597967 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3BFED61B1CBBEBFE00597967 /* Curious Edinburgh */,
+				3BFED6321CBBEBFE00597967 /* Curious EdinburghTests */,
+				3BFED63D1CBBEBFE00597967 /* Curious EdinburghUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3BFED61A1CBBEBFE00597967 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BFED62D1CBBEBFE00597967 /* LaunchScreen.storyboard in Resources */,
+				3BFED62A1CBBEBFE00597967 /* Assets.xcassets in Resources */,
+				3BFED6251CBBEBFE00597967 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BFED6311CBBEBFE00597967 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BFED63C1CBBEBFE00597967 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3BFED6181CBBEBFE00597967 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BFED6221CBBEBFE00597967 /* ViewController.swift in Sources */,
+				3BFED6281CBBEBFE00597967 /* Curious_Edinburgh.xcdatamodeld in Sources */,
+				3BFED6201CBBEBFE00597967 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BFED62F1CBBEBFE00597967 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BFED6381CBBEBFE00597967 /* Curious_EdinburghTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BFED63A1CBBEBFE00597967 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BFED6431CBBEBFE00597967 /* Curious_EdinburghUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3BFED6351CBBEBFE00597967 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BFED61B1CBBEBFE00597967 /* Curious Edinburgh */;
+			targetProxy = 3BFED6341CBBEBFE00597967 /* PBXContainerItemProxy */;
+		};
+		3BFED6401CBBEBFE00597967 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BFED61B1CBBEBFE00597967 /* Curious Edinburgh */;
+			targetProxy = 3BFED63F1CBBEBFE00597967 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3BFED6231CBBEBFE00597967 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3BFED6241CBBEBFE00597967 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3BFED62B1CBBEBFE00597967 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3BFED62C1CBBEBFE00597967 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3BFED6451CBBEBFE00597967 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3BFED6461CBBEBFE00597967 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3BFED6481CBBEBFE00597967 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Curious Edinburgh/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.edina.crowdsurvey.Curious-Edinburgh";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3BFED6491CBBEBFE00597967 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Curious Edinburgh/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.edina.crowdsurvey.Curious-Edinburgh";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3BFED64B1CBBEBFE00597967 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Curious EdinburghTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.edina.crowdsurvey.Curious-EdinburghTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Curious Edinburgh.app/Curious Edinburgh";
+			};
+			name = Debug;
+		};
+		3BFED64C1CBBEBFE00597967 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Curious EdinburghTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.edina.crowdsurvey.Curious-EdinburghTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Curious Edinburgh.app/Curious Edinburgh";
+			};
+			name = Release;
+		};
+		3BFED64E1CBBEBFE00597967 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Curious EdinburghUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.edina.crowdsurvey.Curious-EdinburghUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Curious Edinburgh";
+			};
+			name = Debug;
+		};
+		3BFED64F1CBBEBFE00597967 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Curious EdinburghUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.edina.crowdsurvey.Curious-EdinburghUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Curious Edinburgh";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3BFED6171CBBEBFE00597967 /* Build configuration list for PBXProject "Curious Edinburgh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BFED6451CBBEBFE00597967 /* Debug */,
+				3BFED6461CBBEBFE00597967 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BFED6471CBBEBFE00597967 /* Build configuration list for PBXNativeTarget "Curious Edinburgh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BFED6481CBBEBFE00597967 /* Debug */,
+				3BFED6491CBBEBFE00597967 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3BFED64A1CBBEBFE00597967 /* Build configuration list for PBXNativeTarget "Curious EdinburghTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BFED64B1CBBEBFE00597967 /* Debug */,
+				3BFED64C1CBBEBFE00597967 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3BFED64D1CBBEBFE00597967 /* Build configuration list for PBXNativeTarget "Curious EdinburghUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BFED64E1CBBEBFE00597967 /* Debug */,
+				3BFED64F1CBBEBFE00597967 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3BFED6261CBBEBFE00597967 /* Curious_Edinburgh.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3BFED6271CBBEBFE00597967 /* Curious_Edinburgh.xcdatamodel */,
+			);
+			currentVersion = 3BFED6271CBBEBFE00597967 /* Curious_Edinburgh.xcdatamodel */;
+			path = Curious_Edinburgh.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3BFED6141CBBEBFE00597967 /* Project object */;
+}
