@@ -16,6 +16,7 @@
 		3BFED6381CBBEBFE00597967 /* Curious_EdinburghTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFED6371CBBEBFE00597967 /* Curious_EdinburghTests.swift */; };
 		3BFED6431CBBEBFE00597967 /* Curious_EdinburghUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFED6421CBBEBFE00597967 /* Curious_EdinburghUITests.swift */; };
 		3BFED6511CBBECCB00597967 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BFED6501CBBECCB00597967 /* MapKit.framework */; };
+		3BFED6531CBBF33000597967 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFED6521CBBF32F00597967 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		3BFED6421CBBEBFE00597967 /* Curious_EdinburghUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curious_EdinburghUITests.swift; sourceTree = "<group>"; };
 		3BFED6441CBBEBFE00597967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BFED6501CBBECCB00597967 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3BFED6521CBBF32F00597967 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Views/MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		3BFED61E1CBBEBFE00597967 /* Curious Edinburgh */ = {
 			isa = PBXGroup;
 			children = (
+				3BFED6541CBBF36C00597967 /* Controllers */,
 				3BFED61F1CBBEBFE00597967 /* AppDelegate.swift */,
 				3BFED6211CBBEBFE00597967 /* ViewController.swift */,
 				3BFED6231CBBEBFE00597967 /* Main.storyboard */,
@@ -130,6 +133,14 @@
 				3BFED6441CBBEBFE00597967 /* Info.plist */,
 			);
 			path = "Curious EdinburghUITests";
+			sourceTree = "<group>";
+		};
+		3BFED6541CBBF36C00597967 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3BFED6521CBBF32F00597967 /* MapViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +277,7 @@
 				3BFED6221CBBEBFE00597967 /* ViewController.swift in Sources */,
 				3BFED6281CBBEBFE00597967 /* Curious_Edinburgh.xcdatamodeld in Sources */,
 				3BFED6201CBBEBFE00597967 /* AppDelegate.swift in Sources */,
+				3BFED6531CBBF33000597967 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
