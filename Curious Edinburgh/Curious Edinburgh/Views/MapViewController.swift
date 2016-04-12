@@ -26,14 +26,23 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
 
         mapView.showsUserLocation = true
+        
+        self.initialMapLocation()
     }
 
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func initialMapLocation() {
+        
+        let location = CLLocationCoordinate2D(
+            latitude: 55.953252,
+            longitude: -3.188267
+        )
+        
+        let span = MKCoordinateSpanMake(0.2, 0.2)
+        
+        let region = MKCoordinateRegion(center: location, span: span)
+        
+        self.mapView.setRegion(region, animated: true)
     }
-    
 
     /*
     // MARK: - Navigation

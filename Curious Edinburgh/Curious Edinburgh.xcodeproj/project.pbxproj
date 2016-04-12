@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3BFED6201CBBEBFE00597967 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFED61F1CBBEBFE00597967 /* AppDelegate.swift */; };
-		3BFED6221CBBEBFE00597967 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFED6211CBBEBFE00597967 /* ViewController.swift */; };
 		3BFED6251CBBEBFE00597967 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BFED6231CBBEBFE00597967 /* Main.storyboard */; };
 		3BFED6281CBBEBFE00597967 /* Curious_Edinburgh.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3BFED6261CBBEBFE00597967 /* Curious_Edinburgh.xcdatamodeld */; };
 		3BFED62A1CBBEBFE00597967 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BFED6291CBBEBFE00597967 /* Assets.xcassets */; };
@@ -39,7 +38,6 @@
 /* Begin PBXFileReference section */
 		3BFED61C1CBBEBFE00597967 /* Curious Edinburgh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Curious Edinburgh.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BFED61F1CBBEBFE00597967 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3BFED6211CBBEBFE00597967 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3BFED6241CBBEBFE00597967 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3BFED6271CBBEBFE00597967 /* Curious_Edinburgh.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Curious_Edinburgh.xcdatamodel; sourceTree = "<group>"; };
 		3BFED6291CBBEBFE00597967 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,10 +103,10 @@
 		3BFED61E1CBBEBFE00597967 /* Curious Edinburgh */ = {
 			isa = PBXGroup;
 			children = (
+				3BFED6561CBCEF7B00597967 /* Views */,
+				3BFED6551CBCEF5F00597967 /* Models */,
 				3BFED6541CBBF36C00597967 /* Controllers */,
 				3BFED61F1CBBEBFE00597967 /* AppDelegate.swift */,
-				3BFED6211CBBEBFE00597967 /* ViewController.swift */,
-				3BFED6231CBBEBFE00597967 /* Main.storyboard */,
 				3BFED6291CBBEBFE00597967 /* Assets.xcassets */,
 				3BFED62B1CBBEBFE00597967 /* LaunchScreen.storyboard */,
 				3BFED62E1CBBEBFE00597967 /* Info.plist */,
@@ -141,6 +139,21 @@
 				3BFED6521CBBF32F00597967 /* MapViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3BFED6551CBCEF5F00597967 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		3BFED6561CBCEF7B00597967 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3BFED6231CBBEBFE00597967 /* Main.storyboard */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,7 +287,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BFED6221CBBEBFE00597967 /* ViewController.swift in Sources */,
 				3BFED6281CBBEBFE00597967 /* Curious_Edinburgh.xcdatamodeld in Sources */,
 				3BFED6201CBBEBFE00597967 /* AppDelegate.swift in Sources */,
 				3BFED6531CBBF33000597967 /* MapViewController.swift in Sources */,
