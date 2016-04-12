@@ -109,3 +109,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension UIViewController {
+    var managedObjectContext:NSManagedObjectContext {
+        return (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    }
+}
+
