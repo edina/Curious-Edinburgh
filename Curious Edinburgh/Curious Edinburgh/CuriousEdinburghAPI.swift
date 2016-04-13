@@ -7,7 +7,8 @@
 //
 
 import Foundation
-
+import Alamofire
+import AlamofireObjectMapper
 
 
 class _CuriousEdinburghAPI {
@@ -18,6 +19,19 @@ class _CuriousEdinburghAPI {
     
     func posts() {
         // Return some posts
+
+        /*Alamofire.request(.GET, Constants.API.url).responseObject { (response: Response<WeatherResponse, NSError>) in
+            
+            let weatherResponse = response.result.value
+            print(weatherResponse?.location)
+            
+            if let threeDayForecast = weatherResponse?.threeDayForecast {
+                for forecast in threeDayForecast {
+                    print(forecast.day)
+                    print(forecast.temperature)           
+                }
+            }
+        }*/
     }
     
    }
