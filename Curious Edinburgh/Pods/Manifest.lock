@@ -4,14 +4,17 @@ PODS:
     - Alamofire (~> 3.2)
     - ObjectMapper (~> 1.0)
   - ObjectMapper (1.2.0)
+  - PagingMenuController (0.8.0)
 
 DEPENDENCIES:
   - Alamofire
   - AlamofireObjectMapper (~> 3.0)
+  - PagingMenuController
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   AlamofireObjectMapper: 2d16585d06177be0116d76de73497e77437798af
   ObjectMapper: b1e9c7c8a9f6400b72690c80072c131504caa66f
+  PagingMenuController: 1a9ff8ad0ab9704f215706997c1a624bc951f508
 
 COCOAPODS: 0.39.0

@@ -1,15 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="29a-vL-nbP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TbH-yG-CI8">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Curious Edinburgh-->
+        <!--Table View Controller-->
+        <scene sceneID="I6V-ti-c3t">
+            <objects>
+                <tableViewController storyboardIdentifier="TableViewController" id="1hC-SK-rbY" customClass="TableViewController" customModule="Curious_Edinburgh" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kw8-bT-sJr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gbE-Ta-Z1C">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gbE-Ta-Z1C" id="tNI-Dz-ZI1">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1hC-SK-rbY" id="iaw-i9-3YH"/>
+                            <outlet property="delegate" destination="1hC-SK-rbY" id="Jbx-33-eqo"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mIw-0d-opA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="261" y="459"/>
+        </scene>
+        <!--MapView-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="Curious_Edinburgh" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="BYZ-38-t0r" userLabel="MapView" customClass="MapViewController" customModule="Curious_Edinburgh" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -19,23 +47,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gO1-v4-v4s">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gO1-v4-v4s" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8aW-Kq-kJB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gO1-v4-v4s" secondAttribute="trailing" constant="-20" id="JyG-bx-sl9"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gO1-v4-v4s" secondAttribute="bottom" id="WjK-Ds-pe7"/>
-                            <constraint firstItem="gO1-v4-v4s" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Xrf-3H-IZj"/>
-                            <constraint firstItem="gO1-v4-v4s" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="32" id="vy9-uG-LAl"/>
-                            <constraint firstItem="gO1-v4-v4s" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="xyI-Gu-pnG"/>
+                            <constraint firstItem="gO1-v4-v4s" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="SOs-P1-vmE"/>
+                            <constraint firstItem="gO1-v4-v4s" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Uww-Wd-nGa"/>
+                            <constraint firstItem="gO1-v4-v4s" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="i9b-j6-slw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gO1-v4-v4s" secondAttribute="trailing" constant="-20" id="vMg-0L-CTl"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="WjK-Ds-pe7"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Curious Edinburgh" id="l9P-wV-TVc"/>
                     <connections>
@@ -46,23 +67,81 @@
             </objects>
             <point key="canvasLocation" x="1097" y="429"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="9zh-Xy-3zn">
+        <!--Curious Edinburgh-->
+        <scene sceneID="yw3-YW-01c">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="29a-vL-nbP" sceneMemberID="viewController">
+                <viewController id="RwS-Ct-lX8" userLabel="Curious Edinburgh" customClass="HomeViewController" customModule="Curious_Edinburgh" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z71-AH-AMe"/>
+                        <viewControllerLayoutGuide type="bottom" id="0JG-Ib-Pvp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WVK-og-gAw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b68-SS-Uig">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <connections>
+                                    <segue destination="Fw2-Uv-eGb" kind="embed" id="8sy-3H-kTH"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="b68-SS-Uig" firstAttribute="top" secondItem="Z71-AH-AMe" secondAttribute="bottom" id="1lD-4O-Sfg"/>
+                            <constraint firstItem="b68-SS-Uig" firstAttribute="bottom" secondItem="0JG-Ib-Pvp" secondAttribute="top" id="Bly-Gh-fvI"/>
+                            <constraint firstItem="b68-SS-Uig" firstAttribute="leading" secondItem="WVK-og-gAw" secondAttribute="leading" id="QA5-uR-CSz"/>
+                            <constraint firstItem="b68-SS-Uig" firstAttribute="top" secondItem="WVK-og-gAw" secondAttribute="top" id="dfI-yK-Pop"/>
+                            <constraint firstAttribute="trailing" secondItem="b68-SS-Uig" secondAttribute="trailing" id="uG1-iL-8lV"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="dfI-yK-Pop"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Curious Edinburgh" id="cfp-nJ-OhD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p2x-au-uC7" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1662" y="1177"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6yR-qr-gcN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TbH-yG-CI8" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aRT-jf-ke8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="x9x-MD-kJz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3gN-ce-WRY"/>
+                        <segue destination="RwS-Ct-lX8" kind="relationship" relationship="rootViewController" id="HkX-bf-8oM"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="T71-2b-tpo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AhM-fd-AV0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="246" y="-263"/>
+            <point key="canvasLocation" x="850" y="1177"/>
+        </scene>
+        <!--Paging Menu Controller-->
+        <scene sceneID="UEP-wG-fL4">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Fw2-Uv-eGb" customClass="PagingMenuController" customModule="PagingMenuController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="89B-bU-ydW"/>
+                        <viewControllerLayoutGuide type="bottom" id="Asn-0h-VtI"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="PiF-qJ-Kra">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CZC-oz-gyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2362" y="1177"/>
         </scene>
     </scenes>
 </document>

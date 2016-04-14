@@ -9,6 +9,10 @@
 import Foundation
 struct Constants {
  
+    struct Colour {
+//        static let Grey = UIColor(red: 24/255.0, green:21/255.0, blue:76/255.0, alpha: 1.0)
+    }
+    
     struct API {
         static let url = "http://sciencetours.blogs.edina.ac.uk/"
     }

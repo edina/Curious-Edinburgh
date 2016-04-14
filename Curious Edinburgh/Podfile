@@ -4,3 +4,4 @@ use_frameworks!
 
 pod 'Alamofire'
 pod 'AlamofireObjectMapper', '~> 3.0'
+pod "PagingMenuController"
