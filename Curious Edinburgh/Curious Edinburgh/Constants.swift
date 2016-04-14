@@ -7,10 +7,13 @@
 //
 
 import Foundation
+import UIKit
+
 struct Constants {
  
     struct Colour {
-//        static let Grey = UIColor(red: 24/255.0, green:21/255.0, blue:76/255.0, alpha: 1.0)
+        static let lightGrey = UIColor(red: 76/255.0, green:106/255.0, blue:122/255.0, alpha: 1.0)
+        static let lightGreyAlpha = UIColor(red: 76/255.0, green:106/255.0, blue:122/255.0, alpha: 0.5)
     }
     
     struct API {

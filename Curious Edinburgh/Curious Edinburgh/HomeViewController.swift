@@ -15,6 +15,9 @@ class HomeViewController: UIViewController, PagingMenuControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.navigationController!.navigationBar.barTintColor = Constants.Colour.lightGrey
+
+        
         let mapViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MapViewController") as! MapViewController
         mapViewController.title = "Map"
         let tableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("TableViewController") as! TableViewController
@@ -26,6 +29,14 @@ class HomeViewController: UIViewController, PagingMenuControllerDelegate {
         options.menuHeight = 50
         options.scrollEnabled = false
         options.menuDisplayMode = .SegmentedControl
+        options.backgroundColor = Constants.Colour.lightGrey
+        options.selectedBackgroundColor = Constants.Colour.lightGrey
+        options.selectedTextColor = UIColor.whiteColor()
+        
+        options.menuPosition = .Bottom
+        
+        options.menuItemMode = .Underline(height: 3, color: UIColor.whiteColor(), horizontalPadding: 0, verticalPadding: 0)
+        
         let pagingMenuController = self.childViewControllers.first as! PagingMenuController
         pagingMenuController.delegate = self
         pagingMenuController.setup(viewControllers: viewControllers, options: options)
