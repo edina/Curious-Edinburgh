@@ -9,28 +9,37 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
-
+    let locationManager = CLLocationManager()
     
     @IBOutlet weak var mapView: MKMapView! {
         didSet {
-            // Set delegate for Map
+            // Set delegate for Map and location manager
             mapView.delegate = self
+            locationManager.delegate = self
+        }
+    }
+ 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.initialMapLocation()
+    }
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if(status != CLAuthorizationStatus.NotDetermined) {
+             mapView.showsUserLocation = true
         }
     }
     
-    var locationManager: CLLocationManager?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        mapView.showsUserLocation = true
-        
-        self.initialMapLocation()
-    }
-
     func initialMapLocation() {
+        
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
         
         let location = CLLocationCoordinate2D(
             latitude: 55.953252,

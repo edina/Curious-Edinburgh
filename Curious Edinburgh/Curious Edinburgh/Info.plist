@@ -8,9 +8,15 @@
     </dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This information is required to show your current location</string>
-	<key>CFBundleExecutable</key>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <array>
+        <string>This information is required to show your current location</string>
+    </array>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <array>
+        <string>This information is required to show your current location</string>
+    </array>
+    <key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
