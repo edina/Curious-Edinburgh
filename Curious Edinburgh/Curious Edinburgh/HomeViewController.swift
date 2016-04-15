@@ -23,7 +23,11 @@ class HomeViewController: UIViewController, PagingMenuControllerDelegate {
         let tableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("TableViewController") as! TableViewController
         tableViewController.title = "List"
         
-        let viewControllers = [mapViewController, tableViewController]
+        let aboutViewController = self.storyboard?.instantiateViewControllerWithIdentifier("AboutViewController") as! AboutViewController
+        aboutViewController.title = "About"
+        
+        
+        let viewControllers = [mapViewController, tableViewController, aboutViewController]
         
         let options = PagingMenuOptions()
         options.menuHeight = 50

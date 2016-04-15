@@ -32,7 +32,41 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mIw-0d-opA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="261" y="459"/>
+            <point key="canvasLocation" x="2449" y="1089"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="MbD-F7-vXa">
+            <objects>
+                <viewController storyboardIdentifier="AboutViewController" id="sTi-ys-r37" customClass="AboutViewController" customModule="Curious_Edinburgh" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kdv-g1-3bM"/>
+                        <viewControllerLayoutGuide type="bottom" id="nmU-SD-1Mb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aez-Gf-pPR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wFq-1a-Dnm">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wFq-1a-Dnm" firstAttribute="top" secondItem="aez-Gf-pPR" secondAttribute="top" id="Cfa-xi-7aZ"/>
+                            <constraint firstAttribute="trailing" secondItem="wFq-1a-Dnm" secondAttribute="trailing" id="LVG-qv-wAR"/>
+                            <constraint firstItem="wFq-1a-Dnm" firstAttribute="leading" secondItem="aez-Gf-pPR" secondAttribute="leading" id="OW7-md-DWZ"/>
+                            <constraint firstItem="wFq-1a-Dnm" firstAttribute="bottom" secondItem="nmU-SD-1Mb" secondAttribute="top" id="dFg-13-OgB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="wFq-1a-Dnm" id="Mgw-5z-TzJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sva-1i-7ce" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2449" y="1801"/>
         </scene>
         <!--MapView-->
         <scene sceneID="tne-QT-ifu">
@@ -65,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1097" y="429"/>
+            <point key="canvasLocation" x="2449" y="403"/>
         </scene>
         <!--Curious Edinburgh-->
         <scene sceneID="yw3-YW-01c">
@@ -101,10 +135,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Curious Edinburgh" id="cfp-nJ-OhD"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p2x-au-uC7" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1662" y="1177"/>
+            <point key="canvasLocation" x="966" y="1203"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6yR-qr-gcN">
@@ -125,7 +160,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AhM-fd-AV0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="850" y="1177"/>
+            <point key="canvasLocation" x="261" y="1203"/>
         </scene>
         <!--Paging Menu Controller-->
         <scene sceneID="UEP-wG-fL4">
@@ -144,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CZC-oz-gyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2362" y="1177"/>
+            <point key="canvasLocation" x="1720" y="1203"/>
         </scene>
     </scenes>
 </document>
