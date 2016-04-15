@@ -15,6 +15,7 @@ class AboutViewController: UIViewController {
             let myURL = NSBundle.mainBundle().URLForResource("about", withExtension: "html")
             let requestObj = NSURLRequest(URL: myURL!)
             webView.loadRequest(requestObj)
+            
         }
     }
 
@@ -30,6 +31,7 @@ class AboutViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
 
     /*
     // MARK: - Navigation
@@ -41,4 +43,14 @@ class AboutViewController: UIViewController {
     }
     */
 
+}
+
+extension AboutViewController : UIWebViewDelegate {
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        if let url = request.URL where navigationType == UIWebViewNavigationType.LinkClicked {
+            UIApplication.sharedApplication().openURL(url)
+            return false
+        }
+        return true
+    }
 }
