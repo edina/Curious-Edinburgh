@@ -5,3 +5,5 @@ use_frameworks!
 pod 'Alamofire'
 pod 'AlamofireObjectMapper', '~> 3.0'
 pod "PagingMenuController"
+pod 'Sync'
+pod 'SwiftyJSON'

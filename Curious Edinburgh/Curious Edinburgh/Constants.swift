@@ -17,7 +17,7 @@ struct Constants {
     }
     
     struct API {
-        static let url = "http://sciencetours.blogs.edina.ac.uk/"
+        static let url = "http://ec2-52-50-23-66.eu-west-1.compute.amazonaws.com/wp-json/wp/v2/posts"
     }
 
     struct SegueIDs {

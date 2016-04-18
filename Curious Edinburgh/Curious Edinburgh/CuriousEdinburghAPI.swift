@@ -8,30 +8,50 @@
 
 import Foundation
 import Alamofire
-import AlamofireObjectMapper
-
+import SwiftyJSON
+import DATAStack
+import Sync
 
 class _CuriousEdinburghAPI {
+    
+    var dataStack: DATAStack?
     
     init() {
   
     }
     
-    func posts() {
+    func blogPosts(completion: (()) -> Void) {
         // Return some posts
-
-        /*Alamofire.request(.GET, Constants.API.url).responseObject { (response: Response<WeatherResponse, NSError>) in
-            
-            let weatherResponse = response.result.value
-            print(weatherResponse?.location)
-            
-            if let threeDayForecast = weatherResponse?.threeDayForecast {
-                for forecast in threeDayForecast {
-                    print(forecast.day)
-                    print(forecast.temperature)           
+       
+ 
+        Alamofire.request(.GET, Constants.API.url).validate().responseJSON { response in
+            switch response.result {
+            case .Success(let data):
+                let json = JSON(data).arrayValue
+                print(json)
+               /* if let id = json[0]["id"].int {
+                    //Now you got your value
+                     print(id)
+                }*/
+                
+                // Persist to Core Data
+                self.dataStack?.performInNewBackgroundContext { backgroundContext in
+                    Sync.changes(
+                        data as! [[String : AnyObject]],
+                        inEntityNamed: "BlogPost",
+                        predicate: nil,
+                        parent: nil,
+                        inContext: backgroundContext,
+                        dataStack: self.dataStack!,
+                        completion: { error in
+                            print(error)
+                            completion()
+                    })
                 }
+            case .Failure(let error):
+                print("Request failed with error: \(error)")
             }
-        }*/
+        }
     }
     
    }

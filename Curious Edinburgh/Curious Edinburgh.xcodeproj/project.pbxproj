@@ -11,6 +11,8 @@
 		3B372A331CBFB02D0003DA38 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B372A321CBFB02D0003DA38 /* TableViewController.swift */; };
 		3B372A351CBFE58A0003DA38 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B372A341CBFE58A0003DA38 /* AboutViewController.swift */; };
 		3B372A371CC0D5EB0003DA38 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 3B372A361CC0D5EB0003DA38 /* about.html */; };
+		3B9B3DFB1CC4CFD30039FCA3 /* BlogPost+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B3DF91CC4CFD30039FCA3 /* BlogPost+CoreDataProperties.swift */; };
+		3B9B3DFC1CC4CFD30039FCA3 /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B3DFA1CC4CFD30039FCA3 /* BlogPost.swift */; };
 		3BAED9BE1CBE4364002E66FA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAED9BD1CBE4364002E66FA /* Constants.swift */; };
 		3BAED9C11CBE43EC002E66FA /* CuriousEdinburghAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAED9C01CBE43EC002E66FA /* CuriousEdinburghAPI.swift */; };
 		3BFED6201CBBEBFE00597967 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFED61F1CBBEBFE00597967 /* AppDelegate.swift */; };
@@ -47,6 +49,8 @@
 		3B372A321CBFB02D0003DA38 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		3B372A341CBFE58A0003DA38 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		3B372A361CC0D5EB0003DA38 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
+		3B9B3DF91CC4CFD30039FCA3 /* BlogPost+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BlogPost+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3B9B3DFA1CC4CFD30039FCA3 /* BlogPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPost.swift; sourceTree = "<group>"; };
 		3BAED9BD1CBE4364002E66FA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3BAED9C01CBE43EC002E66FA /* CuriousEdinburghAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuriousEdinburghAPI.swift; sourceTree = "<group>"; };
 		3BFED61C1CBBEBFE00597967 /* Curious Edinburgh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Curious Edinburgh.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,6 +197,8 @@
 		3BFED6551CBCEF5F00597967 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3B9B3DF91CC4CFD30039FCA3 /* BlogPost+CoreDataProperties.swift */,
+				3B9B3DFA1CC4CFD30039FCA3 /* BlogPost.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -407,12 +413,14 @@
 			files = (
 				3BFED6281CBBEBFE00597967 /* Curious_Edinburgh.xcdatamodeld in Sources */,
 				3B372A331CBFB02D0003DA38 /* TableViewController.swift in Sources */,
+				3B9B3DFB1CC4CFD30039FCA3 /* BlogPost+CoreDataProperties.swift in Sources */,
 				3BFED6201CBBEBFE00597967 /* AppDelegate.swift in Sources */,
 				3BFED6531CBBF33000597967 /* MapViewController.swift in Sources */,
 				3BAED9BE1CBE4364002E66FA /* Constants.swift in Sources */,
 				3BAED9C11CBE43EC002E66FA /* CuriousEdinburghAPI.swift in Sources */,
 				3B372A351CBFE58A0003DA38 /* AboutViewController.swift in Sources */,
 				3B372A2F1CBFAED40003DA38 /* HomeViewController.swift in Sources */,
+				3B9B3DFC1CC4CFD30039FCA3 /* BlogPost.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
