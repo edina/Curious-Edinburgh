@@ -56,7 +56,7 @@ class TableViewController: UITableViewController {
       
         if let blogPost = self.blogPosts[indexPath.row] as? BlogPost {
             
-            cell.textLabel?.text = blogPost.titleAsString
+            cell.textLabel?.text = blogPost.title
               
             cell.detailTextLabel?.text = String(blogPost.link!)
             
