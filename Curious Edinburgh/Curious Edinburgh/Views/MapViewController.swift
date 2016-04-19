@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import CoreData
+import DATAStack
 import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
-
+    
+    var blogPosts = [NSManagedObject]()
     let locationManager = CLLocationManager()
     
     @IBOutlet weak var mapView: MKMapView! {
@@ -24,6 +27,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initialMapLocation()
+        self.fetchNewData()
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
@@ -32,6 +36,23 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
+    func fetchNewData() {
+        curiousEdinburghAPI.blogPosts {
+            self.fetchCurrentObjects()
+        }
+    }
+    
+    func fetchCurrentObjects() {
+        let request = NSFetchRequest(entityName: "BlogPost")
+        
+        self.blogPosts = (try! dataStack.mainContext.executeFetchRequest(request)) as! [NSManagedObject]
+        
+        for item in self.blogPosts {
+            if let post = item as? BlogPost {
+                mapView.addAnnotation(post)
+            }
+        }
+    }
     
     func initialMapLocation() {
         
@@ -62,5 +83,25 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? BlogPost {
+            let identifier = "pin"
+            let defaultItemThumbnail = UIImage(named: "DefaultAnnotationThumbnail")
+            var view: MKPinAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+                as? MKPinAnnotationView {
+                dequeuedView.annotation = annotation
+                view = dequeuedView
+            } else {
+                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                view.canShowCallout = true
+                view.leftCalloutAccessoryView = UIImageView(image: defaultItemThumbnail)
+                view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
+            }
+            return view
+        }
+        return nil
+    }
 
 }
