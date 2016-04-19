@@ -20,6 +20,10 @@ struct Constants {
         static let url = "http://ec2-52-50-23-66.eu-west-1.compute.amazonaws.com/wp-json/wp/v2/posts"
     }
 
+    struct Table {
+        static let blogPostIdentifier = "blogPostCell"
+    }
+
     struct SegueIDs {
      
     }

@@ -13,6 +13,7 @@ import DATAStack
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+  
     
     var dataStack: DATAStack = {
         let dataStack = DATAStack(modelName: "Curious_Edinburgh")
@@ -25,6 +26,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         curiousEdinburghAPI.dataStack = self.dataStack
         curiousEdinburghAPI.blogPosts {
             print("Done")
+            
+            // Test reading object back
+            let request = NSFetchRequest(entityName: "BlogPost")
+            // request.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: true)]
+            let bps = try! self.dataStack.mainContext.executeFetchRequest(request)
+          
+            let bp = bps[0] as? BlogPost
+            print(bp?.link)
+            let content = NSKeyedUnarchiver.unarchiveObjectWithData((bp?.content)!)
+            print(content)
+            
+            
+            
         }
         return true
     }
