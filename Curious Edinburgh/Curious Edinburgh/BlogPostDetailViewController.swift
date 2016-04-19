@@ -19,7 +19,7 @@ class BlogPostDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.titleLabel.text = blogPost?.titleAsString
+        self.titleLabel.text = blogPost?.title
         
         // Do any additional setup after loading the view.
     }
