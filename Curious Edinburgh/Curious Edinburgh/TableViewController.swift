@@ -56,13 +56,8 @@ class TableViewController: UITableViewController {
       
         if let blogPost = self.blogPosts[indexPath.row] as? BlogPost {
             
-            if let title = NSKeyedUnarchiver.unarchiveObjectWithData(blogPost.title!){
-                print(title)
-                var titleJson = JSON(title)
-                cell.textLabel?.text = titleJson["rendered"].stringValue
-//                cell.detailTextLabel?.text = titleJson["rendered"].stringValue
-            }
-   
+            cell.textLabel?.text = blogPost.titleAsString
+              
             cell.detailTextLabel?.text = String(blogPost.link!)
             
         }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B0B7E751CC6694C009EF9B0 /* BlogPost+UnwrappedBinaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0B7E741CC6694C009EF9B0 /* BlogPost+UnwrappedBinaryData.swift */; };
 		3B372A2F1CBFAED40003DA38 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B372A2E1CBFAED40003DA38 /* HomeViewController.swift */; };
 		3B372A331CBFB02D0003DA38 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B372A321CBFB02D0003DA38 /* TableViewController.swift */; };
 		3B372A351CBFE58A0003DA38 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B372A341CBFE58A0003DA38 /* AboutViewController.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B0B7E741CC6694C009EF9B0 /* BlogPost+UnwrappedBinaryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BlogPost+UnwrappedBinaryData.swift"; sourceTree = "<group>"; };
 		3B372A2E1CBFAED40003DA38 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3B372A321CBFB02D0003DA38 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		3B372A341CBFE58A0003DA38 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			children = (
 				3B9B3DF91CC4CFD30039FCA3 /* BlogPost+CoreDataProperties.swift */,
 				3B9B3DFA1CC4CFD30039FCA3 /* BlogPost.swift */,
+				3B0B7E741CC6694C009EF9B0 /* BlogPost+UnwrappedBinaryData.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BFED6281CBBEBFE00597967 /* Curious_Edinburgh.xcdatamodeld in Sources */,
+				3B0B7E751CC6694C009EF9B0 /* BlogPost+UnwrappedBinaryData.swift in Sources */,
 				3B372A331CBFB02D0003DA38 /* TableViewController.swift in Sources */,
 				3B9B3DFB1CC4CFD30039FCA3 /* BlogPost+CoreDataProperties.swift in Sources */,
 				3BFED6201CBBEBFE00597967 /* AppDelegate.swift in Sources */,
