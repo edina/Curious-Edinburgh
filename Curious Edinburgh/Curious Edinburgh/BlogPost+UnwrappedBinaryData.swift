@@ -39,6 +39,7 @@ extension BlogPost: MKAnnotation {
             return coordinate
         }
     }
+}
 
 extension String {
     init(htmlEncodedString: String) {
