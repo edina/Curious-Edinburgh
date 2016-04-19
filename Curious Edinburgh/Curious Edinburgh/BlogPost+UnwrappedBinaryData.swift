@@ -16,7 +16,7 @@ extension BlogPost {
         get {
             if let title = NSKeyedUnarchiver.unarchiveObjectWithData(self.title!){
                 let titleJson = JSON(title)
-                return titleJson["rendered"].stringValue
+                return String(htmlEncodedString :titleJson["rendered"].stringValue)
             }
             return "";
         }
@@ -41,7 +41,26 @@ extension BlogPost {
             return location
         }
     }
-    
-   
-    
+
+}
+
+
+extension String {
+    init(htmlEncodedString: String) {
+        let encodedData = htmlEncodedString.dataUsingEncoding(NSUTF8StringEncoding)!
+        let attributedOptions : [String: AnyObject] = [
+            NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+            NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding
+        ]
+        
+        var attributedString:NSAttributedString?
+        
+        do{
+            attributedString = try NSAttributedString(data: encodedData, options: attributedOptions, documentAttributes: nil)
+        }catch{
+            print(error)
+        }
+        
+        self.init(attributedString!.string)
+    }
 }
