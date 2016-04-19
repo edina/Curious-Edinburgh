@@ -1,6 +1,5 @@
 //
 //  BlogPost+CoreDataProperties.swift
-//  Curious Edinburgh
 //
 //  Created by Colin Gormley on 18/04/2016.
 //  Copyright © 2016 Edina. All rights reserved.
@@ -19,6 +18,6 @@ extension BlogPost {
     @NSManaged var excerpt: NSData?
     @NSManaged var link: String?
     @NSManaged var remoteID: NSNumber?
-    @NSManaged var title: NSData?
+    @NSManaged var titleJsonData: NSData?
 
 }

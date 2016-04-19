@@ -10,7 +10,11 @@
                 <entry key="hyper.isPrimaryKey" value="YES"/>
             </userInfo>
         </attribute>
-        <attribute name="title" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="titleJsonData" optional="YES" attributeType="Binary" syncable="YES">
+            <userInfo>
+                <entry key="hyper.remoteKey" value="title"/>
+            </userInfo>
+        </attribute>
     </entity>
     <elements>
         <element name="BlogPost" positionX="-63" positionY="-18" width="128" height="135"/>
