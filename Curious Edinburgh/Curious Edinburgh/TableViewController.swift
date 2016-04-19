@@ -18,8 +18,6 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Constants.Table.blogPostIdentifier)
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(TableViewController.fetchNewData), forControlEvents: .ValueChanged)
@@ -29,9 +27,8 @@ class TableViewController: UITableViewController {
 
     }
 
-       // MARK: - Table view data source
-
-
+ 
+    // MARK: - Update Table
     func fetchNewData() {
         curiousEdinburghAPI.blogPosts {
             self.refreshControl?.endRefreshing()
@@ -63,9 +60,11 @@ class TableViewController: UITableViewController {
                 print(title)
                 var titleJson = JSON(title)
                 cell.textLabel?.text = titleJson["rendered"].stringValue
+//                cell.detailTextLabel?.text = titleJson["rendered"].stringValue
             }
    
-            cell.detailTextLabel?.text = blogPost.link
+            cell.detailTextLabel?.text = String(blogPost.link!)
+            
         }
      
         
