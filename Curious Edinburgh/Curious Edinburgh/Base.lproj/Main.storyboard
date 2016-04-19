@@ -173,6 +173,7 @@
                     <navigationItem key="navigationItem" title="Curious Edinburgh" id="l9P-wV-TVc"/>
                     <connections>
                         <outlet property="mapView" destination="gO1-v4-v4s" id="MRF-8g-PED"/>
+                        <segue destination="6di-XV-KaP" kind="presentation" identifier="BlogPostDetail" id="z9p-Gl-z5O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

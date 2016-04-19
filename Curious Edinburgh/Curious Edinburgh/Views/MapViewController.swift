@@ -74,15 +74,26 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.mapView.setRegion(region, animated: true)
     }
 
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "BlogPostDetail" {
+            if let destination = segue.destinationViewController as? BlogPostDetailViewController {
+                
+                destination.modalPresentationStyle = .Custom
+                if let annotationView = sender as? MKAnnotationView {
+                    if let post = annotationView.annotation as? BlogPost{
+                        destination.blogPost = post
+                    }
+                }
+            }
+        }
     }
-    */
+    
+    // MARK: - MapViewDelegate
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? BlogPost {
@@ -103,5 +114,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         return nil
     }
-
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        self.performSegueWithIdentifier("BlogPostDetail", sender: view)
+    }
 }
