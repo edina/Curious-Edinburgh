@@ -32,6 +32,7 @@ class TableViewController: UITableViewController {
     func fetchNewData() {
         curiousEdinburghAPI.blogPosts {
             self.refreshControl?.endRefreshing()
+            self.fetchCurrentObjects()
         }
     }
 
