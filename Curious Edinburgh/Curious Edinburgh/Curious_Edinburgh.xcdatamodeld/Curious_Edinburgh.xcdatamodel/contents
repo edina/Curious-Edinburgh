@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
     <entity name="BlogPost" representedClassName=".BlogPost" syncable="YES">
-        <attribute name="content" optional="YES" attributeType="Binary" syncable="YES">
-            <userInfo>
-                <entry key="hyper.remoteKey" value="content.rendered"/>
-            </userInfo>
-        </attribute>
+        <attribute name="content" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="customFields" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="excerpt" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>

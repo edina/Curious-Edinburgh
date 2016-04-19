@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import MapKit
 
 extension BlogPost {
     
@@ -20,4 +21,27 @@ extension BlogPost {
             return "";
         }
     }
+    
+    
+    var location: CLLocationCoordinate2D? {
+        get {
+            var location: CLLocationCoordinate2D?
+            
+            if let customFields = NSKeyedUnarchiver.unarchiveObjectWithData(self.customFields!){
+                let customFieldsJson = JSON(customFields)
+                
+                if let lat = customFieldsJson["latitude"].string, lon = customFieldsJson["longitude"].string {
+                    location = CLLocationCoordinate2D(
+                        latitude: Double(lat)!,
+                        longitude: Double(lon)!
+                    )
+                }
+            }
+            
+            return location
+        }
+    }
+    
+   
+    
 }
