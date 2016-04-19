@@ -10,40 +10,35 @@ import UIKit
 import SwiftyJSON
 import MapKit
 
-extension BlogPost {
+extension BlogPost: MKAnnotation {
     
-    var titleAsString: String {
+    var title: String? {
         get {
-            if let title = NSKeyedUnarchiver.unarchiveObjectWithData(self.title!){
+            if let title = NSKeyedUnarchiver.unarchiveObjectWithData(self.titleJsonData!){
                 let titleJson = JSON(title)
                 return String(htmlEncodedString :titleJson["rendered"].stringValue)
             }
             return "";
         }
     }
-    
-    
-    var location: CLLocationCoordinate2D? {
+
+    var coordinate: CLLocationCoordinate2D {
         get {
-            var location: CLLocationCoordinate2D?
+            var coordinate = kCLLocationCoordinate2DInvalid
             
             if let customFields = NSKeyedUnarchiver.unarchiveObjectWithData(self.customFields!){
                 let customFieldsJson = JSON(customFields)
                 
                 if let lat = customFieldsJson["latitude"].string, lon = customFieldsJson["longitude"].string {
-                    location = CLLocationCoordinate2D(
+                    coordinate = CLLocationCoordinate2D(
                         latitude: Double(lat)!,
                         longitude: Double(lon)!
                     )
                 }
             }
-            
-            return location
+            return coordinate
         }
     }
-
-}
-
 
 extension String {
     init(htmlEncodedString: String) {
