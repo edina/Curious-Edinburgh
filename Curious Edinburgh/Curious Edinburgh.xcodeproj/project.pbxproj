@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3B0B7E751CC6694C009EF9B0 /* BlogPost+UnwrappedBinaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0B7E741CC6694C009EF9B0 /* BlogPost+UnwrappedBinaryData.swift */; };
+		3B0B7E771CC67A42009EF9B0 /* BlogPostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0B7E761CC67A42009EF9B0 /* BlogPostDetailViewController.swift */; };
 		3B372A2F1CBFAED40003DA38 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B372A2E1CBFAED40003DA38 /* HomeViewController.swift */; };
 		3B372A331CBFB02D0003DA38 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B372A321CBFB02D0003DA38 /* TableViewController.swift */; };
 		3B372A351CBFE58A0003DA38 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B372A341CBFE58A0003DA38 /* AboutViewController.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		3B0B7E741CC6694C009EF9B0 /* BlogPost+UnwrappedBinaryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BlogPost+UnwrappedBinaryData.swift"; sourceTree = "<group>"; };
+		3B0B7E761CC67A42009EF9B0 /* BlogPostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostDetailViewController.swift; sourceTree = "<group>"; };
 		3B372A2E1CBFAED40003DA38 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3B372A321CBFB02D0003DA38 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		3B372A341CBFE58A0003DA38 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		3BFED6541CBBF36C00597967 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3B0B7E761CC67A42009EF9B0 /* BlogPostDetailViewController.swift */,
 				3B372A341CBFE58A0003DA38 /* AboutViewController.swift */,
 				3B372A321CBFB02D0003DA38 /* TableViewController.swift */,
 				3B372A2E1CBFAED40003DA38 /* HomeViewController.swift */,
@@ -423,6 +426,7 @@
 				3BAED9BE1CBE4364002E66FA /* Constants.swift in Sources */,
 				3BAED9C11CBE43EC002E66FA /* CuriousEdinburghAPI.swift in Sources */,
 				3B372A351CBFE58A0003DA38 /* AboutViewController.swift in Sources */,
+				3B0B7E771CC67A42009EF9B0 /* BlogPostDetailViewController.swift in Sources */,
 				3B372A2F1CBFAED40003DA38 /* HomeViewController.swift in Sources */,
 				3B9B3DFC1CC4CFD30039FCA3 /* BlogPost.swift in Sources */,
 			);

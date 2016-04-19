@@ -67,14 +67,29 @@ class TableViewController: UITableViewController {
     }
  
 
-    /*
+    
+    @IBAction func unwindToTableViewController(segue:UIStoryboardSegue) {
+        if(segue.sourceViewController .isKindOfClass(BlogPostDetailViewController)){
+            // Back at tableView
+        }
+    }
+
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == Constants.SegueIDs.showBlogPostDetail {
+            if let destination = segue.destinationViewController as? BlogPostDetailViewController {
+                if let blogIndex = tableView.indexPathForSelectedRow?.row {
+                    destination.blogPost = self.blogPosts[blogIndex] as? BlogPost
+                }
+            }
+        }
+        
     }
-    */
+    
 
 }
