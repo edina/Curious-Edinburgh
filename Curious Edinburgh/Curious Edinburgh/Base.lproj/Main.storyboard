@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -26,14 +27,14 @@
                                             <rect key="frame" x="15" y="5" width="32" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kGf-ow-GMw">
                                             <rect key="frame" x="15" y="25" width="31" height="14"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -69,10 +70,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1XX-kq-EE8">
-                                <rect key="frame" x="0.0" y="58" width="600" height="542"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                            </webView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="az1-Ag-opk">
                                 <rect key="frame" x="20" y="20" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
@@ -83,25 +80,41 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXa-To-HRV">
                                 <rect key="frame" x="283" y="28" width="34" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1XX-kq-EE8">
+                                <rect key="frame" x="0.0" y="58" width="600" height="338"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1XX-kq-EE8" secondAttribute="height" multiplier="16:9" id="gcl-AQ-2Jr"/>
+                                </constraints>
+                            </webView>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJV-pD-o2H">
+                                <rect key="frame" x="0.0" y="404" width="600" height="196"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1XX-kq-EE8" firstAttribute="bottom" secondItem="KW1-Ve-goj" secondAttribute="top" id="Ld5-uH-KI8"/>
-                            <constraint firstItem="oXa-To-HRV" firstAttribute="centerX" secondItem="1XX-kq-EE8" secondAttribute="centerX" id="RH9-wd-iO3"/>
-                            <constraint firstAttribute="trailing" secondItem="1XX-kq-EE8" secondAttribute="trailing" id="S8e-E3-p0B"/>
-                            <constraint firstItem="1XX-kq-EE8" firstAttribute="top" secondItem="cwu-km-UJO" secondAttribute="top" constant="58" id="ZAd-ea-Voi"/>
-                            <constraint firstItem="az1-Ag-opk" firstAttribute="leading" secondItem="cwu-km-UJO" secondAttribute="leadingMargin" id="d7T-Kw-7wX"/>
-                            <constraint firstItem="1XX-kq-EE8" firstAttribute="leading" secondItem="cwu-km-UJO" secondAttribute="leading" id="fLf-pS-nBt"/>
-                            <constraint firstItem="1XX-kq-EE8" firstAttribute="top" secondItem="az1-Ag-opk" secondAttribute="bottom" constant="8" symbolic="YES" id="gLM-70-gy4"/>
-                            <constraint firstItem="oXa-To-HRV" firstAttribute="top" secondItem="DzX-Uu-gqX" secondAttribute="bottom" constant="8" symbolic="YES" id="qim-iw-2DG"/>
+                            <constraint firstItem="1XX-kq-EE8" firstAttribute="centerX" secondItem="oXa-To-HRV" secondAttribute="centerX" id="1Nd-XF-jT8"/>
+                            <constraint firstItem="QJV-pD-o2H" firstAttribute="leading" secondItem="1XX-kq-EE8" secondAttribute="leading" id="1Zj-zg-opH"/>
+                            <constraint firstItem="1XX-kq-EE8" firstAttribute="top" secondItem="az1-Ag-opk" secondAttribute="bottom" constant="8" symbolic="YES" id="AWi-d1-LNi"/>
+                            <constraint firstItem="QJV-pD-o2H" firstAttribute="bottom" secondItem="KW1-Ve-goj" secondAttribute="top" id="SPh-3P-CLu"/>
+                            <constraint firstItem="az1-Ag-opk" firstAttribute="leading" secondItem="cwu-km-UJO" secondAttribute="leadingMargin" id="XB2-KX-fcV"/>
+                            <constraint firstItem="QJV-pD-o2H" firstAttribute="trailing" secondItem="1XX-kq-EE8" secondAttribute="trailing" id="XLa-Kf-wHv"/>
+                            <constraint firstItem="1XX-kq-EE8" firstAttribute="leading" secondItem="cwu-km-UJO" secondAttribute="leading" id="fWg-Uu-GqS"/>
+                            <constraint firstItem="oXa-To-HRV" firstAttribute="top" secondItem="DzX-Uu-gqX" secondAttribute="bottom" constant="8" symbolic="YES" id="mOv-gT-Txa"/>
+                            <constraint firstItem="az1-Ag-opk" firstAttribute="top" secondItem="DzX-Uu-gqX" secondAttribute="bottom" id="oK6-3p-fec"/>
+                            <constraint firstItem="1XX-kq-EE8" firstAttribute="centerX" secondItem="cwu-km-UJO" secondAttribute="centerX" id="p5q-UU-0NW"/>
+                            <constraint firstAttribute="trailing" secondItem="1XX-kq-EE8" secondAttribute="trailing" id="yOk-Gv-6EM"/>
+                            <constraint firstItem="QJV-pD-o2H" firstAttribute="top" secondItem="1XX-kq-EE8" secondAttribute="bottom" constant="8" symbolic="YES" id="yVp-qd-nqC"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="titleLabel" destination="oXa-To-HRV" id="eCK-dm-y1a"/>
-                        <outlet property="webView" destination="1XX-kq-EE8" id="n48-4O-cVq"/>
+                        <outlet property="videoView" destination="1XX-kq-EE8" id="vs5-XB-PPg"/>
+                        <outlet property="webView" destination="QJV-pD-o2H" id="K50-I8-eSo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOh-ye-QCJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -262,6 +275,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="T1q-kv-cx6"/>
+        <segue reference="z9p-Gl-z5O"/>
     </inferredMetricsTieBreakers>
 </document>
