@@ -30,7 +30,7 @@ class TableViewController: UITableViewController {
  
     // MARK: - Update Table
     func fetchNewData() {
-        curiousEdinburghAPI.blogPosts {
+        curiousEdinburghAPI.syncBlogPosts {
             self.refreshControl?.endRefreshing()
             self.fetchCurrentObjects()
         }
@@ -38,9 +38,7 @@ class TableViewController: UITableViewController {
 
 
     func fetchCurrentObjects() {
-        let request = NSFetchRequest(entityName: "BlogPost")
-        
-        self.blogPosts = (try! dataStack.mainContext.executeFetchRequest(request)) as! [NSManagedObject]
+        self.blogPosts = curiousEdinburghAPI.fetchBlogPostsFromCoreData()
         self.tableView.reloadData()
     }
     

@@ -37,16 +37,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func fetchNewData() {
-        curiousEdinburghAPI.blogPosts {
+        curiousEdinburghAPI.syncBlogPosts {
             self.fetchCurrentObjects()
         }
     }
     
     func fetchCurrentObjects() {
-        let request = NSFetchRequest(entityName: "BlogPost")
         
-        self.blogPosts = (try! dataStack.mainContext.executeFetchRequest(request)) as! [NSManagedObject]
-        
+        self.blogPosts = curiousEdinburghAPI.fetchBlogPostsFromCoreData()
         for item in self.blogPosts {
             if let post = item as? BlogPost {
                 mapView.addAnnotation(post)
@@ -80,7 +78,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "BlogPostDetail" {
+        if segue.identifier == Constants.SegueIDs.blogPostDetail {
             if let destination = segue.destinationViewController as? BlogPostDetailViewController {
                 
                 destination.modalPresentationStyle = .Custom
@@ -116,6 +114,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        self.performSegueWithIdentifier("BlogPostDetail", sender: view)
+        self.performSegueWithIdentifier(Constants.SegueIDs.blogPostDetail, sender: view)
     }
 }

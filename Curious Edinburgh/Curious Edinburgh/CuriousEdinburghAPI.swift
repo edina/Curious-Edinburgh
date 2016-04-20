@@ -20,25 +20,24 @@ class _CuriousEdinburghAPI {
   
     }
     
-    func blogPosts(completion: (()) -> Void) {
-        // Return some posts
-       
- 
+    func syncBlogPosts(completion: (()) -> Void) {
+        // Sync posts from API to Core Data model
+        
         Alamofire.request(.GET, Constants.API.url).validate().responseJSON { response in
             switch response.result {
             case .Success(let data):
                 let json = JSON(data).arrayValue
                 print(json)
-               /* if let id = json[0]["id"].int {
-                    //Now you got your value
-                     print(id)
-                }*/
+                /* if let id = json[0]["id"].int {
+                 //Now you got your value
+                 print(id)
+                 }*/
                 
                 // Persist to Core Data
                 self.dataStack?.performInNewBackgroundContext { backgroundContext in
                     Sync.changes(
                         data as! [[String : AnyObject]],
-                        inEntityNamed: "BlogPost",
+                        inEntityNamed: Constants.Entity.blogPost,
                         predicate: nil,
                         parent: nil,
                         inContext: backgroundContext,
@@ -54,6 +53,11 @@ class _CuriousEdinburghAPI {
         }
     }
     
-   }
+    func fetchBlogPostsFromCoreData()  -> [NSManagedObject] {
+        let request = NSFetchRequest(entityName: Constants.Entity.blogPost)
+        return (try! self.dataStack?.mainContext.executeFetchRequest(request)) as! [NSManagedObject]
+    }
+    
+}
 
 let curiousEdinburghAPI = _CuriousEdinburghAPI()

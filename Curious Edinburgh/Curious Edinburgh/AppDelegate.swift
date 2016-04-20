@@ -24,21 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         curiousEdinburghAPI.dataStack = self.dataStack
-        curiousEdinburghAPI.blogPosts {
-            print("Done")
-            
-            // Test reading object back
-            let request = NSFetchRequest(entityName: "BlogPost")
-            // request.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: true)]
-            let bps = try! self.dataStack.mainContext.executeFetchRequest(request)
-          
-            let bp = bps[0] as? BlogPost
-            print(bp?.link)
-            let content = NSKeyedUnarchiver.unarchiveObjectWithData((bp?.content)!)
-            print(content)
-            
-            
-            
+        curiousEdinburghAPI.syncBlogPosts {
+            print("Initial sync completed")
         }
         return true
     }

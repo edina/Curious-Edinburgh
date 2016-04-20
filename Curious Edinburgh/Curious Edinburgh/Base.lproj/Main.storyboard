@@ -261,4 +261,7 @@
             <point key="canvasLocation" x="1720" y="1203"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="T1q-kv-cx6"/>
+    </inferredMetricsTieBreakers>
 </document>
