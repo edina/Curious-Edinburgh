@@ -13,7 +13,7 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
-    var blogPosts = [NSManagedObject]()
+    var blogPosts = [BlogPost]()
     let locationManager = CLLocationManager()
     
     @IBOutlet weak var mapView: MKMapView! {
@@ -45,10 +45,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func fetchCurrentObjects() {
         
         self.blogPosts = curiousEdinburghAPI.fetchBlogPostsFromCoreData()
-        for item in self.blogPosts {
-            if let post = item as? BlogPost {
-                mapView.addAnnotation(post)
-            }
+        for post in self.blogPosts {
+            mapView.addAnnotation(post)
         }
     }
     

@@ -53,9 +53,9 @@ class _CuriousEdinburghAPI {
         }
     }
     
-    func fetchBlogPostsFromCoreData()  -> [NSManagedObject] {
+    func fetchBlogPostsFromCoreData()  -> [BlogPost] {
         let request = NSFetchRequest(entityName: Constants.Entity.blogPost)
-        return (try! self.dataStack?.mainContext.executeFetchRequest(request)) as! [NSManagedObject]
+        return (try! self.dataStack?.mainContext.executeFetchRequest(request)) as! [BlogPost]
     }
     
 }

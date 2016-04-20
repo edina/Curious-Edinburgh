@@ -13,7 +13,7 @@ import SwiftyJSON
 
 class TableViewController: UITableViewController {
 
-    var blogPosts = [NSManagedObject]()
+    var blogPosts = [BlogPost]()
  
     
     override func viewDidLoad() {
@@ -53,14 +53,9 @@ class TableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(Constants.Table.blogPostIdentifier, forIndexPath: indexPath)
       
-        if let blogPost = self.blogPosts[indexPath.row] as? BlogPost {
-            
-            cell.textLabel?.text = blogPost.title
-              
-            cell.detailTextLabel?.text = String(blogPost.link!)
-            
-        }
-     
+        let blogPost = self.blogPosts[indexPath.row]
+        cell.textLabel?.text = blogPost.title
+        cell.detailTextLabel?.text = String(blogPost.link!)     
         
         return cell
     }
@@ -83,7 +78,7 @@ class TableViewController: UITableViewController {
         if segue.identifier == Constants.SegueIDs.showBlogPostDetail {
             if let destination = segue.destinationViewController as? BlogPostDetailViewController {
                 if let blogIndex = tableView.indexPathForSelectedRow?.row {
-                    destination.blogPost = self.blogPosts[blogIndex] as? BlogPost
+                    destination.blogPost = self.blogPosts[blogIndex]
                 }
             }
         }
