@@ -69,14 +69,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXa-To-HRV">
-                                <rect key="frame" x="283" y="28" width="34" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="az1-Ag-opk">
-                                <rect key="frame" x="20" y="28" width="48" height="30"/>
+                                <rect key="frame" x="20" y="20" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <segue destination="OVJ-im-riO" kind="unwind" unwindAction="unwindToTableViewController:" id="tSN-o1-kmp"/>
@@ -94,6 +88,12 @@
                                     </mask>
                                 </variation>
                             </webView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXa-To-HRV">
+                                <rect key="frame" x="283" y="20" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -102,8 +102,8 @@
                             <constraint firstItem="oXa-To-HRV" firstAttribute="centerX" secondItem="QJV-pD-o2H" secondAttribute="centerX" id="QJo-lW-ekG"/>
                             <constraint firstItem="az1-Ag-opk" firstAttribute="top" secondItem="oXa-To-HRV" secondAttribute="top" id="RVp-NB-Ag4"/>
                             <constraint firstAttribute="trailing" secondItem="QJV-pD-o2H" secondAttribute="trailing" id="Vcq-LM-0ky"/>
-                            <constraint firstItem="QJV-pD-o2H" firstAttribute="top" secondItem="az1-Ag-opk" secondAttribute="bottom" constant="8" symbolic="YES" id="Xdf-Fc-VYz"/>
-                            <constraint firstItem="az1-Ag-opk" firstAttribute="top" secondItem="DzX-Uu-gqX" secondAttribute="bottom" constant="8" symbolic="YES" id="srW-iJ-9Kc"/>
+                            <constraint firstItem="QJV-pD-o2H" firstAttribute="top" secondItem="az1-Ag-opk" secondAttribute="bottom" constant="16" id="Xdf-Fc-VYz"/>
+                            <constraint firstItem="az1-Ag-opk" firstAttribute="top" secondItem="DzX-Uu-gqX" secondAttribute="bottom" id="srW-iJ-9Kc"/>
                             <constraint firstItem="QJV-pD-o2H" firstAttribute="bottom" secondItem="KW1-Ve-goj" secondAttribute="top" id="xds-g3-5Qa"/>
                         </constraints>
                     </view>
