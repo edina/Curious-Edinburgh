@@ -19,7 +19,14 @@ class BlogPostDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.titleLabel.text = blogPost?.title
+        
+        if let content = blogPost?.contentValue {
+            self.webView.loadHTMLString(content, baseURL: nil)
+        }
+        
+        
         
         // Do any additional setup after loading the view.
     }

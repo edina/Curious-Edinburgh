@@ -22,6 +22,19 @@ extension BlogPost: MKAnnotation {
         }
     }
 
+    var contentValue: String? {
+        get {
+            var content : String?
+            if let rawContent = self.content {
+                if let unwrappedContent = NSKeyedUnarchiver.unarchiveObjectWithData(rawContent){
+                    let contentJSON = JSON(unwrappedContent)
+                    content = contentJSON["rendered"].string
+                }
+            }
+            return content
+        }
+    }
+    
     var coordinate: CLLocationCoordinate2D {
         get {
             var coordinate = kCLLocationCoordinate2DInvalid
