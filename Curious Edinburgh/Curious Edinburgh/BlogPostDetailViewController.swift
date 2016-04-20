@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BlogPostDetailViewController: UIViewController {
+class BlogPostDetailViewController: UIViewController, UIWebViewDelegate {
 
     
     var blogPost: BlogPost?
@@ -24,12 +24,19 @@ class BlogPostDetailViewController: UIViewController {
         self.titleLabel.text = blogPost?.title
         
         if let content = blogPost?.contentValue {
-            self.webView.loadHTMLString(content, baseURL: nil)
+            let videoId = "fuD3Zco0aXs"
+            let youtubeElement = "<iframe width=\"100%\" height=\"100px\" src=\"https://www.youtube.com/embed/\(videoId)\" frameborder=\"0\" allowfullscreen></iframe>"
+            let content = "\(youtubeElement)\(content)"
+            
+            let styleElement = "<style>body { font-family: HelveticaNeue; padding: 0; margin: 0; } p { margin: 1em; } img { width: 40%; height: auto; float: left; padding: 1em 1em 1em 0; }</style>"
+            let headElement = "<head><title>\(blogPost?.title!)</title>\(styleElement)</head>"
+            
+            let htmlElement = "<html>\(headElement)<body>\(content)</body></html>"
+            
+            self.webView.loadHTMLString(htmlElement, baseURL: nil)
         }
         
-        loadYoutube(videoID: "fuD3Zco0aXs")
-        videoView.scrollView.scrollEnabled = false
-        videoView.scrollView.bounces = false
+        webViewDidFinishLoad(self.webView)
         
         // Do any additional setup after loading the view.
     }
@@ -44,6 +51,20 @@ class BlogPostDetailViewController: UIViewController {
             let youtubeURL = NSURL(string: "https://www.youtube.com/embed/\(videoID)")
             else { return }
         videoView.loadRequest( NSURLRequest(URL: youtubeURL) )
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+//        webView.scrollView.scrollEnabled = false;
+//        webView.scrollView.bounces = false
+        
+        var frame = webView.frame;
+        
+        frame.size.height = 1;        // Set the height to a small one.
+        
+        webView.frame = frame;       // Set webView's Frame, forcing the Layout of its embedded scrollView with current Frame's constraints (Width set above).
+        
+        frame.size.height = webView.scrollView.contentSize.height;
+        webView.frame = frame;
     }
     
 
