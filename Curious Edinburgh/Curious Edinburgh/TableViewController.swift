@@ -52,15 +52,6 @@ class TableViewController: UITableViewController {
         return cell
     }
  
-
-    
-    @IBAction func unwindToTableViewController(segue:UIStoryboardSegue) {
-        if(segue.sourceViewController .isKindOfClass(BlogPostDetailViewController)){
-            // Back at tableView
-        }
-    }
-
-    
     // MARK: - Notification
     
     func changeNotification(notification: NSNotification) {
