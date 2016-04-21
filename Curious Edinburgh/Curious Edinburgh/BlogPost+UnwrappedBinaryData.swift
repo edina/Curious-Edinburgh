@@ -39,6 +39,18 @@ extension BlogPost: MKAnnotation {
         }
     }
     
+    
+    var strippedContent: String? {
+        get {
+            var content : String?
+            if let rawContent = self.contentValue {
+                content = rawContent.stripHTML()
+                print(content)
+            }
+            return content
+        }
+    }
+    
     var images: [String]? {
         get {
             var images = [String]?()
@@ -105,5 +117,17 @@ extension String {
         }
         
         self.init(attributedString!.string)
+    }
+    
+    func stripHTML() -> String{
+        
+        let regex = try! NSRegularExpression(pattern: "<.*?>", options: [.CaseInsensitive])
+        
+        let range = NSMakeRange(0, self.characters.count)
+        let htmlLessString :String = regex.stringByReplacingMatchesInString(self, options: [],
+                                                                            range:range ,
+                                                                            withTemplate: "")
+        
+        return htmlLessString
     }
 }

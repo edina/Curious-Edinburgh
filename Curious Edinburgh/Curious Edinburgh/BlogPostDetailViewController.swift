@@ -23,7 +23,7 @@ class BlogPostDetailViewController: UIViewController {
         
         self.titleLabel.text = blogPost?.title
         
-        if let content = blogPost?.contentValue {
+        if let content = blogPost?.strippedContent {
             let videoId = "fuD3Zco0aXs"
             let youtubeElement = "<iframe width=\"100%\" height=\"100px\" src=\"https://www.youtube.com/embed/\(videoId)\" frameborder=\"0\" allowfullscreen></iframe>"
             let content = "\(youtubeElement)\(content)"
