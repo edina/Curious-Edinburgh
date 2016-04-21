@@ -7,3 +7,5 @@ pod 'AlamofireObjectMapper', '~> 3.0'
 pod "PagingMenuController"
 pod 'Sync'
 pod 'SwiftyJSON'
+pod 'Kanna', '~> 1.0.0'
+pod 'AlamofireImage', '~> 2.0'

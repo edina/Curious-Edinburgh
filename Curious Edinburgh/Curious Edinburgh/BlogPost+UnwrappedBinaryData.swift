@@ -9,16 +9,20 @@
 import UIKit
 import SwiftyJSON
 import MapKit
+import Kanna
 
 extension BlogPost: MKAnnotation {
     
     var title: String? {
         get {
-            if let title = NSKeyedUnarchiver.unarchiveObjectWithData(self.titleJsonData!){
-                let titleJson = JSON(title)
-                return String(htmlEncodedString :titleJson["rendered"].stringValue)
+            var title : String?
+            if let rawTitle = self.titleJsonData{
+                if let titleUnwrapped = NSKeyedUnarchiver.unarchiveObjectWithData(rawTitle){
+                    let titleJson = JSON(titleUnwrapped)
+                    title = String(htmlEncodedString :titleJson["rendered"].stringValue)
+                }
             }
-            return "";
+            return title;
         }
     }
 
@@ -32,6 +36,36 @@ extension BlogPost: MKAnnotation {
                 }
             }
             return content
+        }
+    }
+    
+    var images: [String]? {
+        get {
+            var images = [String]?()
+            if let content = self.contentValue {
+                
+                /*let regex = try! NSRegularExpression(pattern: "<.*?>", options: [.CaseInsensitive])
+                
+                let range = NSMakeRange(0, content.characters.count)
+                let htmlLessString :String = regex.stringByReplacingMatchesInString(content, options: [],
+                                                                                    range:range ,
+                                                                                    withTemplate: "")
+                
+                print(htmlLessString)
+                */
+     
+                // Extract images from text and add to array
+                if let doc = Kanna.HTML(html: content, encoding: NSUTF8StringEncoding) {
+                    for link in doc.css("img") {
+                        if let source  = link["src"]{
+                            if (images?.append(source)) == nil {
+                                images = [source]
+                            }
+                        }
+                    }
+                }
+            }
+            return images
         }
     }
     

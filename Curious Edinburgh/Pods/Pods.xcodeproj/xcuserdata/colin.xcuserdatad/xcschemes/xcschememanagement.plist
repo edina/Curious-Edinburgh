@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AlamofireImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>AlamofireObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -25,6 +30,11 @@
 			<false/>
 		</dict>
 		<key>DATAStack.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Kanna.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -82,7 +92,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>21909973B484BFEEDF93EEEAD7D2F43D</key>
+		<key>05094CC4A047119F7ADC14EE74C4881C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0A502D149AB855431949D6E0C4DA56D5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,6 +117,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>6EEE7F05A8AD727EEA89B0790A207EFE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>76967967EA49988882CA485460739467</key>
 		<dict>
 			<key>primary</key>
@@ -117,7 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9C40CCC80EE6571DDC3D721269600CBB</key>
+		<key>B6312CAD7E18804AD5E11308495CFD52</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B7890B6727A6A03688C20748C32F46A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -143,11 +168,6 @@
 			<true/>
 		</dict>
 		<key>EB498354633A89B48D8E7EFB8F98694E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EE6409D02EF34E717292430E0027E762</key>
 		<dict>
 			<key>primary</key>
 			<true/>

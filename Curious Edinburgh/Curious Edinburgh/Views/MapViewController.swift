@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import DATAStack
 import MapKit
+import AlamofireImage
+
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
@@ -95,15 +97,25 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if let annotation = annotation as? BlogPost {
             let identifier = "pin"
             let defaultItemThumbnail = UIImage(named: "DefaultAnnotationThumbnail")
+            
+            
             var view: MKPinAnnotationView
             if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
                 as? MKPinAnnotationView {
                 dequeuedView.annotation = annotation
                 view = dequeuedView
             } else {
+                
+                let imageView = UIImageView(image: defaultItemThumbnail)
+                if let images = annotation.images{
+                    let defaultImage = images[0]
+                    let URL = NSURL(string: defaultImage)!
+                    imageView.af_setImageWithURL(URL, placeholderImage: defaultItemThumbnail)
+                }
+                
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 view.canShowCallout = true
-                view.leftCalloutAccessoryView = UIImageView(image: defaultItemThumbnail)
+                view.leftCalloutAccessoryView = imageView
                 view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
             }
             return view

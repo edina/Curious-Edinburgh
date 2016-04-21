@@ -27,7 +27,7 @@ class _CuriousEdinburghAPI {
             switch response.result {
             case .Success(let data):
                 let json = JSON(data).arrayValue
-                print(json)
+//                print(json)
                 /* if let id = json[0]["id"].int {
                  //Now you got your value
                  print(id)
