@@ -28,19 +28,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Listen for sync completion notification
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.changeNotification(_:)), name:Constants.Notifications.SyncComplete, object: nil)
+
         self.initialMapLocation()
-        self.fetchNewData()
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if(status != CLAuthorizationStatus.NotDetermined) {
              mapView.showsUserLocation = true
-        }
-    }
-    
-    func fetchNewData() {
-        curiousEdinburghAPI.syncBlogPosts {
-            self.fetchCurrentObjects()
         }
     }
     
@@ -89,6 +86,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 }
             }
         }
+    }
+    
+    // MARK: - Notification
+    
+    func changeNotification(notification: NSNotification) {
+        // Sync with API is complete so we can populate map
+        self.fetchCurrentObjects()
     }
     
     // MARK: - MapViewDelegate

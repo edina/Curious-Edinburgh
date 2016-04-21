@@ -19,30 +19,22 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Listen for sync completion notification
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.changeNotification(_:)), name:Constants.Notifications.SyncComplete, object: nil)
+        
         self.refreshControl = UIRefreshControl()
-        self.refreshControl?.addTarget(self, action: #selector(TableViewController.fetchNewData), forControlEvents: .ValueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(TableViewController.fetchCurrentObjects), forControlEvents: .ValueChanged)
         
         self.fetchCurrentObjects()
-        self.fetchNewData()
-
     }
 
  
     // MARK: - Update Table
-    func fetchNewData() {
-        curiousEdinburghAPI.syncBlogPosts {
-            self.refreshControl?.endRefreshing()
-            self.fetchCurrentObjects()
-        }
-    }
-
-
+  
     func fetchCurrentObjects() {
         self.blogPosts = curiousEdinburghAPI.fetchBlogPostsFromCoreData()
         self.tableView.reloadData()
     }
-    
-    
     
     // MARK: UITableViewDataSource
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,6 +60,14 @@ class TableViewController: UITableViewController {
         }
     }
 
+    
+    // MARK: - Notification
+    
+    func changeNotification(notification: NSNotification) {
+        // Sync with API is complete so we can populate map
+        self.fetchCurrentObjects()
+    }
+    
     
     // MARK: - Navigation
 

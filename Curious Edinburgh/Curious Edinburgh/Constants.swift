@@ -33,6 +33,10 @@ struct Constants {
     
     }
     
+    struct Notifications {
+        static let SyncComplete = "Sync Complete Notification"
+    }
+    
     struct Entity {
         static let blogPost =  "BlogPost"
     }

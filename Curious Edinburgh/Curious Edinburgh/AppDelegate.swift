@@ -25,6 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         curiousEdinburghAPI.dataStack = self.dataStack
         curiousEdinburghAPI.syncBlogPosts {
+            NSNotificationCenter.defaultCenter().postNotificationName(Constants.Notifications.SyncComplete, object: nil)
+
+            
+//            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.changeNotification(_:)), name:Constants.Notifications.SyncComplete, object: nil)
+
+            
             print("Initial sync completed")
         }
         return true

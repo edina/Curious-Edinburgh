@@ -1,4 +1,4 @@
-//
+
 //  CuriousEdinburghAPI.swift
 //  Curious Edinburgh
 //
@@ -26,12 +26,9 @@ class _CuriousEdinburghAPI {
         Alamofire.request(.GET, Constants.API.url).validate().responseJSON { response in
             switch response.result {
             case .Success(let data):
-                let json = JSON(data).arrayValue
+//                let json = JSON(data).arrayValue
 //                print(json)
-                /* if let id = json[0]["id"].int {
-                 //Now you got your value
-                 print(id)
-                 }*/
+               
                 
                 // Persist to Core Data
                 self.dataStack?.performInNewBackgroundContext { backgroundContext in

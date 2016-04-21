@@ -55,17 +55,6 @@ extension BlogPost: MKAnnotation {
         get {
             var images = [String]?()
             if let content = self.contentValue {
-                
-                /*let regex = try! NSRegularExpression(pattern: "<.*?>", options: [.CaseInsensitive])
-                
-                let range = NSMakeRange(0, content.characters.count)
-                let htmlLessString :String = regex.stringByReplacingMatchesInString(content, options: [],
-                                                                                    range:range ,
-                                                                                    withTemplate: "")
-                
-                print(htmlLessString)
-                */
-     
                 // Extract images from text and add to array
                 if let doc = Kanna.HTML(html: content, encoding: NSUTF8StringEncoding) {
                     for link in doc.css("img") {
