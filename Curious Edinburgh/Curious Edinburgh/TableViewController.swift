@@ -50,7 +50,7 @@ class TableViewController: UITableViewController {
         if let content = blogPost.strippedContent {
             cell.postDescription.text = content.trunc(100)
         }
-        let defaultItemThumbnail = UIImage(named: "DefaultAnnotationThumbnail")
+        let defaultItemThumbnail = UIImage(named: "DefaultTableVIewThumbnail")
         
         let imageView = UIImageView(image: defaultItemThumbnail)
         if let images = blogPost.images{
