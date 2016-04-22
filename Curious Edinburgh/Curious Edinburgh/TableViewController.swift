@@ -14,7 +14,6 @@ import SwiftyJSON
 class TableViewController: UITableViewController {
 
     var blogPosts = [BlogPost]()
- 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +26,7 @@ class TableViewController: UITableViewController {
         
         self.fetchCurrentObjects()
     }
-
+    
  
     // MARK: - Update Table
   
@@ -43,11 +42,23 @@ class TableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.Table.blogPostIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.Table.blogPostIdentifier, forIndexPath: indexPath) as! PostCardCustomCell
       
         let blogPost = self.blogPosts[indexPath.row]
-        cell.textLabel?.text = blogPost.title
-        cell.detailTextLabel?.text = String(blogPost.link!)     
+        
+        cell.postTitle.text = blogPost.title?.uppercaseString
+        if let content = blogPost.strippedContent {
+            cell.postDescription.text = content.trunc(100)
+        }
+        let defaultItemThumbnail = UIImage(named: "DefaultAnnotationThumbnail")
+        
+        let imageView = UIImageView(image: defaultItemThumbnail)
+        if let images = blogPost.images{
+            let defaultImage = images[0]
+            let URL = NSURL(string: defaultImage)!
+            imageView.af_setImageWithURL(URL, placeholderImage: defaultItemThumbnail)
+        }
+        cell.postThumbnail.image = imageView.image
         
         return cell
     }

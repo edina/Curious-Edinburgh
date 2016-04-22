@@ -32,9 +32,16 @@ class BlogPostDetailViewController: UIViewController {
         self.loadYouTube(videoId)
         
         if let content = blogPost?.strippedContent {
-            let content = String(htmlEncodedString : content.stripHTML())
             self.textView.text = content
         }
+        
+        self.textView.layer.masksToBounds = false;
+        self.textView.layer.cornerRadius = 1; // if you like rounded corners
+        self.textView.layer.shadowOffset = CGSizeMake(-0.3, 0.3)
+        self.textView.layer.shadowRadius = 1;
+        self.textView.layer.shadowOpacity = 0.2;
+        self.textView.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.5).CGColor
+        self.textView.layer.borderWidth = 0.5
     }
 
     override func didReceiveMemoryWarning() {
