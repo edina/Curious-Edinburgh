@@ -8,11 +8,12 @@
 
 import UIKit
 
-class BlogPostDetailViewController: UIViewController {
+class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     
+    @IBOutlet weak var collectionView: UICollectionView!
     var blogPost: BlogPost?
-    
+ 
     @IBOutlet weak var titleLabel: UINavigationItem!
     
     @IBOutlet weak var videoView: UIWebView!
@@ -24,6 +25,8 @@ class BlogPostDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.collectionView.backgroundColor = UIColor.whiteColor()
         
         self.titleLabel.title = blogPost?.title
         self.videoView.scrollView.scrollEnabled = false
@@ -56,6 +59,46 @@ class BlogPostDetailViewController: UIViewController {
         videoView.loadRequest( NSURLRequest(URL: youtubeURL) )
     }
 
+    
+    
+    // MARK: - UICollectionViewDataSource protocol
+    
+    // tell the collection view how many cells to make
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.blogPost?.images?.count ?? 0
+    }
+    
+    // make a cell for each cell index path
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        // get a reference to our storyboard cell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.Table.detailCellReuseIdentifier, forIndexPath: indexPath) as! BlogPostDetailCollectionViewCell
+        
+        // Use the outlet in our custom class to get a reference to the UILabel in the cell
+        
+        let defaultItemThumbnail = UIImage(named: "DefaultTableVIewThumbnail")
+        
+//        let imageView = UIImageView(image: defaultItemThumbnail)
+        
+        let imageView = UIImageView(frame: cell.postThumbnail.frame)
+        if let images = self.blogPost?.images{
+            let defaultImage = images[indexPath.item]
+            let URL = NSURL(string: defaultImage)!
+            imageView.af_setImageWithURL(URL, placeholderImage: defaultItemThumbnail)
+        }
+        cell.postThumbnail.image = imageView.image
+        
+        return cell
+    }
+    
+    // MARK: - UICollectionViewDelegate protocol
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        // handle tap events
+        print("You selected cell #\(indexPath.item)!")
+    }
+    
+    
     /*
     // MARK: - Navigation
 

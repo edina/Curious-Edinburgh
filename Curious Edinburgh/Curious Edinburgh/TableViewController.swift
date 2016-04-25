@@ -21,9 +21,6 @@ class TableViewController: UITableViewController {
         // Listen for sync completion notification
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.changeNotification(_:)), name:Constants.Notifications.SyncComplete, object: nil)
         
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl?.addTarget(self, action: #selector(TableViewController.fetchCurrentObjects), forControlEvents: .ValueChanged)
-        
         self.fetchCurrentObjects()
     }
     
