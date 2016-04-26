@@ -33,11 +33,11 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
         /*self.videoView.scrollView.scrollEnabled = false
         self.videoView.scrollView.bounces = false
         let videoId = "fuD3Zco0aXs"
-        self.loadYouTube(videoId)
+        self.loadYouTube(videoId)*/
         
         if let content = blogPost?.strippedContent {
             self.textView.text = content
-        }*/
+        }
         
         self.textView.layer.masksToBounds = false;
         self.textView.layer.cornerRadius = 1; // if you like rounded corners
