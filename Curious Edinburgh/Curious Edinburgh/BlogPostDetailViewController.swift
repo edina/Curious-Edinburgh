@@ -30,10 +30,6 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
         self.collectionView.backgroundColor = UIColor.whiteColor()
         
         self.titleLabel.title = blogPost?.title
-        /*self.videoView.scrollView.scrollEnabled = false
-        self.videoView.scrollView.bounces = false
-        let videoId = "fuD3Zco0aXs"
-        self.loadYouTube(videoId)*/
         
         if let content = blogPost?.strippedContent {
             self.textView.text = content
