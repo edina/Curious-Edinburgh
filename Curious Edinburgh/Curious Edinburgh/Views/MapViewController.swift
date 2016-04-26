@@ -59,13 +59,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         let location = CLLocationCoordinate2D(
             latitude: 55.953252,
-            longitude: -3.188267
+            longitude: -3.1965
         )
         
-        let span = MKCoordinateSpanMake(0.2, 0.2)
-        
+        let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegion(center: location, span: span)
-        
         self.mapView.setRegion(region, animated: true)
     }
 
@@ -102,10 +100,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             let identifier = "pin"
             let defaultItemThumbnail = UIImage(named: "DefaultAnnotationThumbnail")
             
-            
-            var view: MKPinAnnotationView
-            if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
-                as? MKPinAnnotationView {
+            var view: MKAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) {
                 dequeuedView.annotation = annotation
                 view = dequeuedView
             } else {
@@ -117,10 +113,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                     imageView.af_setImageWithURL(URL, placeholderImage: defaultItemThumbnail)
                 }
                 
-                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                view = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 view.canShowCallout = true
                 view.leftCalloutAccessoryView = imageView
                 view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
+                let mapMarker = customMarker(annotation)
+                view.image = mapMarker
             }
             return view
         }
@@ -129,5 +127,49 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         self.performSegueWithIdentifier(Constants.SegueIDs.blogPostDetail, sender: view)
+    }
+    
+    func customMarker(post: BlogPost) -> UIImage {
+        let text = post.tourNumber
+        let marker = UIImage(named:"CustomMapMarker")
+        
+        // Setup the font specific variables
+        let textColor = UIColor.whiteColor()
+        let fontSize:CGFloat = 11.0
+        let textFont = UIFont.boldSystemFontOfSize(fontSize)
+        
+        //Setups up the font attributes that will be later used to dictate how the text should be drawn
+        let textFontAttributes = [
+            NSFontAttributeName: textFont,
+            NSForegroundColorAttributeName: textColor,
+            //        NSStrokeColorAttributeName: UIColor.blackColor(),
+            //        NSStrokeWidthAttributeName: 3.0
+        ]
+        
+        if let marker = marker, text = text {
+        
+            // Create bitmap based graphics context
+            UIGraphicsBeginImageContextWithOptions(marker.size, false, 0.0)
+            
+            //Put the image into a rectangle as large as the original image.
+            marker.drawInRect(CGRectMake(0, 0, marker.size.width, marker.size.height))
+            
+            // Our drawing bounds
+            let drawingBounds = CGRectMake(0.0, 0.0, marker.size.width, marker.size.height/3)
+            
+            let textSize = text.sizeWithAttributes([NSFontAttributeName:textFont])
+            let textRect = CGRectMake(drawingBounds.size.width/2 - textSize.width/2, drawingBounds.size.height/2 - textSize.height/2,
+                                      textSize.width, textSize.height)
+            
+            text.drawInRect(textRect, withAttributes: textFontAttributes)
+            
+            // Get the image from the graphics context
+            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            return newImage
+        }
+        
+        return marker!
     }
 }

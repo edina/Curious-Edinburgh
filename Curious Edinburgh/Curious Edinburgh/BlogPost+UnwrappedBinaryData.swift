@@ -87,6 +87,17 @@ extension BlogPost: MKAnnotation {
             return coordinate
         }
     }
+    
+    var tourNumber: String? {
+        get {
+            var tourNumber: String?
+            if let customFields = NSKeyedUnarchiver.unarchiveObjectWithData(self.customFields!){
+                let customFieldsJson = JSON(customFields)
+                tourNumber = customFieldsJson["science_tour_stop"].string
+            }
+            return tourNumber
+        }
+    }
 }
 
 private let characterEntities : [String: Character] = [
