@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
@@ -22,6 +23,8 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
     @IBAction func dismiss(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    let defaultItemThumbnail = UIImage(named: "DefaultTableVIewThumbnail")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,19 +78,24 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.Table.detailCellReuseIdentifier, forIndexPath: indexPath) as! BlogPostDetailCollectionViewCell
         
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
-        
-        let defaultItemThumbnail = UIImage(named: "DefaultTableVIewThumbnail")
-        
-//        let imageView = UIImageView(image: defaultItemThumbnail)
-        
-        let imageView = UIImageView(frame: cell.postThumbnail.frame)
+
         if let images = self.blogPost?.images{
-            let defaultImage = images[indexPath.item]
-            let URL = NSURL(string: defaultImage)!
-            imageView.af_setImageWithURL(URL, placeholderImage: defaultItemThumbnail)
+            
+            let image = images[indexPath.item]
+            
+            if let URL = NSURL(string: image) {
+                
+                let filter = AspectScaledToFillSizeWithRoundedCornersFilter(
+                    size: cell.postThumbnail.frame.size,
+                    radius: 5.0
+                )
+                cell.postThumbnail.af_setImageWithURL(URL,
+                                                      placeholderImage: defaultItemThumbnail,
+                                                      filter: filter,
+                                                      imageTransition: .FlipFromBottom(0.5))
+            }
         }
-        cell.postThumbnail.image = imageView.image
-        
+ 
         return cell
     }
     

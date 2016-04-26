@@ -14,14 +14,7 @@ class BlogPostDetailCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var myLabel: UILabel!
     
     override func layoutSubviews() {
-        self.setUpTumbnailImageView()
-    }
-    
-    func setUpTumbnailImageView() {
-        postThumbnail.clipsToBounds = true;
-        postThumbnail.contentMode = UIViewContentMode.ScaleAspectFit
-        postThumbnail.backgroundColor = UIColor.whiteColor()
-    }
-    
+
+    }    
 }
 
