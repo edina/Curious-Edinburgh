@@ -78,17 +78,17 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
 
         if let blogPost = self.blogPost{
-           self.setCellImage(cell, blogPost: blogPost)
+           self.setCellImage(cell, blogPost: blogPost, indexPath: indexPath)
         }
        
         return cell
     }
     
-    func setCellImage(cell: BlogPostDetailCollectionViewCell, blogPost: BlogPost) {
+    func setCellImage(cell: BlogPostDetailCollectionViewCell, blogPost: BlogPost, indexPath:NSIndexPath ) {
         let defaultItemThumbnail = UIImage(named: "DefaultTableVIewThumbnail")
         
         if let images = blogPost.images{
-            let image = images[0]
+            let image = images[indexPath.item]
             if let URL = NSURL(string: image) {
                 
                 let filter = AspectScaledToFillSizeWithRoundedCornersFilter(
