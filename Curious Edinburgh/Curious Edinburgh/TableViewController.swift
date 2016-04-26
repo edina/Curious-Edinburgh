@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import DATAStack
 import SwiftyJSON
+import AlamofireImage
 
 class TableViewController: UITableViewController {
 
@@ -47,19 +48,31 @@ class TableViewController: UITableViewController {
         if let content = blogPost.strippedContent {
             cell.postDescription.text = content.trunc(100)
         }
-        let defaultItemThumbnail = UIImage(named: "DefaultTableVIewThumbnail")
         
-        let imageView = UIImageView(image: defaultItemThumbnail)
-        if let images = blogPost.images{
-            let defaultImage = images[0]
-            let URL = NSURL(string: defaultImage)!
-            imageView.af_setImageWithURL(URL, placeholderImage: defaultItemThumbnail)
-        }
-        cell.postThumbnail.image = imageView.image
-        
+        self.setCellImage(cell, blogPost: blogPost)
+
         return cell
     }
  
+    func setCellImage(cell: PostCardCustomCell, blogPost: BlogPost) {
+        let defaultItemThumbnail = UIImage(named: "DefaultTableVIewThumbnail")
+        
+        if let images = blogPost.images{
+            let image = images[0]
+            if let URL = NSURL(string: image) {
+                
+                let filter = AspectScaledToFillSizeWithRoundedCornersFilter(
+                    size: cell.postThumbnail.frame.size,
+                    radius: 5.0
+                )
+                cell.postThumbnail.af_setImageWithURL(URL,
+                                                      placeholderImage: defaultItemThumbnail,
+                                                      filter: filter,
+                                                      imageTransition: .FlipFromBottom(0.5))
+            }
+        }
+    }
+    
     // MARK: - Notification
     
     func changeNotification(notification: NSNotification) {

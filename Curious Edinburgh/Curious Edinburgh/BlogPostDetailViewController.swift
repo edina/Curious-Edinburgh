@@ -24,8 +24,6 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    let defaultItemThumbnail = UIImage(named: "DefaultTableVIewThumbnail")
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -79,10 +77,18 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
         
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
 
-        if let images = self.blogPost?.images{
-            
-            let image = images[indexPath.item]
-            
+        if let blogPost = self.blogPost{
+           self.setCellImage(cell, blogPost: blogPost)
+        }
+       
+        return cell
+    }
+    
+    func setCellImage(cell: BlogPostDetailCollectionViewCell, blogPost: BlogPost) {
+        let defaultItemThumbnail = UIImage(named: "DefaultTableVIewThumbnail")
+        
+        if let images = blogPost.images{
+            let image = images[0]
             if let URL = NSURL(string: image) {
                 
                 let filter = AspectScaledToFillSizeWithRoundedCornersFilter(
@@ -95,9 +101,8 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
                                                       imageTransition: .FlipFromBottom(0.5))
             }
         }
- 
-        return cell
     }
+    
     
     // MARK: - UICollectionViewDelegate protocol
     
