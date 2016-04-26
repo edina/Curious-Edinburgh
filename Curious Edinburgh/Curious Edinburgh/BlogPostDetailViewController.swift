@@ -30,14 +30,14 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
         self.collectionView.backgroundColor = UIColor.whiteColor()
         
         self.titleLabel.title = blogPost?.title
-        self.videoView.scrollView.scrollEnabled = false
+        /*self.videoView.scrollView.scrollEnabled = false
         self.videoView.scrollView.bounces = false
         let videoId = "fuD3Zco0aXs"
         self.loadYouTube(videoId)
         
         if let content = blogPost?.strippedContent {
             self.textView.text = content
-        }
+        }*/
         
         self.textView.layer.masksToBounds = false;
         self.textView.layer.cornerRadius = 1; // if you like rounded corners
@@ -66,16 +66,30 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
     
     // tell the collection view how many cells to make
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.blogPost?.images?.count ?? 0
+        return ((self.blogPost?.images?.count)! + 1) ?? 0
     }
     
     // make a cell for each cell index path
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
+        if (indexPath.item == 0){
+            //do all the stuff here for the video
+            let videoCell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.Table.detailCellVideoReusetIdentifier, forIndexPath: indexPath) as! BlogPostDetailVideoCollectionViewCell
+            
+//            videoCell.webView.scrollView.scrollEnabled = false
+//            videoCell.webView.scrollView.bounces = false
+            
+            let videoId = "fuD3Zco0aXs"
+            
+            if let youtubeURL = NSURL(string: "https://www.youtube.com/embed/\(videoId)"){
+                videoCell.webView.loadRequest( NSURLRequest(URL: youtubeURL) )
+            }
+            return videoCell
+        }
+
         // get a reference to our storyboard cell
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.Table.detailCellReuseIdentifier, forIndexPath: indexPath) as! BlogPostDetailCollectionViewCell
         
-        // Use the outlet in our custom class to get a reference to the UILabel in the cell
 
         if let blogPost = self.blogPost{
            self.setCellImage(cell, blogPost: blogPost, indexPath: indexPath)
@@ -88,7 +102,7 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
         let defaultItemThumbnail = UIImage(named: "DefaultTableVIewThumbnail")
         
         if let images = blogPost.images{
-            let image = images[indexPath.item]
+            let image = images[(indexPath.item - 1)]
             if let URL = NSURL(string: image) {
                 
                 let filter = AspectScaledToFillSizeWithRoundedCornersFilter(

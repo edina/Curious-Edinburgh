@@ -23,6 +23,7 @@ struct Constants {
     struct Table {
         static let blogPostIdentifier = "blogPostCell"
         static let detailCellReuseIdentifier = "detailCellReuseIdentifier"
+        static let detailCellVideoReusetIdentifier = "detailCellVideoReuseIdentifier"
     }
 
     struct SegueIDs {

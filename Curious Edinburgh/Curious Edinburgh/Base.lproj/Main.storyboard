@@ -179,6 +179,24 @@
                                                     <outlet property="postThumbnail" destination="VcZ-bA-zHU" id="4Dc-GG-n6K"/>
                                                 </connections>
                                             </collectionViewCell>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" semanticContentAttribute="playback" reuseIdentifier="detailCellVideoReuseIdentifier" id="j8d-LG-rCy" customClass="BlogPostDetailVideoCollectionViewCell" customModule="Curious_Edinburgh" customModuleProvider="target">
+                                                <rect key="frame" x="145" y="8" width="135" height="135"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                    <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="71L-CR-Jlz">
+                                                            <rect key="frame" x="8" y="8" width="119" height="119"/>
+                                                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                                        </webView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <connections>
+                                                    <outlet property="webView" destination="71L-CR-Jlz" id="ch6-uD-vDP"/>
+                                                </connections>
+                                            </collectionViewCell>
                                         </cells>
                                         <connections>
                                             <outlet property="dataSource" destination="6di-XV-KaP" id="QgP-JM-h27"/>
