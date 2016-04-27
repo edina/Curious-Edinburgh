@@ -99,7 +99,7 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
                 
                 let filter = AspectScaledToFillSizeWithRoundedCornersFilter(
                     size: cell.postThumbnail.frame.size,
-                    radius: 5.0
+                    radius: Constants.View.defaultCornerRadius
                 )
                 cell.postThumbnail.af_setImageWithURL(URL,
                                                       placeholderImage: defaultItemThumbnail,

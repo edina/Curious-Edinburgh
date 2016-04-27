@@ -43,4 +43,8 @@ struct Constants {
         static let blogPost =  "BlogPost"
     }
     
+    struct View {
+        static let defaultCornerRadius = CGFloat(5)
+    }
+    
 }
