@@ -62,29 +62,38 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
     
     // tell the collection view how many cells to make
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ((self.blogPost?.images?.count)! + 1) ?? 0
+       
+        let count = (self.blogPost?.images?.count)!
+
+        if let _ = self.blogPost?.videoLink {
+            return (count + 1)
+        }
+        return count
     }
     
     // make a cell for each cell index path
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        if (indexPath.item == 0){
-            //do all the stuff here for the video
-            let videoCell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.Table.detailCellVideoReusetIdentifier, forIndexPath: indexPath) as! BlogPostDetailVideoCollectionViewCell
-            
-            let videoId = "fuD3Zco0aXs"
-            if let youtubeURL = NSURL(string: "https://www.youtube.com/embed/\(videoId)"){
-                videoCell.webView.loadRequest( NSURLRequest(URL: youtubeURL) )
-            }
-            return videoCell
-        }
-
-        // get a reference to our storyboard cell
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.Table.detailCellReuseIdentifier, forIndexPath: indexPath) as! BlogPostDetailCollectionViewCell
+        let cell = UICollectionViewCell()
         
-
         if let blogPost = self.blogPost{
-           self.setCellImage(cell, blogPost: blogPost, indexPath: indexPath)
+            
+            if (indexPath.item == 0){
+                //do all the stuff here for the video
+                let videoCell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.Table.detailCellVideoReusetIdentifier, forIndexPath: indexPath) as! BlogPostDetailVideoCollectionViewCell
+                
+                if let videoLink = blogPost.videoLink {
+                    videoCell.webView.loadRequest( NSURLRequest(URL: videoLink) )
+                    return videoCell
+                }
+            }
+            
+            // get a reference to our storyboard cell
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.Table.detailCellReuseIdentifier, forIndexPath: indexPath) as! BlogPostDetailCollectionViewCell
+    
+            self.setCellImage(cell, blogPost: blogPost, indexPath: indexPath)
+          
+            return cell
         }
        
         return cell
@@ -94,7 +103,16 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
         let defaultItemThumbnail = UIImage(named: "DefaultTableVIewThumbnail")
         
         if let images = blogPost.images{
-            let image = images[(indexPath.item - 1)]
+            
+            var image = String()
+     
+            // Adjust index for existence of video
+            if let _ = self.blogPost?.videoLink {
+                image = images[(indexPath.item - 1)]
+            }else{
+                image = images[(indexPath.item)]
+            }
+
             if let URL = NSURL(string: image) {
                 
                 let filter = AspectScaledToFillSizeWithRoundedCornersFilter(

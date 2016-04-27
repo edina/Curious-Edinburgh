@@ -98,6 +98,23 @@ extension BlogPost: MKAnnotation {
             return tourNumber
         }
     }
+    
+    var videoLink: NSURL? {
+        get {
+            var link: NSURL?
+            if let customFields = self.customFields{
+                if let cf = NSKeyedUnarchiver.unarchiveObjectWithData(customFields){
+                    let customFieldsJson = JSON(cf)
+                    if let linkString = customFieldsJson["video_link"].string {
+                        if let linkParams = NSURL(string: linkString)?.queryItems{
+                             link = NSURL(string: "https://www.youtube.com/embed/\(linkParams["v"]!)")
+                        }
+                    }
+                }
+            }
+            return link
+        }
+    }
 }
 
 private let characterEntities : [String: Character] = [
@@ -472,5 +489,18 @@ extension String {
         } else {
             return self
         }
+    }
+}
+
+// Returns a dict of a decoded query string, if present in the URL fragment.
+extension NSURL {
+    var queryItems: [String: String]? {
+        var params = [String: String]()
+        return NSURLComponents(URL: self, resolvingAgainstBaseURL: false)?
+            .queryItems?
+            .reduce([:], combine: { (_, item) -> [String: String] in
+                params[item.name] = item.value
+                return params
+            })
     }
 }

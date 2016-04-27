@@ -175,9 +175,10 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <dataDetectorType key="dataDetectorTypes" link="YES" address="YES"/>
                                     </textView>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XR3-Hd-180">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XR3-Hd-180">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1D6-pe-drd">
+                                        <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="1D6-pe-drd">
                                             <size key="itemSize" width="135" height="135"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -192,16 +193,17 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VcZ-bA-zHU">
-                                                            <rect key="frame" x="8" y="8" width="119" height="119"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
+                                                            <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <constraints>
-                                                    <constraint firstItem="VcZ-bA-zHU" firstAttribute="trailing" secondItem="xKn-qX-vdL" secondAttribute="trailingMargin" id="19Q-Ej-Hiu"/>
-                                                    <constraint firstItem="VcZ-bA-zHU" firstAttribute="leading" secondItem="xKn-qX-vdL" secondAttribute="leadingMargin" id="BKN-u0-ww8"/>
-                                                    <constraint firstItem="VcZ-bA-zHU" firstAttribute="bottom" secondItem="xKn-qX-vdL" secondAttribute="bottomMargin" id="FwT-9q-5Kv"/>
-                                                    <constraint firstItem="VcZ-bA-zHU" firstAttribute="top" secondItem="xKn-qX-vdL" secondAttribute="topMargin" id="WNJ-eg-cqE"/>
+                                                    <constraint firstItem="VcZ-bA-zHU" firstAttribute="leading" secondItem="xKn-qX-vdL" secondAttribute="leading" id="48e-Qh-lIo"/>
+                                                    <constraint firstItem="VcZ-bA-zHU" firstAttribute="top" secondItem="xKn-qX-vdL" secondAttribute="top" id="JYm-og-nXc"/>
+                                                    <constraint firstAttribute="trailing" secondItem="VcZ-bA-zHU" secondAttribute="trailing" id="WUA-CL-uHJ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="VcZ-bA-zHU" secondAttribute="bottom" id="rxx-K9-VFu"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="postThumbnail" destination="VcZ-bA-zHU" id="4Dc-GG-n6K"/>
@@ -215,22 +217,27 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="71L-CR-Jlz">
-                                                            <rect key="frame" x="8" y="8" width="119" height="119"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
                                                             <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                                                             <dataDetectorType key="dataDetectorTypes"/>
                                                         </webView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DefaultAnnotationThumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="Pae-te-FXd">
-                                                            <rect key="frame" x="8" y="8" width="119" height="119"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultAnnotationThumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="Pae-te-FXd">
+                                                            <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <constraints>
-                                                    <constraint firstItem="71L-CR-Jlz" firstAttribute="bottom" secondItem="j8d-LG-rCy" secondAttribute="bottomMargin" id="5tr-bG-oSh"/>
-                                                    <constraint firstItem="71L-CR-Jlz" firstAttribute="top" secondItem="j8d-LG-rCy" secondAttribute="topMargin" id="UuD-s4-Yjq"/>
-                                                    <constraint firstItem="71L-CR-Jlz" firstAttribute="trailing" secondItem="j8d-LG-rCy" secondAttribute="trailingMargin" id="XZk-yO-oy7"/>
-                                                    <constraint firstItem="71L-CR-Jlz" firstAttribute="leading" secondItem="j8d-LG-rCy" secondAttribute="leadingMargin" id="xk5-lR-O2A"/>
+                                                    <constraint firstItem="71L-CR-Jlz" firstAttribute="top" secondItem="Pae-te-FXd" secondAttribute="top" id="BN8-Ad-doG"/>
+                                                    <constraint firstItem="71L-CR-Jlz" firstAttribute="leading" secondItem="Pae-te-FXd" secondAttribute="leading" id="Bt3-W4-LxD"/>
+                                                    <constraint firstItem="71L-CR-Jlz" firstAttribute="bottom" secondItem="Pae-te-FXd" secondAttribute="bottom" id="Hi6-pf-8Zl"/>
+                                                    <constraint firstItem="71L-CR-Jlz" firstAttribute="leading" secondItem="j8d-LG-rCy" secondAttribute="leading" id="Kld-su-G2y"/>
+                                                    <constraint firstItem="71L-CR-Jlz" firstAttribute="top" secondItem="j8d-LG-rCy" secondAttribute="top" id="MJw-fi-EUw"/>
+                                                    <constraint firstAttribute="bottom" secondItem="71L-CR-Jlz" secondAttribute="bottom" id="NDK-vO-Z3y"/>
+                                                    <constraint firstItem="71L-CR-Jlz" firstAttribute="trailing" secondItem="Pae-te-FXd" secondAttribute="trailing" id="esS-3D-IUi"/>
+                                                    <constraint firstAttribute="trailing" secondItem="71L-CR-Jlz" secondAttribute="trailing" id="yZh-bh-WNA"/>
                                                 </constraints>
+                                                <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
                                                 <connections>
                                                     <outlet property="defaultImage" destination="Pae-te-FXd" id="TsT-oJ-qKv"/>
                                                     <outlet property="webView" destination="71L-CR-Jlz" id="ch6-uD-vDP"/>
