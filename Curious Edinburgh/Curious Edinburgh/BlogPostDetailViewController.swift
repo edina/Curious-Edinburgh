@@ -72,11 +72,7 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
             //do all the stuff here for the video
             let videoCell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.Table.detailCellVideoReusetIdentifier, forIndexPath: indexPath) as! BlogPostDetailVideoCollectionViewCell
             
-//            videoCell.webView.scrollView.scrollEnabled = false
-//            videoCell.webView.scrollView.bounces = false
-            
             let videoId = "fuD3Zco0aXs"
-            
             if let youtubeURL = NSURL(string: "https://www.youtube.com/embed/\(videoId)"){
                 videoCell.webView.loadRequest( NSURLRequest(URL: youtubeURL) )
             }

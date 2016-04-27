@@ -195,7 +195,11 @@
                                                         <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="71L-CR-Jlz">
                                                             <rect key="frame" x="8" y="8" width="119" height="119"/>
                                                             <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                                            <dataDetectorType key="dataDetectorTypes"/>
                                                         </webView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DefaultAnnotationThumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="Pae-te-FXd">
+                                                            <rect key="frame" x="8" y="8" width="119" height="119"/>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -206,6 +210,7 @@
                                                     <constraint firstItem="71L-CR-Jlz" firstAttribute="leading" secondItem="j8d-LG-rCy" secondAttribute="leadingMargin" id="xk5-lR-O2A"/>
                                                 </constraints>
                                                 <connections>
+                                                    <outlet property="defaultImage" destination="Pae-te-FXd" id="TsT-oJ-qKv"/>
                                                     <outlet property="webView" destination="71L-CR-Jlz" id="ch6-uD-vDP"/>
                                                 </connections>
                                             </collectionViewCell>
@@ -494,6 +499,9 @@
             <point key="canvasLocation" x="3878" y="1089"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="DefaultAnnotationThumbnail" width="32" height="32"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="T1q-kv-cx6"/>
     </inferredMetricsTieBreakers>

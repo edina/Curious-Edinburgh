@@ -8,12 +8,21 @@
 
 import UIKit
 
-class BlogPostDetailVideoCollectionViewCell: UICollectionViewCell {
+class BlogPostDetailVideoCollectionViewCell: UICollectionViewCell, UIWebViewDelegate {
     
     
-    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet var webView: UIWebView!
+    
+    @IBOutlet var defaultImage: UIImageView!
     
     override func layoutSubviews() {
+        self.webView.delegate = self
+    }
+    
+    
+    // MARK: - UIWebViewDelegate protocol
+    func webViewDidFinishLoad(webView: UIWebView) {
         
+        UIView.transitionFromView(self.defaultImage, toView: webView, duration: 0.5, options: UIViewAnimationOptions.TransitionFlipFromBottom, completion: nil)
     }
 }
