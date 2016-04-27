@@ -25,6 +25,50 @@ class TableViewController: UITableViewController {
         self.fetchCurrentObjects()
     }
     
+    func tourNumberImage(post: BlogPost) -> UIImage {
+        let text = post.tourNumber
+        let marker = UIImage(named:"TourNumber")
+        
+        // Setup the font specific variables
+        let textColor = UIColor.whiteColor()
+        let fontSize:CGFloat = 12.0
+        let textFont = UIFont.boldSystemFontOfSize(fontSize)
+        
+        //Setups up the font attributes that will be later used to dictate how the text should be drawn
+        let textFontAttributes = [
+            NSFontAttributeName: textFont,
+            NSForegroundColorAttributeName: textColor,
+            //        NSStrokeColorAttributeName: UIColor.blackColor(),
+            //        NSStrokeWidthAttributeName: 3.0
+        ]
+        
+        if let marker = marker, text = text {
+            
+            // Create bitmap based graphics context
+            UIGraphicsBeginImageContextWithOptions(marker.size, false, 0.0)
+            
+            //Put the image into a rectangle as large as the original image.
+            marker.drawInRect(CGRectMake(0, 0, marker.size.width, marker.size.height))
+            
+            // Our drawing bounds
+            let drawingBounds = CGRectMake(0.0, 0.0, marker.size.width, marker.size.height)
+            
+            let textSize = text.sizeWithAttributes([NSFontAttributeName:textFont])
+            let textRect = CGRectMake(drawingBounds.size.width/2 - textSize.width/2, drawingBounds.size.height/2 - textSize.height/2,
+                                      textSize.width, textSize.height)
+            
+            text.drawInRect(textRect, withAttributes: textFontAttributes)
+            
+            // Get the image from the graphics context
+            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            return newImage
+        }
+        
+        return marker!
+    }
+    
  
     // MARK: - Update Table
   
@@ -50,6 +94,8 @@ class TableViewController: UITableViewController {
         }
         
         self.setCellImage(cell, blogPost: blogPost)
+        
+        cell.tourNumber.image = tourNumberImage(blogPost)
 
         return cell
     }

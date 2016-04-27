@@ -58,12 +58,21 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wXb-BV-LWl">
+                                                    <rect key="frame" x="2" y="34" width="32" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="8gj-Jn-ZW2"/>
+                                                        <constraint firstAttribute="width" constant="32" id="B9H-e4-zap"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="l0d-DH-PZL" firstAttribute="leading" secondItem="Z1l-mJ-b3I" secondAttribute="leading" id="1AI-8g-4Id"/>
+                                                <constraint firstItem="wXb-BV-LWl" firstAttribute="trailing" secondItem="hS3-aD-EI1" secondAttribute="trailing" id="1Yq-Kt-hDj"/>
                                                 <constraint firstItem="hS3-aD-EI1" firstAttribute="bottom" secondItem="Z1l-mJ-b3I" secondAttribute="bottomMargin" id="2lz-qT-xaY"/>
                                                 <constraint firstItem="hS3-aD-EI1" firstAttribute="bottom" secondItem="bef-xf-9YV" secondAttribute="bottom" id="4FG-XO-a3Z"/>
+                                                <constraint firstItem="wXb-BV-LWl" firstAttribute="top" secondItem="hS3-aD-EI1" secondAttribute="top" constant="-6" id="6sI-Nt-Dty"/>
                                                 <constraint firstItem="bef-xf-9YV" firstAttribute="trailing" secondItem="Z1l-mJ-b3I" secondAttribute="trailingMargin" id="9pF-nr-qsN"/>
                                                 <constraint firstAttribute="trailing" secondItem="l0d-DH-PZL" secondAttribute="trailing" id="Bxv-9L-fEn"/>
                                                 <constraint firstItem="hS3-aD-EI1" firstAttribute="leading" secondItem="Z1l-mJ-b3I" secondAttribute="leadingMargin" id="CB0-H6-jde"/>
@@ -71,7 +80,19 @@
                                                 <constraint firstItem="hS3-aD-EI1" firstAttribute="top" secondItem="l0d-DH-PZL" secondAttribute="bottom" constant="8" symbolic="YES" id="QjJ-yo-MKZ"/>
                                                 <constraint firstItem="hS3-aD-EI1" firstAttribute="top" secondItem="bef-xf-9YV" secondAttribute="top" id="W0i-K9-kz2"/>
                                                 <constraint firstItem="l0d-DH-PZL" firstAttribute="top" secondItem="Z1l-mJ-b3I" secondAttribute="top" id="YPL-kH-0ce"/>
+                                                <constraint firstItem="wXb-BV-LWl" firstAttribute="leading" secondItem="hS3-aD-EI1" secondAttribute="leading" constant="-6" id="jup-zB-ort"/>
+                                                <constraint firstItem="bef-xf-9YV" firstAttribute="leading" secondItem="wXb-BV-LWl" secondAttribute="trailing" constant="-5" id="qTj-d3-mll"/>
+                                                <constraint firstItem="wXb-BV-LWl" firstAttribute="top" secondItem="hS3-aD-EI1" secondAttribute="top" id="upQ-Xh-qLj"/>
+                                                <constraint firstItem="wXb-BV-LWl" firstAttribute="trailing" secondItem="hS3-aD-EI1" secondAttribute="trailing" constant="8" id="vTX-dH-V5b"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="1Yq-Kt-hDj"/>
+                                                    <exclude reference="upQ-Xh-qLj"/>
+                                                    <exclude reference="vTX-dH-V5b"/>
+                                                    <exclude reference="qTj-d3-mll"/>
+                                                </mask>
+                                            </variation>
                                         </view>
                                     </subviews>
                                     <constraints>
@@ -88,6 +109,7 @@
                                     <outlet property="postDescription" destination="bef-xf-9YV" id="DAX-b0-Lri"/>
                                     <outlet property="postThumbnail" destination="hS3-aD-EI1" id="JRj-lG-522"/>
                                     <outlet property="postTitle" destination="VyN-jp-uo4" id="Tav-mf-rZG"/>
+                                    <outlet property="tourNumber" destination="wXb-BV-LWl" id="tM5-IG-OAh"/>
                                     <segue destination="6di-XV-KaP" kind="presentation" identifier="ShowBlogPostDetail" id="T1q-kv-cx6"/>
                                 </connections>
                             </tableViewCell>

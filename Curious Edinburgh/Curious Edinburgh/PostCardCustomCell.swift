@@ -13,6 +13,7 @@ class PostCardCustomCell: UITableViewCell {
     @IBOutlet weak var postThumbnail: UIImageView!
     @IBOutlet weak var postDescription: UITextView!
     @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var tourNumber: UIImageView!
     
     override func layoutSubviews() {
         self.setUpCardView()
