@@ -207,7 +207,7 @@
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="postThumbnail" destination="VcZ-bA-zHU" id="4Dc-GG-n6K"/>
-                                                    <segue destination="cIw-9j-Ov2" kind="show" identifier="showImage" id="v91-RG-OaT"/>
+                                                    <segue destination="cIw-9j-Ov2" kind="presentation" identifier="showImage" modalPresentationStyle="currentContext" modalTransitionStyle="crossDissolve" id="v91-RG-OaT"/>
                                                 </connections>
                                             </collectionViewCell>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" semanticContentAttribute="playback" reuseIdentifier="detailCellVideoReuseIdentifier" id="j8d-LG-rCy" customClass="BlogPostDetailVideoCollectionViewCell" customModule="Curious_Edinburgh" customModuleProvider="target">

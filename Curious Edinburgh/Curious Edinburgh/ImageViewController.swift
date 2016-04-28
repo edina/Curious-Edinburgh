@@ -20,17 +20,10 @@ class ImageViewController: UIViewController {
         let defaultItemThumbnail = UIImage(named: "DefaultTableVIewThumbnail")
         if let image = imageURL{
             if let URL = NSURL(string: image) {
-                
-                let filter = ScaledToSizeWithRoundedCornersFilter(
-                    size: self.imageView.frame.size,
-                    radius: Constants.View.defaultCornerRadius
-                )
                 self.imageView.af_setImageWithURL(URL,
                                                   placeholderImage: defaultItemThumbnail,
-                                                  filter: filter,
-                                                  imageTransition: .FlipFromBottom(0.5))
-                
-                
+                                                  filter: nil,
+                                                  imageTransition: .None)
                 
             }
         }
