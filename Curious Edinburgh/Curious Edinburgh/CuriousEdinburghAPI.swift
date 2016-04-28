@@ -53,10 +53,16 @@ class _CuriousEdinburghAPI {
     func fetchBlogPostsFromCoreData()  -> [BlogPost] {
         let request = NSFetchRequest(entityName: Constants.Entity.blogPost)
         var blogPosts = (try! self.dataStack?.mainContext.executeFetchRequest(request)) as! [BlogPost]
-        blogPosts.sortInPlace({Int($0.tourNumber!) < Int($1.tourNumber!)}) // TODO Don't like this, what happens if tourNumber is nil?
+        blogPosts.sortInPlace(self.sortBlogPostsByTourNumberAsc)
         return blogPosts
     }
     
+    func sortBlogPostsByTourNumberAsc(post1: BlogPost, post2: BlogPost) -> Bool {
+        if let number1 = post1.tourNumber, number2 = post2.tourNumber {
+            return Int(number1) < Int(number2)
+        }
+        return false
+    }
 }
 
 let curiousEdinburghAPI = _CuriousEdinburghAPI()
