@@ -383,23 +383,57 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gO1-v4-v4s">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="GNh-Xk-eZH" appends="YES" id="vOb-6W-sgJ"/>
+                                </connections>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVp-QG-DRk">
+                                <rect key="frame" x="558" y="20" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="EFh-j5-eGP"/>
+                                    <constraint firstAttribute="height" constant="22" id="yPE-Mc-2mi"/>
+                                </constraints>
+                                <state key="normal" image="CurrentLocationIcon"/>
+                                <connections>
+                                    <action selector="setMapToUserLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c34-Qw-6lj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="LVp-QG-DRk" firstAttribute="trailing" secondItem="gO1-v4-v4s" secondAttribute="trailing" constant="-20" id="3Pj-yd-Aqt"/>
                             <constraint firstItem="gO1-v4-v4s" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="SOs-P1-vmE"/>
                             <constraint firstItem="gO1-v4-v4s" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Uww-Wd-nGa"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LVp-QG-DRk" secondAttribute="bottom" constant="540" id="fpF-YR-kaP"/>
                             <constraint firstItem="gO1-v4-v4s" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="i9b-j6-slw"/>
+                            <constraint firstItem="LVp-QG-DRk" firstAttribute="top" secondItem="gO1-v4-v4s" secondAttribute="top" constant="20" id="lvG-Vc-5YA"/>
+                            <constraint firstItem="LVp-QG-DRk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="r8G-r2-1bc"/>
+                            <constraint firstItem="LVp-QG-DRk" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="uM2-s3-hx3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gO1-v4-v4s" secondAttribute="trailing" constant="-20" id="vMg-0L-CTl"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="r8G-r2-1bc"/>
+                                <exclude reference="uM2-s3-hx3"/>
+                                <exclude reference="fpF-YR-kaP"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Curious Edinburgh" id="l9P-wV-TVc"/>
                     <connections>
+                        <outlet property="currentLocationButton" destination="LVp-QG-DRk" id="h6j-mL-yIh"/>
                         <outlet property="mapView" destination="gO1-v4-v4s" id="MRF-8g-PED"/>
+                        <outlet property="mapViewPanGesture" destination="GNh-Xk-eZH" id="LWT-F3-gu4"/>
                         <segue destination="6di-XV-KaP" kind="presentation" identifier="BlogPostDetail" id="z9p-Gl-z5O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="GNh-Xk-eZH">
+                    <connections>
+                        <action selector="mapDrag:" destination="BYZ-38-t0r" id="c9z-Ng-GaN"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2449" y="403"/>
         </scene>
@@ -570,6 +604,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CurrentLocationIcon" width="22" height="22"/>
         <image name="DefaultAnnotationThumbnail" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>

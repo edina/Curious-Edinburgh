@@ -13,11 +13,13 @@ import MapKit
 import AlamofireImage
 
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
     
     var blogPosts = [BlogPost]()
     let locationManager = CLLocationManager()
     
+    @IBOutlet weak var currentLocationButton: UIButton!
+    @IBOutlet var mapViewPanGesture: UIPanGestureRecognizer!
     @IBOutlet weak var mapView: MKMapView! {
         didSet {
             // Set delegate for Map and location manager
@@ -28,6 +30,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.mapViewPanGesture.delegate = self
         
         // Listen for sync completion notification
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.changeNotification(_:)), name:Constants.Notifications.SyncComplete, object: nil)
@@ -38,6 +41,24 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if(status != CLAuthorizationStatus.NotDetermined) {
              mapView.showsUserLocation = true
+        }
+    }
+    
+    @IBAction func setMapToUserLocation(sender: UIButton) {
+        // TODO: Check user location is within survey bounding box
+        let image = UIImage(named: "CurrentLocationIconSelected")
+        currentLocationButton.setImage(image, forState: .Normal)
+        mapView.setCenterCoordinate(locationManager.location!.coordinate, animated: true)
+    }
+    
+    @IBAction func mapDrag(sender: UIPanGestureRecognizer) {
+        if(sender.state == UIGestureRecognizerState.Changed){
+            let image = UIImage(named: "CurrentLocationIcon")
+            if let buttonImage = currentLocationButton.currentImage {
+                if buttonImage != image {
+                    currentLocationButton.setImage(image, forState: .Normal)
+                }
+            }
         }
     }
     
@@ -116,7 +137,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 view = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 view.canShowCallout = true
                 view.leftCalloutAccessoryView = imageView
-                view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
                 let mapMarker = customMarker(annotation)
                 view.image = mapMarker
             }
@@ -172,4 +192,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         return marker!
     }
+    
+    // MARK: UIGestureRecognizerDelegate
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
 }
