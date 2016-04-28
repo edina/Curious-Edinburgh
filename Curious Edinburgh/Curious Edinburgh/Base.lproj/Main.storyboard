@@ -207,7 +207,7 @@
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="postThumbnail" destination="VcZ-bA-zHU" id="4Dc-GG-n6K"/>
-                                                    <segue destination="cIw-9j-Ov2" kind="presentation" identifier="showImage" modalPresentationStyle="currentContext" modalTransitionStyle="crossDissolve" id="v91-RG-OaT"/>
+                                                    <segue destination="cIw-9j-Ov2" kind="presentation" identifier="showImage" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="v91-RG-OaT"/>
                                                 </connections>
                                             </collectionViewCell>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" semanticContentAttribute="playback" reuseIdentifier="detailCellVideoReuseIdentifier" id="j8d-LG-rCy" customClass="BlogPostDetailVideoCollectionViewCell" customModule="Curious_Edinburgh" customModuleProvider="target">
@@ -312,6 +312,7 @@
                                 </connections>
                             </imageView>
                         </subviews>
+                        <color key="backgroundColor" red="0.39607843139999999" green="0.49803921569999998" blue="0.54901960780000003" alpha="0.79663745777027029" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Hz6-dL-To9" firstAttribute="top" secondItem="CDP-jz-ph5" secondAttribute="top" id="PjY-TP-wMI"/>
                             <constraint firstItem="Hz6-dL-To9" firstAttribute="bottom" secondItem="GMq-ba-n9v" secondAttribute="top" id="PkK-SW-sPQ"/>
