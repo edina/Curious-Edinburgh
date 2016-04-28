@@ -143,6 +143,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 view = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 view.canShowCallout = true
                 view.leftCalloutAccessoryView = imageView
+                view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
                 let mapMarker = customMarker(annotation)
                 view.image = mapMarker
             }
