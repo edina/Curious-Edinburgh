@@ -68,6 +68,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         for post in self.blogPosts {
             mapView.addAnnotation(post)
         }
+        var count = 0
+        repeat {
+            self.getDirections(blogPosts[count].coordinate, toLocationCoord: blogPosts[count+1].coordinate)
+            count = count + 1
+        } while count < blogPosts.count - 1
+        
     }
     
     func initialMapLocation() {
@@ -149,6 +155,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.performSegueWithIdentifier(Constants.SegueIDs.blogPostDetail, sender: view)
     }
     
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = self.view.tintColor
+        renderer.lineWidth = 3
+        return renderer
+    }
+    
     func customMarker(post: BlogPost) -> UIImage {
         let text = post.tourNumber
         let marker = UIImage(named:"CustomMapMarker")
@@ -192,6 +205,29 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         return marker!
     }
+    
+    func getDirections(fromLocationCoord: CLLocationCoordinate2D, toLocationCoord: CLLocationCoordinate2D) {
+        let fromLocationMapItem = MKMapItem(placemark: MKPlacemark(coordinate: fromLocationCoord, addressDictionary: nil))
+        let toLocationMapItem = MKMapItem(placemark: MKPlacemark(coordinate: toLocationCoord, addressDictionary: nil))
+        
+        let directionsRequest = MKDirectionsRequest()
+        directionsRequest.transportType = .Walking
+        directionsRequest.source = fromLocationMapItem
+        directionsRequest.destination = toLocationMapItem
+        
+        let directions = MKDirections(request: directionsRequest)
+        directions.calculateDirectionsWithCompletionHandler { (directionsResponse, error) -> Void in
+            if let error = error {
+                print("Error getting directions: \(error.localizedDescription)")
+            } else {
+                if let response = directionsResponse {
+                    let route = response.routes[0]
+                    self.mapView.addOverlay(route.polyline)
+                }
+            }
+        }
+    }
+
     
     // MARK: UIGestureRecognizerDelegate
     
