@@ -96,6 +96,7 @@ class TableViewController: UITableViewController {
         self.setCellImage(cell, blogPost: blogPost)
         
         cell.tourNumber.image = tourNumberImage(blogPost)
+        cell.contentView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
 
         return cell
     }
