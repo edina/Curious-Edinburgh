@@ -104,16 +104,19 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
         
         if let images = blogPost.images{
             
-            var image = String()
-     
-            // Adjust index for existence of video
-            if let _ = self.blogPost?.videoLink {
-                image = images[(indexPath.item - 1)]
-            }else{
-                image = images[(indexPath.item)]
-            }
+//            var image = String()
+//     
+//            // Adjust index for existence of video
+//            if let _ = self.blogPost?.videoLink {
+//                image = images[(indexPath.item - 1)]
+//            }else{
+//                image = images[(indexPath.item)]
+//            }
 
-            if let URL = NSURL(string: image) {
+        
+            
+            
+            if let URL = NSURL(string: images[self.adjustedCellIndex(indexPath)]) {
                 
                 let filter = AspectScaledToFillSizeWithRoundedCornersFilter(
                     size: cell.postThumbnail.frame.size,
@@ -133,17 +136,40 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
+        performSegueWithIdentifier(Constants.SegueIDs.showImage, sender: indexPath)
+
+    }
+    
+    func adjustedCellIndex(indexPath: NSIndexPath) -> Int {
+        var index = indexPath.item
+        if let _ = self.blogPost?.videoLink {
+            index = index - 1
+        }
+        return index
     }
     
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        // Pass the selected object to the new view controller..
+        
+        if segue.identifier == Constants.SegueIDs.showImage {
+            if let imvc = segue.destinationViewController as? ImageViewController{
+               
+                if let indexPath = collectionView.indexPathsForSelectedItems(){
+                    
+                    // Adjust index if there is a video
+                    var index = indexPath[0].row
+                    if let _ = self.blogPost?.videoLink {
+                        index = index - 1
+                    }
+                    let imageUrl = self.blogPost?.images?[self.adjustedCellIndex(indexPath[0])]
+                    imvc.imageURL = imageUrl
+                }
+            }
+        }
     }
-    */
-
 }

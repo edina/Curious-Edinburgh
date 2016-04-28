@@ -29,6 +29,7 @@ struct Constants {
     struct SegueIDs {
         static let showBlogPostDetail = "ShowBlogPostDetail"
         static let blogPostDetail =  "BlogPostDetail"
+        static let showImage =  "showImage"
     }
 
     struct ImageIdentifiers {

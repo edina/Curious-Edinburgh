@@ -207,6 +207,7 @@
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="postThumbnail" destination="VcZ-bA-zHU" id="4Dc-GG-n6K"/>
+                                                    <segue destination="cIw-9j-Ov2" kind="show" identifier="showImage" id="v91-RG-OaT"/>
                                                 </connections>
                                             </collectionViewCell>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" semanticContentAttribute="playback" reuseIdentifier="detailCellVideoReuseIdentifier" id="j8d-LG-rCy" customClass="BlogPostDetailVideoCollectionViewCell" customModule="Curious_Edinburgh" customModuleProvider="target">
@@ -290,6 +291,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOh-ye-QCJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3145" y="1089"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="5iG-Ey-PFG">
+            <objects>
+                <viewController id="cIw-9j-Ov2" customClass="ImageViewController" customModule="Curious_Edinburgh" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ksn-5L-LrI"/>
+                        <viewControllerLayoutGuide type="bottom" id="GMq-ba-n9v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CDP-jz-ph5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-dL-To9">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="NCO-Ie-a2I" appends="YES" id="l9R-xW-02s"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Hz6-dL-To9" firstAttribute="top" secondItem="CDP-jz-ph5" secondAttribute="top" id="PjY-TP-wMI"/>
+                            <constraint firstItem="Hz6-dL-To9" firstAttribute="bottom" secondItem="GMq-ba-n9v" secondAttribute="top" id="PkK-SW-sPQ"/>
+                            <constraint firstItem="Hz6-dL-To9" firstAttribute="leading" secondItem="CDP-jz-ph5" secondAttribute="leading" id="Tbn-Vi-SIe"/>
+                            <constraint firstAttribute="trailing" secondItem="Hz6-dL-To9" secondAttribute="trailing" id="Y4z-YC-4mB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Hz6-dL-To9" id="Vis-s7-ncA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oqz-MX-sCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="NCO-Ie-a2I">
+                    <connections>
+                        <action selector="imageTapped:" destination="cIw-9j-Ov2" id="vGm-F9-79t"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3145" y="1801"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="MbD-F7-vXa">
@@ -532,7 +573,7 @@
         <image name="DefaultAnnotationThumbnail" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="T1q-kv-cx6"/>
+        <segue reference="z9p-Gl-z5O"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.396078431372549" green="0.49803921568627452" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
 </document>
