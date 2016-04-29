@@ -24,6 +24,13 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBOutlet weak var closeButton: UIButton! {
+        didSet{
+            closeButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_4))
+        }
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,27 +42,13 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
             self.textView.text = content
         }
         
-        self.textView.layer.masksToBounds = false;
-        self.textView.layer.cornerRadius = 1; // if you like rounded corners
-        self.textView.layer.shadowOffset = CGSizeMake(-0.3, 0.3)
-        self.textView.layer.shadowRadius = 1;
-        self.textView.layer.shadowOpacity = 0.2;
-        self.textView.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.5).CGColor
-        self.textView.layer.borderWidth = 0.5
+     
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func loadYouTube(videoID:String) {
-        guard
-            let youtubeURL = NSURL(string: "https://www.youtube.com/embed/\(videoID)")
-            else { return }
-        videoView.loadRequest( NSURLRequest(URL: youtubeURL) )
-    }
-
     
     
     // MARK: - UICollectionViewDataSource protocol
