@@ -99,6 +99,20 @@ extension BlogPost: MKAnnotation {
         }
     }
     
+    var mainText: String? {
+        get {
+            var mainText: String?
+            if let customFields = self.customFields{
+                if let customFields = NSKeyedUnarchiver.unarchiveObjectWithData(customFields){
+                    let customFieldsJson = JSON(customFields)
+                    let decodedString = customFieldsJson["main_text"].stringValue.stringByDecodingHTMLEntities
+                    if !(decodedString.isEmpty) {mainText = decodedString}
+                }
+            }
+            return mainText
+        }
+    }
+    
     var videoLink: NSURL? {
         get {
             var link: NSURL?

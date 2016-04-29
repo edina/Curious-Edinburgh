@@ -39,11 +39,11 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
 
         self.titleLabel.title = blogPost?.title
         
-        if let content = blogPost?.strippedContent {
+        // Note that strippedContent is temporary until all mainText fields are populated
+        if let content = blogPost?.mainText ?? blogPost?.strippedContent{
             self.textView.text = content
         }
-        
-     
+
     }
 
     override func didReceiveMemoryWarning() {
