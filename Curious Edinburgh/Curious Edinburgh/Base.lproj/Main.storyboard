@@ -188,7 +188,7 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XR3-Hd-180">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                                         <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="1D6-pe-drd">
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="3" minimumInteritemSpacing="0.0" id="1D6-pe-drd">
                                             <size key="itemSize" width="135" height="135"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -221,7 +221,7 @@
                                                 </connections>
                                             </collectionViewCell>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" semanticContentAttribute="playback" reuseIdentifier="detailCellVideoReuseIdentifier" id="j8d-LG-rCy" customClass="BlogPostDetailVideoCollectionViewCell" customModule="Curious_Edinburgh" customModuleProvider="target">
-                                                <rect key="frame" x="145" y="8" width="135" height="135"/>
+                                                <rect key="frame" x="138" y="8" width="135" height="135"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                     <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
@@ -323,7 +323,7 @@
                                 </connections>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.39607843139999999" green="0.49803921569999998" blue="0.54901960780000003" alpha="0.79663745777027029" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.39607843139999999" green="0.49803921569999998" blue="0.54901960780000003" alpha="0.9462890625" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Hz6-dL-To9" firstAttribute="top" secondItem="CDP-jz-ph5" secondAttribute="top" id="PjY-TP-wMI"/>
                             <constraint firstItem="Hz6-dL-To9" firstAttribute="bottom" secondItem="GMq-ba-n9v" secondAttribute="top" id="PkK-SW-sPQ"/>

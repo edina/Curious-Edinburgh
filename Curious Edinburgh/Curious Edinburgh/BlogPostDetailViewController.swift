@@ -35,7 +35,8 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
         super.viewDidLoad()
         
         self.collectionView.backgroundColor = UIColor.whiteColor()
-        
+        self.collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+
         self.titleLabel.title = blogPost?.title
         
         if let content = blogPost?.strippedContent {
@@ -96,19 +97,6 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
         let defaultItemThumbnail = UIImage(named: "DefaultTableVIewThumbnail")
         
         if let images = blogPost.images{
-            
-//            var image = String()
-//     
-//            // Adjust index for existence of video
-//            if let _ = self.blogPost?.videoLink {
-//                image = images[(indexPath.item - 1)]
-//            }else{
-//                image = images[(indexPath.item)]
-//            }
-
-        
-            
-            
             if let URL = NSURL(string: images[self.adjustedCellIndex(indexPath)]) {
                 
                 let filter = AspectScaledToFillSizeWithRoundedCornersFilter(
