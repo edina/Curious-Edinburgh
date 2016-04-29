@@ -90,7 +90,7 @@ class TableViewController: UITableViewController {
         
         cell.postTitle.text = blogPost.title?.uppercaseString
         if let content = blogPost.strippedContent {
-            cell.postDescription.text = content.trunc(100)
+            cell.postDescription.text = content.trunc(185)
         }
         
         self.setCellImage(cell, blogPost: blogPost)
