@@ -40,20 +40,7 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
 
         self.titleLabel.title = blogPost?.title
         
-        // Note that strippedContent is temporary until all mainText fields are populated
-        if let content = blogPost?.mainText ?? blogPost?.strippedContent{
-            self.textView.text = content
-        }
-        
-        if let additionalLinks = self.blogPost?.additionalLinks {
-            let attrs = [NSFontAttributeName : UIFont.systemFontOfSize(50.0)]
-            let gString = NSMutableAttributedString(string:"\n\nAssociated Links:\n\n", attributes:attrs)
-            self.textView.text.appendContentsOf(gString.string)
-//            self.textView.attributedText  = gString
-            self.textView.text.appendContentsOf(additionalLinks.joinWithSeparator("\n"))
-//            self.linksTextView.text = additionalLinks.joinWithSeparator("\n")
-        }
-
+        self.addContentToTextView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,6 +48,54 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func addContentToTextView() {
+
+        // Define string attributes
+        let font =  UIFont.systemFontOfSize(15.0)
+        let textFont = [NSFontAttributeName:font]
+        
+        let fontBold =  UIFont.boldSystemFontOfSize(18.0)
+        let textFontBold = [NSFontAttributeName:fontBold]
+        
+        let fontItal =  UIFont.systemFontOfSize(18.0)
+//        let italFont = [NSFontAttributeName:fontItal]
+        
+        // Create a string that will be our paragraph
+        let para = NSMutableAttributedString()
+        
+        if let content = blogPost?.mainText ?? blogPost?.strippedContent{
+            
+            let contentString = NSAttributedString(string: content, attributes:textFont)
+            para.appendAttributedString(contentString)
+            
+        }
+        
+        if let additionalLinks = self.blogPost?.additionalLinks {
+            
+            let additionalLinksTitle = NSMutableAttributedString(string:"\n\nAssociated Links\n\n", attributes:textFontBold)
+            
+            para.appendAttributedString(additionalLinksTitle)
+            
+            let additionalLinks = NSAttributedString(string: additionalLinks.joinWithSeparator("\n"), attributes:textFont)
+            
+            para.appendAttributedString(additionalLinks)
+        }
+        
+        
+        // Define paragraph styling
+        let paraStyle = NSMutableParagraphStyle()
+        
+        //        paraStyle.firstLineHeadIndent = 15.0
+        //        paraStyle.paragraphSpacingBefore = 10.0
+        //
+        // Apply paragraph styles to paragraph
+        para.addAttribute(NSParagraphStyleAttributeName, value: paraStyle, range: NSRange(location: 0,length: para.length))
+        
+        
+        // Finally, add the text to the textView
+        self.textView.attributedText  = para
+    }
     
     // MARK: - UICollectionViewDataSource protocol
     
