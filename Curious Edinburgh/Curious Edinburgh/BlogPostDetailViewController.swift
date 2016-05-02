@@ -19,6 +19,7 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
     
     @IBOutlet weak var videoView: UIWebView!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var linksTextView: UITextView!
     
     @IBAction func dismiss(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -42,6 +43,15 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
         // Note that strippedContent is temporary until all mainText fields are populated
         if let content = blogPost?.mainText ?? blogPost?.strippedContent{
             self.textView.text = content
+        }
+        
+        if let additionalLinks = self.blogPost?.additionalLinks {
+            let attrs = [NSFontAttributeName : UIFont.systemFontOfSize(50.0)]
+            let gString = NSMutableAttributedString(string:"\n\nAssociated Links:\n\n", attributes:attrs)
+            self.textView.text.appendContentsOf(gString.string)
+//            self.textView.attributedText  = gString
+            self.textView.text.appendContentsOf(additionalLinks.joinWithSeparator("\n"))
+//            self.linksTextView.text = additionalLinks.joinWithSeparator("\n")
         }
 
     }

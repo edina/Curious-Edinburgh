@@ -113,6 +113,24 @@ extension BlogPost: MKAnnotation {
         }
     }
     
+    var additionalLinks: [String]? {
+        get {
+            var additionalLinks = [String]?()
+            if let customFields = self.customFields{
+                // Extract images from text and add to array
+                if let customFields = NSKeyedUnarchiver.unarchiveObjectWithData(customFields){
+                    let customFieldsJson = JSON(customFields)
+                    if let linksString = customFieldsJson["additional_links"].string{
+                        additionalLinks = linksString.componentsSeparatedByString("|")
+                    }
+                }
+            }
+            return additionalLinks
+            
+        }
+    }
+    
+    
     var videoLink: NSURL? {
         get {
             var link: NSURL?
