@@ -45,7 +45,6 @@ extension BlogPost: MKAnnotation {
             var content : String?
             if let rawContent = self.contentValue {
                 content = rawContent.stripHTML()
-                print(content)
             }
             return content
         }
@@ -110,6 +109,20 @@ extension BlogPost: MKAnnotation {
                 }
             }
             return mainText
+        }
+    }
+    
+    var streetAddress: String? {
+        get {
+            var streetAddress: String?
+            if let customFields = self.customFields{
+                if let customFields = NSKeyedUnarchiver.unarchiveObjectWithData(customFields){
+                    let customFieldsJson = JSON(customFields)
+                    let decodedString = customFieldsJson["street_address"].stringValue.stringByDecodingHTMLEntities
+                    if !(decodedString.isEmpty) {streetAddress = decodedString}
+                }
+            }
+            return streetAddress
         }
     }
     

@@ -58,13 +58,23 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
         let fontBold =  UIFont.boldSystemFontOfSize(18.0)
         let textFontBold = [NSFontAttributeName:fontBold]
         
-        let fontItal =  UIFont.systemFontOfSize(18.0)
+//        let fontItal =  UIFont.systemFontOfSize(18.0)
 //        let italFont = [NSFontAttributeName:fontItal]
         
         // Create a string that will be our paragraph
         let para = NSMutableAttributedString()
         
+        
         if let content = blogPost?.mainText ?? blogPost?.strippedContent{
+            
+            if let address = blogPost?.streetAddress, mainText = blogPost?.mainText{
+                // Only have to explicitly add address if mainText doesn't exist
+                if !mainText.isEmpty {
+                    let contentString = NSAttributedString(string: "\(address)\n\n", attributes:textFont)
+                    para.appendAttributedString(contentString)
+                }
+   
+            }
             
             let contentString = NSAttributedString(string: content, attributes:textFont)
             para.appendAttributedString(contentString)
@@ -161,7 +171,6 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         // handle tap events
-        print("You selected cell #\(indexPath.item)!")
         performSegueWithIdentifier(Constants.SegueIDs.showImage, sender: indexPath)
 
     }
