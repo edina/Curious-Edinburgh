@@ -319,6 +319,7 @@
 				TargetAttributes = {
 					3BFED61B1CBBEBFE00597967 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 8UFDJCMUH2;
 					};
 					3BFED6321CBBEBFE00597967 = {
 						CreatedOnToolsVersion = 7.3;
@@ -591,8 +592,9 @@
 			baseConfigurationReference = 4470E5C4ECAB9127B5F1825E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Curious Edinburgh/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.edina.crowdsurvey.Curious-Edinburgh";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -604,8 +606,9 @@
 			baseConfigurationReference = B15EBCC5545CA1AA83BA36A3 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Curious Edinburgh/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.edina.crowdsurvey.Curious-Edinburgh";
 				PRODUCT_NAME = "$(TARGET_NAME)";
