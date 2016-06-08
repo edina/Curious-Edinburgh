@@ -17,7 +17,7 @@ struct Constants {
     }
     
     struct API {
-        static let url = "http://ec2-52-50-23-66.eu-west-1.compute.amazonaws.com/wp-json/wp/v2/posts"
+        static let url = "http://curiousedinburgh.org/wp-json/wp/v2/posts?per_page=100"
     }
 
     struct Table {
