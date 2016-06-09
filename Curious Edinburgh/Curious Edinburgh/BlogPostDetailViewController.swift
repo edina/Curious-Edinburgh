@@ -65,8 +65,8 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
         let para = NSMutableAttributedString()
         
         
-        if let content = blogPost?.mainText ?? blogPost?.strippedContent{
-            
+        if var content = blogPost?.mainText ?? blogPost?.strippedContent{
+            content = content.stringByReplacingOccurrencesOfString("<br />", withString: "")
             if let address = blogPost?.streetAddress, mainText = blogPost?.mainText{
                 // Only have to explicitly add address if mainText doesn't exist
                 if !mainText.isEmpty {
