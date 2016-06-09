@@ -80,8 +80,8 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
             para.appendAttributedString(contentString)
             
         }
-        
-        if let additionalLinks = self.blogPost?.additionalLinks {
+    
+        if let additionalLinks = self.blogPost?.additionalLinks where additionalLinks.count > 0 {
             
             let additionalLinksTitle = NSMutableAttributedString(string:"\n\nAssociated Links\n\n", attributes:textFontBold)
             

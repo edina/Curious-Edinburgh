@@ -138,6 +138,16 @@ extension BlogPost: MKAnnotation {
                     }
                 }
             }
+            // Remove any empty links
+            if var links = additionalLinks{
+                let count = 0
+                for link in links{
+                    if link == "" {
+                        links.removeAtIndex(count)
+                    }
+                }
+                additionalLinks = links
+            }
             return additionalLinks
             
         }
