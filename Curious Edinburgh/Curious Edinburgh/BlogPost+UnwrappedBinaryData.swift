@@ -140,11 +140,15 @@ extension BlogPost: MKAnnotation {
             }
             // Remove any empty links
             if var links = additionalLinks{
-                let count = 0
+                var count = 0
                 for link in links{
                     if link == "" {
                         links.removeAtIndex(count)
                     }
+                    else {
+                        links[count] = link + "\n"
+                    }
+                    count += 1
                 }
                 additionalLinks = links
             }
