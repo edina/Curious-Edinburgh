@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TbH-yG-CI8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TbH-yG-CI8">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -362,9 +362,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xrN-Cx-td4">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Banner" translatesAutoresizingMaskIntoConstraints="NO" id="jqo-zn-lfJ">
+                                        <rect key="frame" x="200" y="25" width="200" height="47"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.55294117649999996" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="jqo-zn-lfJ" firstAttribute="bottom" secondItem="xrN-Cx-td4" secondAttribute="bottomMargin" id="DBn-UJ-be3"/>
+                                    <constraint firstAttribute="height" constant="80" id="p1h-j5-qlg"/>
+                                    <constraint firstItem="jqo-zn-lfJ" firstAttribute="centerX" secondItem="xrN-Cx-td4" secondAttribute="centerX" id="qdg-lT-ayB"/>
+                                </constraints>
+                            </view>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wFq-1a-Dnm">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <rect key="frame" x="0.0" y="80" width="600" height="520"/>
+                                <color key="backgroundColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="sTi-ys-r37" id="Bzf-qf-btv"/>
@@ -373,10 +387,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wFq-1a-Dnm" firstAttribute="top" secondItem="aez-Gf-pPR" secondAttribute="top" id="Cfa-xi-7aZ"/>
-                            <constraint firstAttribute="trailing" secondItem="wFq-1a-Dnm" secondAttribute="trailing" id="LVG-qv-wAR"/>
-                            <constraint firstItem="wFq-1a-Dnm" firstAttribute="leading" secondItem="aez-Gf-pPR" secondAttribute="leading" id="OW7-md-DWZ"/>
-                            <constraint firstItem="wFq-1a-Dnm" firstAttribute="bottom" secondItem="nmU-SD-1Mb" secondAttribute="top" id="dFg-13-OgB"/>
+                            <constraint firstItem="xrN-Cx-td4" firstAttribute="leading" secondItem="aez-Gf-pPR" secondAttribute="leadingMargin" constant="-20" id="KHH-og-fLE"/>
+                            <constraint firstItem="xrN-Cx-td4" firstAttribute="top" secondItem="kdv-g1-3bM" secondAttribute="bottom" constant="-20" id="RkO-D4-7xP"/>
+                            <constraint firstItem="wFq-1a-Dnm" firstAttribute="top" secondItem="xrN-Cx-td4" secondAttribute="bottom" id="mx0-Xr-tyk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xrN-Cx-td4" secondAttribute="trailing" constant="-20" id="n64-Tr-hNf"/>
+                            <constraint firstItem="wFq-1a-Dnm" firstAttribute="bottom" secondItem="nmU-SD-1Mb" secondAttribute="top" id="nPH-BD-mL2"/>
+                            <constraint firstItem="wFq-1a-Dnm" firstAttribute="trailing" secondItem="xrN-Cx-td4" secondAttribute="trailing" id="sP8-k2-uXm"/>
+                            <constraint firstItem="wFq-1a-Dnm" firstAttribute="leading" secondItem="xrN-Cx-td4" secondAttribute="leading" id="xhi-7S-0hm"/>
                         </constraints>
                     </view>
                     <connections>
@@ -622,11 +639,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Banner" width="200" height="47"/>
         <image name="CurrentLocationIcon" width="22" height="22"/>
         <image name="DefaultAnnotationThumbnail" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="z9p-Gl-z5O"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.396078431372549" green="0.49803921568627452" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.39607843139999999" green="0.49803921569999998" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>
