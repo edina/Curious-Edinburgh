@@ -38,7 +38,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyN-jp-uo4">
                                                             <rect key="frame" x="8" y="4" width="568" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.39607843139999999" green="0.49803921569999998" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="textColor" red="0.12941176469999999" green="0.47843137250000001" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -141,7 +141,7 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8H-ry-RUe">
                                 <rect key="frame" x="0.0" y="22" width="600" height="44"/>
-                                <color key="barTintColor" red="0.39607843139999999" green="0.49803921569999998" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.14901960780000001" green="0.55294117649999996" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </textAttributes>
@@ -285,7 +285,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.39607843139999999" green="0.49803921569999998" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.14901960780000001" green="0.55294117649999996" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="97L-YM-Bbn" firstAttribute="top" secondItem="w8H-ry-RUe" secondAttribute="bottom" id="Lai-7l-frt"/>
                             <constraint firstItem="w8H-ry-RUe" firstAttribute="leading" secondItem="cwu-km-UJO" secondAttribute="leadingMargin" constant="-20" id="TUa-NM-BJA"/>
@@ -385,7 +385,8 @@
                                 </connections>
                             </webView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.14901960780000001" green="0.55294117649999996" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.14901960780000001" green="0.55294117649999996" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="xrN-Cx-td4" firstAttribute="leading" secondItem="aez-Gf-pPR" secondAttribute="leadingMargin" constant="-20" id="KHH-og-fLE"/>
                             <constraint firstItem="xrN-Cx-td4" firstAttribute="top" secondItem="kdv-g1-3bM" secondAttribute="bottom" constant="-20" id="RkO-D4-7xP"/>
@@ -545,6 +546,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.14901960780000001" green="0.55294117649999996" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <toolbarItems/>
                 </viewController>
@@ -644,7 +646,7 @@
         <image name="DefaultAnnotationThumbnail" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="z9p-Gl-z5O"/>
+        <segue reference="T1q-kv-cx6"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.39607843139999999" green="0.49803921569999998" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.14901960780000001" green="0.55294117649999996" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
 </document>

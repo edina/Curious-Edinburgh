@@ -12,7 +12,7 @@ import UIKit
 struct Constants {
  
     struct Colour {
-        static let lightGrey = UIColor(red: 76/255.0, green:106/255.0, blue:122/255.0, alpha: 1.0)
+        static let teal = UIColor(red: 38/255.0, green:141/255.0, blue:168/255.0, alpha: 1.0)
         static let lightGreyAlpha = UIColor(red: 76/255.0, green:106/255.0, blue:122/255.0, alpha: 0.5)
     }
     
