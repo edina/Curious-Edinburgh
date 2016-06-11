@@ -27,10 +27,6 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<array>
-		<string>This information is required to show your current location</string>
-	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<array>
 		<string>This information is required to show your current location</string>
