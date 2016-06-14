@@ -147,7 +147,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Title" id="pFH-XE-7vc">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="s7M-jf-08c">
+                                        <barButtonItem key="leftBarButtonItem" style="done" id="s7M-jf-08c">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="az1-Ag-opk">
                                                 <rect key="frame" x="20" y="7" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -559,91 +559,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CZC-oz-gyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1720" y="1203"/>
-        </scene>
-        <!--Blog Post Detail View Controller-->
-        <scene sceneID="gWB-ae-7jQ">
-            <objects>
-                <viewController title="Blog Post Detail View Controller" id="jrY-js-LXF" customClass="BlogPostDetailViewController" customModule="Curious_Edinburgh" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="KXJ-Bc-gRD"/>
-                        <viewControllerLayoutGuide type="bottom" id="5uy-0j-1mT"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2No-3l-v3L">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWF-mR-B3o">
-                                <rect key="frame" x="0.0" y="22" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="p08-oJ-acA">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="gHF-lE-6Lt">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TIf-hS-ivE">
-                                                <rect key="frame" x="20" y="7" width="34" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Back"/>
-                                                <connections>
-                                                    <action selector="dismiss:" destination="jrY-js-LXF" eventType="touchUpInside" id="HB7-6o-8x9"/>
-                                                </connections>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gnx-wn-EpN">
-                                <rect key="frame" x="0.0" y="66" width="600" height="534"/>
-                                <subviews>
-                                    <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAk-po-7Rj">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
-                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="PDt-Ff-8Uo"/>
-                                        </constraints>
-                                    </webView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ly0-r3-EFJ">
-                                        <rect key="frame" x="16" y="166" width="568" height="133"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <dataDetectorType key="dataDetectorTypes" link="YES" address="YES"/>
-                                    </textView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="XAk-po-7Rj" firstAttribute="top" secondItem="Gnx-wn-EpN" secondAttribute="top" id="2X8-xa-Sap"/>
-                                    <constraint firstItem="XAk-po-7Rj" firstAttribute="leading" secondItem="Gnx-wn-EpN" secondAttribute="leading" id="6eS-oz-D1w"/>
-                                    <constraint firstAttribute="trailing" secondItem="XAk-po-7Rj" secondAttribute="trailing" id="Cgk-Iq-vGo"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ly0-r3-EFJ" secondAttribute="trailing" constant="16" id="Xza-xK-fQb"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ly0-r3-EFJ" secondAttribute="bottom" constant="20" symbolic="YES" id="iYt-0O-tKz"/>
-                                    <constraint firstItem="Ly0-r3-EFJ" firstAttribute="leading" secondItem="Gnx-wn-EpN" secondAttribute="leading" constant="16" id="jwa-eV-XZP"/>
-                                    <constraint firstItem="Ly0-r3-EFJ" firstAttribute="top" secondItem="XAk-po-7Rj" secondAttribute="bottom" constant="16" id="m1c-PK-CwN"/>
-                                    <constraint firstItem="XAk-po-7Rj" firstAttribute="centerX" secondItem="Gnx-wn-EpN" secondAttribute="centerX" id="owP-gO-Xsz"/>
-                                    <constraint firstItem="Ly0-r3-EFJ" firstAttribute="centerX" secondItem="Gnx-wn-EpN" secondAttribute="centerX" id="wgC-Ca-7Hl"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Gnx-wn-EpN" firstAttribute="bottom" secondItem="5uy-0j-1mT" secondAttribute="top" id="52T-Ab-GwG"/>
-                            <constraint firstItem="Gnx-wn-EpN" firstAttribute="top" secondItem="tWF-mR-B3o" secondAttribute="bottom" id="9J7-bi-7a1"/>
-                            <constraint firstItem="Gnx-wn-EpN" firstAttribute="leading" secondItem="tWF-mR-B3o" secondAttribute="leading" id="Hfx-uj-lQ1"/>
-                            <constraint firstItem="Gnx-wn-EpN" firstAttribute="trailing" secondItem="tWF-mR-B3o" secondAttribute="trailing" id="JF6-oB-sMi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tWF-mR-B3o" secondAttribute="trailing" constant="-20" id="OHQ-hk-tYy"/>
-                            <constraint firstItem="tWF-mR-B3o" firstAttribute="top" secondItem="KXJ-Bc-gRD" secondAttribute="bottom" constant="2" id="lDy-eb-9hZ"/>
-                            <constraint firstItem="tWF-mR-B3o" firstAttribute="leading" secondItem="2No-3l-v3L" secondAttribute="leadingMargin" constant="-20" id="s5Q-TM-XRV"/>
-                        </constraints>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <connections>
-                        <outlet property="textView" destination="Ly0-r3-EFJ" id="8bk-hN-EDA"/>
-                        <outlet property="titleLabel" destination="p08-oJ-acA" id="Pdg-S7-2ZN"/>
-                        <outlet property="videoView" destination="XAk-po-7Rj" id="1x1-Ib-HO1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cEl-cZ-9wf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3878" y="1089"/>
         </scene>
     </scenes>
     <resources>
