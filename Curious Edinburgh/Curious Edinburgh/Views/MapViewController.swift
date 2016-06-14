@@ -17,8 +17,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     var blogPosts = [BlogPost]()
     let locationManager = CLLocationManager()
+    var mapOverlays:[MKOverlay] = []
     
     @IBOutlet weak var currentLocationButton: UIButton!
+    @IBOutlet weak var showHideRoutingButton: UIButton!
     @IBOutlet var mapViewPanGesture: UIPanGestureRecognizer!
     @IBOutlet weak var mapView: MKMapView! {
         didSet {
@@ -58,6 +60,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 if buttonImage != image {
                     currentLocationButton.setImage(image, forState: .Normal)
                 }
+            }
+        }
+    }
+    
+    @IBAction func showHideRoute(sender: UIButton) {
+        if self.mapView.overlays.count > 0 {
+            let image = UIImage(named: "RoutingInfoOff")
+            showHideRoutingButton.setImage(image, forState: .Normal)
+            self.mapView.removeOverlays(self.mapView.overlays)
+        } else {
+            let image = UIImage(named: "RoutingInfoOn")
+            showHideRoutingButton.setImage(image, forState: .Normal)
+            for overlay in mapOverlays {
+                self.mapView.addOverlay(overlay)
             }
         }
     }
@@ -159,7 +175,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
         renderer.strokeColor = self.view.tintColor
-        renderer.lineWidth = 3
+        renderer.lineWidth = 2
         return renderer
     }
     
@@ -223,7 +239,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             } else {
                 if let response = directionsResponse {
                     let route = response.routes[0]
-                    self.mapView.addOverlay(route.polyline)
+                    self.mapOverlays.append(route.polyline)
                 }
             }
         }

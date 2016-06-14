@@ -431,13 +431,22 @@
                                     <action selector="setMapToUserLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c34-Qw-6lj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uj4-6T-3j2">
+                                <rect key="frame" x="542" y="93" width="38" height="38"/>
+                                <state key="normal" image="RoutingInfoOff"/>
+                                <connections>
+                                    <action selector="showHideRoute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uiS-tz-tD9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gO1-v4-v4s" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2Vg-wr-tvl"/>
                             <constraint firstItem="gO1-v4-v4s" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="4yT-cG-3LH"/>
+                            <constraint firstItem="uj4-6T-3j2" firstAttribute="top" secondItem="LVp-QG-DRk" secondAttribute="bottom" constant="15" id="7PU-oY-ns9"/>
                             <constraint firstItem="LVp-QG-DRk" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="J83-Ff-Tza"/>
                             <constraint firstAttribute="trailing" secondItem="gO1-v4-v4s" secondAttribute="trailing" id="Jfm-rm-8BB"/>
+                            <constraint firstItem="uj4-6T-3j2" firstAttribute="leading" secondItem="LVp-QG-DRk" secondAttribute="leading" id="Uhd-hJ-Xzq"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LVp-QG-DRk" secondAttribute="bottom" constant="540" id="fpF-YR-kaP"/>
                             <constraint firstItem="gO1-v4-v4s" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gIh-uu-oGe"/>
                             <constraint firstItem="LVp-QG-DRk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="r8G-r2-1bc"/>
@@ -457,6 +466,7 @@
                         <outlet property="currentLocationButton" destination="LVp-QG-DRk" id="h6j-mL-yIh"/>
                         <outlet property="mapView" destination="gO1-v4-v4s" id="MRF-8g-PED"/>
                         <outlet property="mapViewPanGesture" destination="GNh-Xk-eZH" id="LWT-F3-gu4"/>
+                        <outlet property="showHideRoutingButton" destination="uj4-6T-3j2" id="Btr-Bg-3Md"/>
                         <segue destination="6di-XV-KaP" kind="presentation" identifier="BlogPostDetail" id="z9p-Gl-z5O"/>
                     </connections>
                 </viewController>
@@ -640,6 +650,7 @@
         <image name="Banner" width="200" height="47"/>
         <image name="CurrentLocationIcon" width="38" height="38"/>
         <image name="DefaultAnnotationThumbnail" width="32" height="32"/>
+        <image name="RoutingInfoOff" width="38" height="38"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="z9p-Gl-z5O"/>
