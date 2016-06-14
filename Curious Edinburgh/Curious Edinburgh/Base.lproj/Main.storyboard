@@ -425,11 +425,7 @@
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVp-QG-DRk">
-                                <rect key="frame" x="558" y="20" width="22" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="22" id="EFh-j5-eGP"/>
-                                    <constraint firstAttribute="height" constant="22" id="yPE-Mc-2mi"/>
-                                </constraints>
+                                <rect key="frame" x="542" y="40" width="38" height="38"/>
                                 <state key="normal" image="CurrentLocationIcon"/>
                                 <connections>
                                     <action selector="setMapToUserLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c34-Qw-6lj"/>
@@ -438,15 +434,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LVp-QG-DRk" firstAttribute="trailing" secondItem="gO1-v4-v4s" secondAttribute="trailing" constant="-20" id="3Pj-yd-Aqt"/>
-                            <constraint firstItem="gO1-v4-v4s" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="SOs-P1-vmE"/>
-                            <constraint firstItem="gO1-v4-v4s" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Uww-Wd-nGa"/>
+                            <constraint firstItem="gO1-v4-v4s" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2Vg-wr-tvl"/>
+                            <constraint firstItem="gO1-v4-v4s" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="4yT-cG-3LH"/>
+                            <constraint firstItem="LVp-QG-DRk" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="J83-Ff-Tza"/>
+                            <constraint firstAttribute="trailing" secondItem="gO1-v4-v4s" secondAttribute="trailing" id="Jfm-rm-8BB"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LVp-QG-DRk" secondAttribute="bottom" constant="540" id="fpF-YR-kaP"/>
-                            <constraint firstItem="gO1-v4-v4s" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="i9b-j6-slw"/>
-                            <constraint firstItem="LVp-QG-DRk" firstAttribute="top" secondItem="gO1-v4-v4s" secondAttribute="top" constant="20" id="lvG-Vc-5YA"/>
+                            <constraint firstItem="gO1-v4-v4s" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gIh-uu-oGe"/>
                             <constraint firstItem="LVp-QG-DRk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="r8G-r2-1bc"/>
                             <constraint firstItem="LVp-QG-DRk" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="uM2-s3-hx3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gO1-v4-v4s" secondAttribute="trailing" constant="-20" id="vMg-0L-CTl"/>
+                            <constraint firstItem="LVp-QG-DRk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="ylF-hl-qVP"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -642,11 +638,11 @@
     </scenes>
     <resources>
         <image name="Banner" width="200" height="47"/>
-        <image name="CurrentLocationIcon" width="22" height="22"/>
+        <image name="CurrentLocationIcon" width="38" height="38"/>
         <image name="DefaultAnnotationThumbnail" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="T1q-kv-cx6"/>
+        <segue reference="z9p-Gl-z5O"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.14901960780000001" green="0.55294117649999996" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
 </document>
