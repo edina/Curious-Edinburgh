@@ -27,6 +27,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             // Set delegate for Map and location manager
             mapView.delegate = self
             locationManager.delegate = self
+            mapView.rotateEnabled = false
         }
     }
  
