@@ -160,9 +160,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 view.canShowCallout = true
                 view.leftCalloutAccessoryView = imageView
                 view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
-                let mapMarker = customMarker(annotation)
-                view.image = mapMarker
             }
+            let mapMarker = customMarker(annotation)
+            view.image = mapMarker
             return view
         }
         return nil
