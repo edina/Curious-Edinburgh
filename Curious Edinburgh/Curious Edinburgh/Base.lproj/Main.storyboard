@@ -482,7 +482,7 @@
         <!--Curious Edinburgh-->
         <scene sceneID="yw3-YW-01c">
             <objects>
-                <viewController id="RwS-Ct-lX8" userLabel="Curious Edinburgh" customClass="HomeViewController" customModule="Curious_Edinburgh" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="RwS-Ct-lX8" userLabel="Curious Edinburgh" customClass="HomeViewController" customModule="Curious_Edinburgh" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z71-AH-AMe"/>
                         <viewControllerLayoutGuide type="bottom" id="0JG-Ib-Pvp"/>

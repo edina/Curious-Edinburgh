@@ -56,6 +56,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
+    
+    // MARK:- Url Scheme
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        // Handle urlscheme to retrieve survey id and redirect to HomeViewController
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeViewController = mainStoryboard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
+        
+        if let urlComponents = NSURLComponents(string: url.absoluteString), host = urlComponents.host, queryItems = urlComponents.queryItems  {
+            print("Url is : \(host)")
+            
+            for item in queryItems {
+                if item.name == "tour" {
+                    print("Tour : \(item.value)")
+                    homeViewController.tourName = item.value
+                }
+            }
+        }
+        
+        let rootViewController = self.window!.rootViewController as! UINavigationController
+        rootViewController.setViewControllers([homeViewController], animated: true)
+        
+        return true
+    }
 
 
 }

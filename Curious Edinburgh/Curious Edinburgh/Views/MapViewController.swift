@@ -18,6 +18,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var blogPosts = [BlogPost]()
     let locationManager = CLLocationManager()
     var mapOverlays:[MKOverlay] = []
+    var tourName:String?
     
     @IBOutlet weak var currentLocationButton: UIButton!
     @IBOutlet weak var showHideRoutingButton: UIButton!
@@ -39,6 +40,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.changeNotification(_:)), name:Constants.Notifications.SyncComplete, object: nil)
 
         self.initialMapLocation()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        self.fetchCurrentObjects()
+        if let tourName = self.tourName {
+            print("Tour name is \(tourName)")
+        } else {
+            print("Default tour")
+        }
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
