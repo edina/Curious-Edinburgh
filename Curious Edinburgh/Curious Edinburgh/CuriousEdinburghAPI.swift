@@ -27,6 +27,11 @@ class _CuriousEdinburghAPI {
     
     func syncBlogPosts(completion: (()) -> Void) {
         // Sync posts from API to Core Data model
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let domain = defaults.stringForKey("lastUsedDomain"){
+            self.domain = domain
+        }
+        
         var httpProtocol = Constants.HTTP_Protocol.insecure
         if let domain = self.domain {
             defaults.setObject(domain, forKey: "lastUsedDomain")
