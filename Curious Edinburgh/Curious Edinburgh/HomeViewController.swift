@@ -11,6 +11,8 @@ import PagingMenuController
 
 class HomeViewController: UIViewController, PagingMenuControllerDelegate {
     
+    var protocolType:String?
+    var domain:String?
     var tourName:String?
     
     override func viewDidLoad() {
@@ -22,6 +24,8 @@ class HomeViewController: UIViewController, PagingMenuControllerDelegate {
         
         let mapViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MapViewController") as! MapViewController
         mapViewController.title = "Map"
+        mapViewController.protocolType = self.protocolType
+        mapViewController.domain = self.domain
         mapViewController.tourName = self.tourName
         let tableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("TableViewController") as! TableViewController
         tableViewController.title = "List"

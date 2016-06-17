@@ -65,11 +65,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let homeViewController = mainStoryboard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
         
         if let urlComponents = NSURLComponents(string: url.absoluteString), host = urlComponents.host, queryItems = urlComponents.queryItems  {
-            print("Url is : \(host)")
-            
+            homeViewController.domain = host
             for item in queryItems {
+                if item.name == "protocol" {
+                    homeViewController.protocolType = item.value
+                }
                 if item.name == "tour" {
-                    print("Tour : \(item.value)")
                     homeViewController.tourName = item.value
                 }
             }

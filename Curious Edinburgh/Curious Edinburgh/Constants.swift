@@ -17,7 +17,14 @@ struct Constants {
     }
     
     struct API {
-        static let url = "http://curiousedinburgh.org/wp-json/wp/v2/posts?per_page=100"
+        static let path = "/wp-json/wp/v2/posts"
+        static let queryItems = "?per_page=100"
+        static let default_url = "\(HTTP_Protocol.insecure)curiousedinburgh.org\(path)\(queryItems)"
+    }
+    
+    struct HTTP_Protocol {
+        static let insecure = "http://"
+        static let secure = "https://"
     }
 
     struct Table {

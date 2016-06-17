@@ -18,6 +18,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var blogPosts = [BlogPost]()
     let locationManager = CLLocationManager()
     var mapOverlays:[MKOverlay] = []
+    var protocolType:String?
+    var domain:String?
     var tourName:String?
     
     @IBOutlet weak var currentLocationButton: UIButton!
@@ -44,11 +46,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        self.fetchCurrentObjects()
-        if let tourName = self.tourName {
-            print("Tour name is \(tourName)")
-        } else {
-            print("Default tour")
+        if let domain = domain {
+            curiousEdinburghAPI.protocolType = self.protocolType
+            curiousEdinburghAPI.domain = domain
+            curiousEdinburghAPI.syncBlogPosts({
+                NSNotificationCenter.defaultCenter().postNotificationName(Constants.Notifications.SyncComplete, object: nil)
+                self.fetchCurrentObjects()
+            })
         }
     }
     
@@ -91,7 +95,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func fetchCurrentObjects() {
-        
         self.blogPosts = curiousEdinburghAPI.fetchBlogPostsFromCoreData()
         for post in self.blogPosts {
             mapView.addAnnotation(post)

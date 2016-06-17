@@ -15,6 +15,11 @@ import Sync
 class _CuriousEdinburghAPI {
     
     var dataStack: DATAStack?
+    var protocolType:String?
+    var domain: String?
+    let path = Constants.API.path
+    let queryItems = Constants.API.queryItems
+    var url:String?
     
     init() {
   
@@ -22,8 +27,19 @@ class _CuriousEdinburghAPI {
     
     func syncBlogPosts(completion: (()) -> Void) {
         // Sync posts from API to Core Data model
+        var httpProtocol = Constants.HTTP_Protocol.insecure
+        if let domain = self.domain {
+            defaults.setObject(domain, forKey: "lastUsedDomain")
+            if let protocolType = self.protocolType where protocolType.lowercaseString == "secure" {
+                httpProtocol = Constants.HTTP_Protocol.secure
+            }
+            self.url = "\(httpProtocol)\(domain)\(self.path)?per_page=10"
+        } else {
+            self.url = "\(Constants.API.default_url)"
+        }
+        print(self.url)
         
-        Alamofire.request(.GET, Constants.API.url).validate().responseJSON { response in
+        Alamofire.request(.GET, self.url!).validate().responseJSON { response in
             switch response.result {
             case .Success(let data):
 //                let json = JSON(data).arrayValue
