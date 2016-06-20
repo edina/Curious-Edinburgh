@@ -28,20 +28,21 @@ class _CuriousEdinburghAPI {
     func syncBlogPosts(completion: (()) -> Void) {
         // Sync posts from API to Core Data model
         let defaults = NSUserDefaults.standardUserDefaults()
-        if let domain = defaults.stringForKey("lastUsedDomain"){
-            self.domain = domain
-        }
         
         var httpProtocol = Constants.HTTP_Protocol.insecure
+        if let protocolType = self.protocolType where protocolType.lowercaseString == "secure" {
+            httpProtocol = Constants.HTTP_Protocol.secure
+        }
+        
         if let domain = self.domain {
-            defaults.setObject(domain, forKey: "lastUsedDomain")
-            if let protocolType = self.protocolType where protocolType.lowercaseString == "secure" {
-                httpProtocol = Constants.HTTP_Protocol.secure
-            }
+            self.url = "\(httpProtocol)\(domain)\(self.path)\(self.queryItems)"
+            defaults.setObject(self.domain, forKey: "lastUsedDomain")
+        } else if let domain = defaults.stringForKey("lastUsedDomain"){
             self.url = "\(httpProtocol)\(domain)\(self.path)?per_page=10"
         } else {
             self.url = "\(Constants.API.default_url)"
         }
+        
         print(self.url)
         
         Alamofire.request(.GET, self.url!).validate().responseJSON { response in
