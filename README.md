@@ -8,7 +8,7 @@ Launch URL takes the form:
     
 i.e.
     
-`curious-edinburgh://curiousedinburgh.org?tour=Science&protocol=secure`
+`curious-edinburgh://curiousedinburgh.org?tour=Science&protocol=insecure`
     
 The `protocol` query string item is optional and can be either `secure` or 
 `insecure`. However, any value other than `secure` results in the API endpoint 
