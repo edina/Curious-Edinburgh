@@ -45,6 +45,7 @@ struct Constants {
     
     struct Notifications {
         static let SyncComplete = "Sync Complete Notification"
+        static let RequestUrlError = "URL Request Error Notification"
     }
     
     struct Entity {

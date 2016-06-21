@@ -40,7 +40,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         // Listen for sync completion notification
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.changeNotification(_:)), name:Constants.Notifications.SyncComplete, object: nil)
-
+        
         self.initialMapLocation()
     }
     
@@ -54,6 +54,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 self.fetchCurrentObjects()
             })
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.displayErrorAlert(_:)), name:Constants.Notifications.RequestUrlError, object: nil)
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
@@ -149,6 +154,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func changeNotification(notification: NSNotification) {
         // Sync with API is complete so we can populate map
         self.fetchCurrentObjects()
+    }
+    
+    func displayErrorAlert(notification: NSNotification) {
+        let alert = UIAlertController(title: "Invalid web address", message: "The supplied web address could not be reached.", preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        
+        let rvc = self.view.window!.rootViewController
+        rvc!.presentViewController(alert, animated: true, completion: nil)
     }
     
     // MARK: - MapViewDelegate

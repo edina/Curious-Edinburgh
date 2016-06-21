@@ -67,7 +67,7 @@ class _CuriousEdinburghAPI {
                     })
                 }
             case .Failure(let error):
-                print("Request failed with error: \(error)")
+                NSNotificationCenter.defaultCenter().postNotificationName(Constants.Notifications.RequestUrlError, object: error)
             }
         }
     }
