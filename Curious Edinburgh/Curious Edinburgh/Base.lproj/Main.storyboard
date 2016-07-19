@@ -163,6 +163,12 @@
                                             </button>
                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="ADv-Sf-ZPt">
+                                            <color key="tintColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <action selector="shareButtonSelected:" destination="6di-XV-KaP" id="GcQ-y3-CJv"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

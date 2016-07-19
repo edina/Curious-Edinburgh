@@ -31,6 +31,18 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
         }
     }
 
+    @IBAction func shareButtonSelected(sender: UIBarButtonItem) {
+        if let post = blogPost, title = post.title, link = post.link {
+            let text = "Curious Edinburgh: Science Tour - \(title)"
+            
+            if let url = NSURL(string: "\(link)") {
+                let objectsToShare = [text, url]
+                let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+                
+                self.presentViewController(activityVC, animated: true, completion: nil)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
