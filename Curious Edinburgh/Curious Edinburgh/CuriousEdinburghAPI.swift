@@ -38,7 +38,7 @@ class _CuriousEdinburghAPI {
             self.url = "\(httpProtocol)\(domain)\(self.path)\(self.queryItems)"
             defaults.setObject(self.domain, forKey: "lastUsedDomain")
         } else if let domain = defaults.stringForKey("lastUsedDomain"){
-            self.url = "\(httpProtocol)\(domain)\(self.path)?per_page=10"
+            self.url = "\(httpProtocol)\(domain)\(self.path)"
         } else {
             self.url = "\(Constants.API.default_url)"
         }
