@@ -512,7 +512,14 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Curious Edinburgh" id="cfp-nJ-OhD"/>
+                    <navigationItem key="navigationItem" title="Curious Edinburgh" id="cfp-nJ-OhD">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="YZ4-p8-RTE">
+                            <color key="tintColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
+                            <connections>
+                                <action selector="shareButtonSelected:" destination="RwS-Ct-lX8" id="jgc-v2-haK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p2x-au-uC7" sceneMemberID="firstResponder"/>

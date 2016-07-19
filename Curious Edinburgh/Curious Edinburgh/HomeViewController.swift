@@ -15,6 +15,17 @@ class HomeViewController: UIViewController, PagingMenuControllerDelegate {
     var domain:String?
     var tourName:String?
     
+    @IBAction func shareButtonSelected(sender: UIBarButtonItem) {
+        let text = "Curious Edinburgh: Science Tour"
+        
+        if let url = NSURL(string: "http://curiousedinburgh.org/category/science/") {
+            let objectsToShare = [text, url]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+            self.presentViewController(activityVC, animated: true, completion: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
