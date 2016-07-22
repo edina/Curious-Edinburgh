@@ -16,9 +16,12 @@ class HomeViewController: UIViewController, PagingMenuControllerDelegate {
     var tourName:String?
     
     @IBAction func shareButtonSelected(sender: UIBarButtonItem) {
-        let text = "Curious Edinburgh: Science Tour"
+        let title = "Science Tour"
+        var text = Constants.ShareSheet.tourShareString
+        text = text.stringByReplacingOccurrencesOfString("<tour_or_stop_name>", withString: title)
+
         
-        if let url = NSURL(string: "http://curiousedinburgh.org/category/science/") {
+        if let url = NSURL(string: "\(Constants.ShareSheet.urlBase)category/science") {
             let objectsToShare = [text, url]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
             

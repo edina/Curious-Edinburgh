@@ -32,10 +32,11 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
     }
 
     @IBAction func shareButtonSelected(sender: UIBarButtonItem) {
-        if let post = blogPost, title = post.title, link = post.link {
-            let text = "Curious Edinburgh: Science Tour - \(title)"
+        if let post = blogPost, title = post.title, id = post.remoteID {
+            var text = Constants.ShareSheet.tourShareString
+            text = text.stringByReplacingOccurrencesOfString("<tour_or_stop_name>", withString: title)
             
-            if let url = NSURL(string: "\(link)") {
+            if let url = NSURL(string: "\(Constants.ShareSheet.urlBase)?p=\(id.stringValue)") {
                 let objectsToShare = [text, url]
                 let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
                 

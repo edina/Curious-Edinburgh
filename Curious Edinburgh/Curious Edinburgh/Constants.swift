@@ -56,4 +56,11 @@ struct Constants {
         static let defaultCornerRadius = CGFloat(5)
     }
     
+    struct ShareSheet {
+        static let urlBase = "http://curiousedinburgh.org/"
+        static let twitterAccount = "@curiousedi"
+        static let hashtag = "#curiousedinburgh"
+        static let tourShareString = "Exploring <tour_or_stop_name> in \(twitterAccount) \(hashtag)"
+    }
+    
 }
