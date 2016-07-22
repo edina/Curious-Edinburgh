@@ -174,6 +174,25 @@ extension BlogPost: MKAnnotation {
             return link
         }
     }
+    
+    var tours: [String]? {
+        get {
+            var tours = [String]?()
+            if let customFields = self.customFields{
+                var tourStrings: [String] = []
+                if let customFields = NSKeyedUnarchiver.unarchiveObjectWithData(customFields){
+                    let customFieldsJson = JSON(customFields)
+                    for customField in customFieldsJson {
+                        if customField.0.rangeOfString("_tour_stop") != nil && customField.1 != "" {
+                            tourStrings.append(customField.0)
+                        }
+                    }
+                }
+                tours = tourStrings
+            }
+            return tours
+        }
+    }
 }
 
 private let characterEntities : [String: Character] = [
