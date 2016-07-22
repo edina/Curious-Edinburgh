@@ -29,6 +29,7 @@
 		3BFED6431CBBEBFE00597967 /* Curious_EdinburghUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFED6421CBBEBFE00597967 /* Curious_EdinburghUITests.swift */; };
 		3BFED6511CBBECCB00597967 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BFED6501CBBECCB00597967 /* MapKit.framework */; };
 		3BFED6531CBBF33000597967 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFED6521CBBF32F00597967 /* MapViewController.swift */; };
+		3C2BC7F81D427413002F1F0D /* ToursListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BC7F71D427413002F1F0D /* ToursListViewController.swift */; };
 		3CDC4BFC1CCA1D170066587A /* PostCardCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDC4BFB1CCA1D170066587A /* PostCardCustomCell.swift */; };
 		5E4E2EA1F874BC894A513214 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 541A40D4585E7B2A8401850B /* Pods.framework */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		3BFED6441CBBEBFE00597967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BFED6501CBBECCB00597967 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3BFED6521CBBF32F00597967 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Views/MapViewController.swift; sourceTree = "<group>"; };
+		3C2BC7F71D427413002F1F0D /* ToursListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToursListViewController.swift; sourceTree = "<group>"; };
 		3CB5F8501CCE28F70081EC74 /* CuriousEdinburgh.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = CuriousEdinburgh.playground; path = "Curious Edinburgh/CuriousEdinburgh.playground"; sourceTree = "<group>"; };
 		3CDC4BFB1CCA1D170066587A /* PostCardCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCardCustomCell.swift; sourceTree = "<group>"; };
 		4470E5C4ECAB9127B5F1825E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 		3BFED6541CBBF36C00597967 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3C2BC7F71D427413002F1F0D /* ToursListViewController.swift */,
 				3B99C2A51CD10B9800056C31 /* ImageViewController.swift */,
 				3B0B7E761CC67A42009EF9B0 /* BlogPostDetailViewController.swift */,
 				3B372A341CBFE58A0003DA38 /* AboutViewController.swift */,
@@ -433,6 +436,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BFED6281CBBEBFE00597967 /* Curious_Edinburgh.xcdatamodeld in Sources */,
+				3C2BC7F81D427413002F1F0D /* ToursListViewController.swift in Sources */,
 				3B0B7E751CC6694C009EF9B0 /* BlogPost+UnwrappedBinaryData.swift in Sources */,
 				3B372A331CBFB02D0003DA38 /* TableViewController.swift in Sources */,
 				3B9B3DFB1CC4CFD30039FCA3 /* BlogPost+CoreDataProperties.swift in Sources */,
