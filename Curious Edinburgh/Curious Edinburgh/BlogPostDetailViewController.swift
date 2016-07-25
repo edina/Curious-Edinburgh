@@ -34,7 +34,7 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
     @IBAction func shareButtonSelected(sender: UIBarButtonItem) {
         if let post = blogPost, title = post.title, id = post.remoteID {
             var text = Constants.ShareSheet.tourShareString
-            text = text.stringByReplacingOccurrencesOfString("<tour_or_stop_name>", withString: title)
+            text = text.stringByReplacingOccurrencesOfString(Constants.ShareSheet.tourOrStopPlaceholder, withString: title)
             
             if let url = NSURL(string: "\(Constants.ShareSheet.urlBase)?p=\(id.stringValue)") {
                 let objectsToShare = [text, url]
@@ -162,7 +162,7 @@ class BlogPostDetailViewController: UIViewController, UICollectionViewDataSource
     }
     
     func setCellImage(cell: BlogPostDetailCollectionViewCell, blogPost: BlogPost, indexPath:NSIndexPath ) {
-        let defaultItemThumbnail = UIImage(named: "DefaultTableVIewThumbnail")
+        let defaultItemThumbnail = UIImage(named: Constants.ImageIdentifiers.defaultThumbnail)
         
         if let images = blogPost.images{
             if let URL = NSURL(string: images[self.adjustedCellIndex(indexPath)]) {

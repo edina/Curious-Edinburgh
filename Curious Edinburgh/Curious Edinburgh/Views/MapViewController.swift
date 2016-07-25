@@ -25,10 +25,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     let defaults = NSUserDefaults.standardUserDefaults()
     var tour: String {
         get {
-            if let tour = self.defaults.stringForKey("tour"){
+            if let tour = self.defaults.stringForKey(Constants.UseDefaults.tour){
                 return tour
             } else {
-                return "science_tour_stop"
+                return Constants.defaultTour
             }
         }
     }
@@ -82,14 +82,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     @IBAction func setMapToUserLocation(sender: UIButton) {
         // TODO: Check user location is within survey bounding box
-        let image = UIImage(named: "CurrentLocationIconSelected")
+        let image = UIImage(named: Constants.ImageIdentifiers.currentLocationIconSelected)
         currentLocationButton.setImage(image, forState: .Normal)
         mapView.setCenterCoordinate(locationManager.location!.coordinate, animated: true)
     }
     
     @IBAction func mapDrag(sender: UIPanGestureRecognizer) {
         if(sender.state == UIGestureRecognizerState.Changed){
-            let image = UIImage(named: "CurrentLocationIcon")
+            let image = UIImage(named: Constants.ImageIdentifiers.currentLocationIcon)
             if let buttonImage = currentLocationButton.currentImage {
                 if buttonImage != image {
                     currentLocationButton.setImage(image, forState: .Normal)
@@ -100,11 +100,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     @IBAction func showHideRoute(sender: UIButton) {
         if self.mapView.overlays.count > 0 {
-            let image = UIImage(named: "RoutingInfoOff")
+            let image = UIImage(named: Constants.ImageIdentifiers.routingInfoOff)
             showHideRoutingButton.setImage(image, forState: .Normal)
             self.mapView.removeOverlays(self.mapView.overlays)
         } else {
-            let image = UIImage(named: "RoutingInfoOn")
+            let image = UIImage(named: Constants.ImageIdentifiers.routingInfoOn)
             showHideRoutingButton.setImage(image, forState: .Normal)
             for overlay in mapOverlays {
                 self.mapView.addOverlay(overlay)
@@ -115,7 +115,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func fetchCurrentObjects() {
         self.mapView.removeAnnotations(self.blogPosts)
         self.mapOverlays.removeAll()
-        let image = UIImage(named: "RoutingInfoOff")
+        let image = UIImage(named: Constants.ImageIdentifiers.routingInfoOff)
         showHideRoutingButton.setImage(image, forState: .Normal)
         self.blogPosts = curiousEdinburghAPI.fetchBlogPostsFromCoreData(self.tour)
         for post in self.blogPosts {
@@ -188,7 +188,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? BlogPost {
             let identifier = "pin"
-            let defaultItemThumbnail = UIImage(named: "DefaultAnnotationThumbnail")
+            let defaultItemThumbnail = UIImage(named: Constants.ImageIdentifiers.defaultAnnotationThumbnail)
             
             var view: MKAnnotationView
             if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) {

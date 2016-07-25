@@ -93,10 +93,10 @@ extension BlogPost: MKAnnotation {
             var tourNumber: String?
             if let customFields = NSKeyedUnarchiver.unarchiveObjectWithData(self.customFields!){
                 let customFieldsJson = JSON(customFields)
-                if let tour = defaults.stringForKey("tour") {
+                if let tour = defaults.stringForKey(Constants.UseDefaults.tour) {
                     tourNumber = customFieldsJson[tour].string
                 } else {
-                    tourNumber = customFieldsJson["science_tour_stop"].string
+                    tourNumber = customFieldsJson[Constants.defaultTour].string
                 }
             }
             return tourNumber

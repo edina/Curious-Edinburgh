@@ -17,15 +17,10 @@ class HomeViewController: UIViewController, PagingMenuControllerDelegate {
     
     @IBOutlet weak var navBar: UINavigationItem!
     @IBAction func shareButtonSelected(sender: UIBarButtonItem) {
-        var title = "Science Tour"
+        let title = getTitle()
         
-        if var tourName = self.tourName {
-            tourName = tourName.stringByReplacingOccurrencesOfString("_stop", withString: "")
-            tourName = tourName.stringByReplacingOccurrencesOfString("_", withString: " ").capitalizedString
-            title = tourName
-        }
         var text = Constants.ShareSheet.tourShareString
-        text = text.stringByReplacingOccurrencesOfString("<tour_or_stop_name>", withString: title)
+        text = text.stringByReplacingOccurrencesOfString(Constants.ShareSheet.tourOrStopPlaceholder, withString: title)
         
         let category = title.lowercaseString.stringByReplacingOccurrencesOfString(" tour", withString: "")
         
@@ -82,15 +77,22 @@ class HomeViewController: UIViewController, PagingMenuControllerDelegate {
     
     func setTitleToTourName() {
         let defaults = NSUserDefaults.standardUserDefaults()
-        self.tourName = defaults.stringForKey("tour")
+        self.tourName = defaults.stringForKey(Constants.UseDefaults.tour)
         
-        if var tourName = self.tourName {
-            tourName = tourName.stringByReplacingOccurrencesOfString("_stop", withString: "")
-            tourName = tourName.stringByReplacingOccurrencesOfString("_", withString: " ").capitalizedString
-            self.navBar.title = tourName
-        } else {
-            self.navBar.title = "Science Tour"
+        self.navBar.title = getTitle()
+    }
+    
+    func getTitle() -> String {
+        var title = Constants.defaultTour
+        
+        if let tourName = self.tourName {
+            title = tourName
         }
+        
+        title = title.stringByReplacingOccurrencesOfString("_stop", withString: "")
+        title = title.stringByReplacingOccurrencesOfString("_", withString: " ").capitalizedString
+        
+        return title
     }
     
     override func didReceiveMemoryWarning() {

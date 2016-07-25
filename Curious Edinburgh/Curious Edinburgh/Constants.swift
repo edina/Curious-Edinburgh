@@ -40,7 +40,13 @@ struct Constants {
     }
 
     struct ImageIdentifiers {
-    
+        static let defaultThumbnail = "DefaultTableVIewThumbnail"
+        static let defaultAnnotationThumbnail = "DefaultAnnotationThumbnail"
+        static let currentLocationIcon = "CurrentLocationIcon"
+        static let currentLocationIconSelected = "CurrentLocationIconSelected"
+        static let routingInfoOn = "RoutingInfoOn"
+        static let routingInfoOff = "RoutingInfoOff"
+        static let tourNumber = "TourNumber"
     }
     
     struct Notifications {
@@ -61,7 +67,15 @@ struct Constants {
         static let urlBase = "http://curiousedinburgh.org/"
         static let twitterAccount = "@curiousedi"
         static let hashtag = "#curiousedinburgh"
-        static let tourShareString = "Exploring <tour_or_stop_name> in \(twitterAccount) \(hashtag)"
+        static let tourOrStopPlaceholder = "<tour_or_stop_name>"
+        static let tourShareString = "Exploring \(tourOrStopPlaceholder) in \(twitterAccount) \(hashtag)"
     }
+    
+    struct UseDefaults {
+        static let tour = "tour"
+        static let tours = "tours"
+    }
+    
+    static let defaultTour = "science_tour_stop"
     
 }

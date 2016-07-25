@@ -13,7 +13,7 @@ class ToursListViewController: UITableViewController {
     let defaults = NSUserDefaults.standardUserDefaults()
     var tours: [String]? {
         get {
-            if let array = self.defaults.arrayForKey("tours") as? [String] {
+            if let array = self.defaults.arrayForKey(Constants.UseDefaults.tours) as? [String] {
                 return array
             } else {
                 return []
@@ -49,7 +49,7 @@ class ToursListViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.defaults.setObject(self.tours![indexPath.row], forKey: "tour")
+        self.defaults.setObject(self.tours![indexPath.row], forKey: Constants.UseDefaults.tour)
         NSNotificationCenter.defaultCenter().postNotificationName(Constants.Notifications.TourSelected, object: nil)
         self.dismissViewController()
     }

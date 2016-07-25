@@ -17,7 +17,7 @@ class ImageViewController: UIViewController {
     @IBOutlet weak var backButton: UIBarButtonItem!
     
     override func viewWillAppear(animated: Bool) {
-        let defaultItemThumbnail = UIImage(named: "DefaultTableVIewThumbnail")
+        let defaultItemThumbnail = UIImage(named: Constants.ImageIdentifiers.defaultThumbnail)
         if let image = imageURL{
             if let URL = NSURL(string: image) {
                 self.imageView.af_setImageWithURL(URL,

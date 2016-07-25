@@ -105,7 +105,7 @@ class _CuriousEdinburghAPI {
             }
         }
         
-        defaults.setObject(tours, forKey: "tours")
+        defaults.setObject(tours, forKey: Constants.UseDefaults.tours)
     }
     
     func sortBlogPostsByTourNumberAsc(post1: BlogPost, post2: BlogPost) -> Bool {

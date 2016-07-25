@@ -17,10 +17,10 @@ class TableViewController: UITableViewController {
     let defaults = NSUserDefaults.standardUserDefaults()
     var tour: String {
         get {
-            if let tour = self.defaults.stringForKey("tour"){
+            if let tour = self.defaults.stringForKey(Constants.UseDefaults.tour){
                 return tour
             } else {
-                return "science_tour_stop"
+                return Constants.defaultTour
             }
         }
     }
@@ -41,7 +41,7 @@ class TableViewController: UITableViewController {
     
     func tourNumberImage(post: BlogPost) -> UIImage {
         let text = post.tourNumber
-        let marker = UIImage(named:"TourNumber")
+        let marker = UIImage(named:Constants.ImageIdentifiers.tourNumber)
         
         // Setup the font specific variables
         let textColor = UIColor.whiteColor()
@@ -118,7 +118,7 @@ class TableViewController: UITableViewController {
     }
  
     func setCellImage(cell: PostCardCustomCell, blogPost: BlogPost) {
-        let defaultItemThumbnail = UIImage(named: "DefaultTableVIewThumbnail")
+        let defaultItemThumbnail = UIImage(named: Constants.ImageIdentifiers.defaultThumbnail)
         
         if let images = blogPost.images{
             let image = images[0]
