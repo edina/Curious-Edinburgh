@@ -15,13 +15,21 @@ class HomeViewController: UIViewController, PagingMenuControllerDelegate {
     var domain:String?
     var tourName:String?
     
+    @IBOutlet weak var navBar: UINavigationItem!
     @IBAction func shareButtonSelected(sender: UIBarButtonItem) {
-        let title = "Science Tour"
+        var title = "Science Tour"
+        
+        if var tourName = self.tourName {
+            tourName = tourName.stringByReplacingOccurrencesOfString("_stop", withString: "")
+            tourName = tourName.stringByReplacingOccurrencesOfString("_", withString: " ").capitalizedString
+            title = tourName
+        }
         var text = Constants.ShareSheet.tourShareString
         text = text.stringByReplacingOccurrencesOfString("<tour_or_stop_name>", withString: title)
-
         
-        if let url = NSURL(string: "\(Constants.ShareSheet.urlBase)category/science") {
+        let category = title.lowercaseString.stringByReplacingOccurrencesOfString(" tour", withString: "")
+        
+        if let url = NSURL(string: "\(Constants.ShareSheet.urlBase)category/\(category)") {
             let objectsToShare = [text, url]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
             
@@ -34,6 +42,11 @@ class HomeViewController: UIViewController, PagingMenuControllerDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         
         self.navigationController!.navigationBar.barTintColor = Constants.Colour.teal
+        
+        self.setTitleToTourName()
+        
+        // Listen for tour selected notification
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.tourSelectedNotification(_:)), name:Constants.Notifications.TourSelected, object: nil)
 
         
         let mapViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MapViewController") as! MapViewController
@@ -67,6 +80,19 @@ class HomeViewController: UIViewController, PagingMenuControllerDelegate {
         pagingMenuController.setup(viewControllers: viewControllers, options: options)
     }
     
+    func setTitleToTourName() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        self.tourName = defaults.stringForKey("tour")
+        
+        if var tourName = self.tourName {
+            tourName = tourName.stringByReplacingOccurrencesOfString("_stop", withString: "")
+            tourName = tourName.stringByReplacingOccurrencesOfString("_", withString: " ").capitalizedString
+            self.navBar.title = tourName
+        } else {
+            self.navBar.title = "Science Tour"
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -80,6 +106,11 @@ class HomeViewController: UIViewController, PagingMenuControllerDelegate {
     
     func didMoveToPageMenuController(menuController: UIViewController, previousMenuController: UIViewController) {
         
+    }
+    
+    // MARK: - Notifications
+    func tourSelectedNotification(notification: NSNotification) {
+        self.setTitleToTourName()
     }
 }
 

@@ -22,6 +22,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var domain:String?
     var tourName:String?
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+    var tour: String {
+        get {
+            if let tour = self.defaults.stringForKey("tour"){
+                return tour
+            } else {
+                return "science_tour_stop"
+            }
+        }
+    }
+    
     @IBOutlet weak var currentLocationButton: UIButton!
     @IBOutlet weak var showHideRoutingButton: UIButton!
     @IBOutlet var mapViewPanGesture: UIPanGestureRecognizer!
@@ -41,6 +52,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Listen for sync completion notification
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.changeNotification(_:)), name:Constants.Notifications.SyncComplete, object: nil)
         
+        // Listen for tour selected notification
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.changeNotification(_:)), name:Constants.Notifications.TourSelected, object: nil)
         self.initialMapLocation()
     }
     
@@ -100,15 +113,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func fetchCurrentObjects() {
-        self.blogPosts = curiousEdinburghAPI.fetchBlogPostsFromCoreData()
+        self.mapView.removeAnnotations(self.blogPosts)
+        self.mapOverlays.removeAll()
+        let image = UIImage(named: "RoutingInfoOff")
+        showHideRoutingButton.setImage(image, forState: .Normal)
+        self.blogPosts = curiousEdinburghAPI.fetchBlogPostsFromCoreData(self.tour)
         for post in self.blogPosts {
             mapView.addAnnotation(post)
         }
-        var count = 0
-        repeat {
-            self.getDirections(blogPosts[count].coordinate, toLocationCoord: blogPosts[count+1].coordinate)
-            count = count + 1
-        } while count < blogPosts.count - 1
+        if self.blogPosts.count > 1 {
+            var count = 0
+            repeat {
+                self.getDirections(blogPosts[count].coordinate, toLocationCoord: blogPosts[count+1].coordinate)
+                count = count + 1
+            } while count < blogPosts.count - 1
+        }
         
     }
     

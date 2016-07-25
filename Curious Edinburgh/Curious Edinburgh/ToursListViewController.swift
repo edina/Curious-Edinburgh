@@ -9,14 +9,48 @@
 import UIKit
 
 
-class ToursListViewController: UIViewController {
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        
+class ToursListViewController: UITableViewController {
+    let defaults = NSUserDefaults.standardUserDefaults()
+    var tours: [String]? {
+        get {
+            if let array = self.defaults.arrayForKey("tours") as? [String] {
+                return array
+            } else {
+                return []
+            }
+        }
     }
     
-    @IBAction func dismissViewController(sender: UIBarButtonItem) {
+    func dismissViewController() {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let tours = self.tours {
+            return tours.count
+        } else {
+            return 0
+        }
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
+        var label = self.tours![indexPath.row]
+        label = label.stringByReplacingOccurrencesOfString("_stop", withString: "")
+        label = label.stringByReplacingOccurrencesOfString("_", withString: " ")
+        label = label.capitalizedString
+        cell.textLabel?.text = label
+        
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.defaults.setObject(self.tours![indexPath.row], forKey: "tour")
+        NSNotificationCenter.defaultCenter().postNotificationName(Constants.Notifications.TourSelected, object: nil)
+        self.dismissViewController()
     }
 }

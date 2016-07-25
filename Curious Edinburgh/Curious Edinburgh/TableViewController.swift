@@ -13,6 +13,17 @@ import SwiftyJSON
 import AlamofireImage
 
 class TableViewController: UITableViewController {
+    
+    let defaults = NSUserDefaults.standardUserDefaults()
+    var tour: String {
+        get {
+            if let tour = self.defaults.stringForKey("tour"){
+                return tour
+            } else {
+                return "science_tour_stop"
+            }
+        }
+    }
 
     var blogPosts = [BlogPost]()
     
@@ -21,6 +32,9 @@ class TableViewController: UITableViewController {
         
         // Listen for sync completion notification
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.changeNotification(_:)), name:Constants.Notifications.SyncComplete, object: nil)
+        
+        // Listen for tour selected notification
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.changeNotification(_:)), name:Constants.Notifications.TourSelected, object: nil)
         
         self.fetchCurrentObjects()
     }
@@ -73,7 +87,7 @@ class TableViewController: UITableViewController {
     // MARK: - Update Table
   
     func fetchCurrentObjects() {
-        self.blogPosts = curiousEdinburghAPI.fetchBlogPostsFromCoreData()
+        self.blogPosts = curiousEdinburghAPI.fetchBlogPostsFromCoreData(self.tour)
         self.tableView.reloadData()
     }
     

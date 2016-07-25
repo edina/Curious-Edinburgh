@@ -89,10 +89,15 @@ extension BlogPost: MKAnnotation {
     
     var tourNumber: String? {
         get {
+            let defaults = NSUserDefaults.standardUserDefaults()
             var tourNumber: String?
             if let customFields = NSKeyedUnarchiver.unarchiveObjectWithData(self.customFields!){
                 let customFieldsJson = JSON(customFields)
-                tourNumber = customFieldsJson["science_tour_stop"].string
+                if let tour = defaults.stringForKey("tour") {
+                    tourNumber = customFieldsJson[tour].string
+                } else {
+                    tourNumber = customFieldsJson["science_tour_stop"].string
+                }
             }
             return tourNumber
         }

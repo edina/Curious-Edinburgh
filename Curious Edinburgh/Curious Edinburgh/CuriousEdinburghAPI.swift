@@ -48,8 +48,8 @@ class _CuriousEdinburghAPI {
         Alamofire.request(.GET, self.url!).validate().responseJSON { response in
             switch response.result {
             case .Success(let data):
-                let json = JSON(data).arrayValue
-                print(json)
+//                let json = JSON(data).arrayValue
+//                print(json)
                 
                 // Persist to Core Data
                 self.dataStack?.performInNewBackgroundContext { backgroundContext in
@@ -71,14 +71,23 @@ class _CuriousEdinburghAPI {
         }
     }
     
-    func fetchBlogPostsFromCoreData()  -> [BlogPost] {
+    func fetchBlogPostsFromCoreData(tour: String)  -> [BlogPost] {
         let request = NSFetchRequest(entityName: Constants.Entity.blogPost)
-        var blogPosts = (try! self.dataStack?.mainContext.executeFetchRequest(request)) as! [BlogPost]
-        blogPosts.sortInPlace(self.sortBlogPostsByTourNumberAsc)
+        let allBlogPosts = (try! self.dataStack?.mainContext.executeFetchRequest(request)) as! [BlogPost]
+        self.toursFromBlogPosts(allBlogPosts)
+        var index = 0
+        var tourPosts:[BlogPost] = []
+        for post in allBlogPosts {
+            if let tours = post.tours {
+                if tours.contains(tour) {
+                    tourPosts.append(post)
+                }
+            }
+            index += index
+        }
+        tourPosts.sortInPlace(self.sortBlogPostsByTourNumberAsc)
         
-        self.toursFromBlogPosts(blogPosts)
-        
-        return blogPosts
+        return tourPosts
     }
     
     func toursFromBlogPosts(blogPosts: [BlogPost]) {

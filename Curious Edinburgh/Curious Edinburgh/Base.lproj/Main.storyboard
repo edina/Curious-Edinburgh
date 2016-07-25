@@ -485,68 +485,63 @@
             </objects>
             <point key="canvasLocation" x="2449" y="403"/>
         </scene>
-        <!--Tours List View Controller-->
-        <scene sceneID="lPy-QG-1sW">
+        <!--Tours-->
+        <scene sceneID="sqm-el-GXO">
             <objects>
-                <viewController id="P5i-B7-78x" customClass="ToursListViewController" customModule="Curious_Edinburgh" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1Gj-K0-mK6"/>
-                        <viewControllerLayoutGuide type="bottom" id="LUV-a6-835"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8P3-Xh-8jM">
+                <tableViewController id="4EX-a9-dI4" customClass="ToursListViewController" customModule="Curious_Edinburgh" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="jZn-if-YqQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yqc-wO-pA0">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <color key="barTintColor" red="0.12941176469999999" green="0.47843137250000001" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="Tours" id="zKI-CO-huc">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" systemItem="cancel" id="Cef-lD-vyI">
-                                            <color key="tintColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
-                                            <connections>
-                                                <action selector="dismissViewController:" destination="P5i-B7-78x" id="zUA-cV-Qal"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C22-nc-OHU">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="2l8-0i-Z1n">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2l8-0i-Z1n" id="FTD-ZW-pZ7">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.12941176469999999" green="0.47843137250000001" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="C22-nc-OHU" firstAttribute="top" secondItem="Yqc-wO-pA0" secondAttribute="bottom" id="bhb-CC-ObD"/>
-                            <constraint firstItem="Yqc-wO-pA0" firstAttribute="leading" secondItem="C22-nc-OHU" secondAttribute="leading" id="edj-bW-LDM"/>
-                            <constraint firstItem="Yqc-wO-pA0" firstAttribute="leading" secondItem="8P3-Xh-8jM" secondAttribute="leading" id="fKH-8L-Pa7"/>
-                            <constraint firstItem="Yqc-wO-pA0" firstAttribute="top" secondItem="1Gj-K0-mK6" secondAttribute="bottom" id="ihu-r0-bru"/>
-                            <constraint firstAttribute="trailing" secondItem="Yqc-wO-pA0" secondAttribute="trailing" id="syG-pa-Kna"/>
-                            <constraint firstItem="Yqc-wO-pA0" firstAttribute="trailing" secondItem="C22-nc-OHU" secondAttribute="trailing" id="uUz-Kg-yFN"/>
-                            <constraint firstItem="C22-nc-OHU" firstAttribute="bottom" secondItem="LUV-a6-835" secondAttribute="top" id="xj6-xA-luy"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wTz-Gt-59M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="separatorColor" red="0.12941176469999999" green="0.47843137250000001" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="cell" id="06M-py-Xt1">
+                                <rect key="frame" x="0.0" y="114" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="06M-py-Xt1" id="Yo4-Ru-Yii">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4EX-a9-dI4" id="NA3-Yu-ote"/>
+                            <outlet property="delegate" destination="4EX-a9-dI4" id="uGh-nW-hY1"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Tours" id="8Qz-DE-bYC"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="jZn-if-YqQ" id="pGI-2a-75v"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hL5-vH-8XB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1524" y="291"/>
+            <point key="canvasLocation" x="1476" y="248"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="b3d-xN-uKK">
+            <objects>
+                <navigationController id="c5X-Ue-6Go" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="N5P-iH-R8Z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.14901960780000001" green="0.55294117649999996" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
+                        <color key="barTintColor" red="0.14901960780000001" green="0.55294117649999996" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="4EX-a9-dI4" kind="relationship" relationship="rootViewController" id="M7q-uM-kEU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Og6-3t-Xef" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="737" y="248"/>
         </scene>
         <!--Curious Edinburgh-->
         <scene sceneID="yw3-YW-01c">
@@ -585,7 +580,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Tours" style="plain" id="gOL-ot-IBU">
                             <color key="tintColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
                             <connections>
-                                <segue destination="P5i-B7-78x" kind="presentation" id="Zv0-hy-1dj"/>
+                                <segue destination="c5X-Ue-6Go" kind="presentation" id="ZrG-rp-kHG"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="YZ4-p8-RTE">
@@ -596,6 +591,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="navBar" destination="cfp-nJ-OhD" id="Mot-9V-HL6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p2x-au-uC7" sceneMemberID="firstResponder"/>
             </objects>
