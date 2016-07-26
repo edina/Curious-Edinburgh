@@ -117,6 +117,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.mapOverlays.removeAll()
         let image = UIImage(named: Constants.ImageIdentifiers.routingInfoOff)
         showHideRoutingButton.setImage(image, forState: .Normal)
+        showHideRoutingButton.hidden = true
         self.blogPosts = curiousEdinburghAPI.fetchBlogPostsFromCoreData(self.tour)
         for post in self.blogPosts {
             mapView.addAnnotation(post)
@@ -128,7 +129,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 count = count + 1
             } while count < blogPosts.count - 1
         }
-        
     }
     
     func initialMapLocation() {
@@ -288,6 +288,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                     let route = response.routes[0]
                     self.mapOverlays.append(route.polyline)
                 }
+                self.showHideRoutingButton.hidden = false
             }
         }
     }
