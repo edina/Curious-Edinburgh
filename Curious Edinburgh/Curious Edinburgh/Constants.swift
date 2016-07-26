@@ -76,6 +76,6 @@ struct Constants {
         static let tours = "tours"
     }
     
-    static let defaultTour = "science_tour_stop"
+    static let defaultTour = "history_of_science_tour_stop"
     
 }
