@@ -10,7 +10,12 @@ import Foundation
 import UIKit
 
 struct Constants {
- 
+    // Change the following 4 constants to use a different blog
+    static let blogDomain = "curiousedinburgh.org"
+    static let twitterAccount = "@curiousedi"
+    static let hashtag = "#curiousedinburgh"
+    static let defaultTour = "history_of_science_tour_stop"
+
     struct Colour {
         static let teal = UIColor(red: 38/255.0, green:141/255.0, blue:168/255.0, alpha: 1.0)
         static let lightGreyAlpha = UIColor(red: 76/255.0, green:106/255.0, blue:122/255.0, alpha: 0.5)
@@ -19,7 +24,7 @@ struct Constants {
     struct API {
         static let path = "/wp-json/wp/v2/posts"
         static let queryItems = "?per_page=100"
-        static let default_url = "\(HTTP_Protocol.insecure)curiousedinburgh.org\(path)\(queryItems)"
+        static let default_url = "\(HTTP_Protocol.insecure)\(blogDomain)\(path)\(queryItems)"
     }
     
     struct HTTP_Protocol {
@@ -64,9 +69,7 @@ struct Constants {
     }
     
     struct ShareSheet {
-        static let urlBase = "http://curiousedinburgh.org/"
-        static let twitterAccount = "@curiousedi"
-        static let hashtag = "#curiousedinburgh"
+        static let urlBase = "http://\(blogDomain)/"
         static let tourOrStopPlaceholder = "<tour_or_stop_name>"
         static let tourShareString = "Exploring \(tourOrStopPlaceholder) in \(twitterAccount) \(hashtag)"
     }
@@ -75,7 +78,4 @@ struct Constants {
         static let tour = "tour"
         static let tours = "tours"
     }
-    
-    static let defaultTour = "history_of_science_tour_stop"
-    
 }
