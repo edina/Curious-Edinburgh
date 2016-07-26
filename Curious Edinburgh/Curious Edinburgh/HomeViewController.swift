@@ -22,9 +22,11 @@ class HomeViewController: UIViewController, PagingMenuControllerDelegate {
         var text = Constants.ShareSheet.tourShareString
         text = text.stringByReplacingOccurrencesOfString(Constants.ShareSheet.tourOrStopPlaceholder, withString: title)
         
-        let category = title.lowercaseString.stringByReplacingOccurrencesOfString(" tour", withString: "")
+        var tourSlug = title.lowercaseString.stringByReplacingOccurrencesOfString(" tour", withString: "")
+        tourSlug = tourSlug.stringByReplacingOccurrencesOfString(" ", withString: "-")
         
-        if let url = NSURL(string: "\(Constants.ShareSheet.urlBase)category/\(category)") {
+        
+        if let url = NSURL(string: "\(Constants.ShareSheet.urlBase)\(tourSlug)") {
             let objectsToShare = [text, url]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
             
