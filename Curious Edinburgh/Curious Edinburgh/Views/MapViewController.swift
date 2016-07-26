@@ -194,20 +194,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) {
                 dequeuedView.annotation = annotation
                 view = dequeuedView
-            } else {
-                
-                let imageView = UIImageView(image: defaultItemThumbnail)
-                if let images = annotation.images{
-                    let defaultImage = images[0]
-                    let URL = NSURL(string: defaultImage)!
-                    imageView.af_setImageWithURL(URL, placeholderImage: defaultItemThumbnail)
-                }
-                
-                view = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                view.canShowCallout = true
-                view.leftCalloutAccessoryView = imageView
-                view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
             }
+            let imageView = UIImageView(image: defaultItemThumbnail)
+            if let images = annotation.images{
+                let defaultImage = images[0]
+                let URL = NSURL(string: defaultImage)!
+                imageView.af_setImageWithURL(URL, placeholderImage: defaultItemThumbnail)
+            }
+            
+            view = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.canShowCallout = true
+            view.leftCalloutAccessoryView = imageView
+            view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
+            
             let mapMarker = customMarker(annotation)
             view.image = mapMarker
             return view
