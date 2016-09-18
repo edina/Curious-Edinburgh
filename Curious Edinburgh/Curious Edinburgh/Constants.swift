@@ -14,7 +14,7 @@ struct Constants {
     static let blogDomain = "curiousedinburgh.org"
     static let twitterAccount = "@curiousedi"
     static let hashtag = "#curiousedinburgh"
-    static let defaultTour = "history_of_science_tour_stop"
+    static var defaultTour = "history_of_science_tour_stop"
 
     struct Colour {
         static let teal = UIColor(red: 38/255.0, green:141/255.0, blue:168/255.0, alpha: 1.0)

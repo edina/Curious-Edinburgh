@@ -14,6 +14,7 @@ class HomeViewController: UIViewController, PagingMenuControllerDelegate {
     var protocolType:String?
     var domain:String?
     var tourName:String?
+    var path:String?
     
     @IBOutlet weak var navBar: UINavigationItem!
     @IBAction func shareButtonSelected(sender: UIBarButtonItem) {
@@ -50,6 +51,7 @@ class HomeViewController: UIViewController, PagingMenuControllerDelegate {
         mapViewController.title = "Map"
         mapViewController.protocolType = self.protocolType
         mapViewController.domain = self.domain
+        mapViewController.path = self.path
         mapViewController.tourName = self.tourName
         let tableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("TableViewController") as! TableViewController
         tableViewController.title = "List"
@@ -79,8 +81,6 @@ class HomeViewController: UIViewController, PagingMenuControllerDelegate {
     
     func setTitleToTourName() {
         let defaults = NSUserDefaults.standardUserDefaults()
-        self.tourName = defaults.stringForKey(Constants.UseDefaults.tour)
-        
         self.navBar.title = getTitle()
     }
     

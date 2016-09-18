@@ -72,6 +72,9 @@ extension BlogPost: MKAnnotation {
     var coordinate: CLLocationCoordinate2D {
         get {
             var coordinate = kCLLocationCoordinate2DInvalid
+            if (self.customFields == nil) {
+                return coordinate
+            }
             
             if let customFields = NSKeyedUnarchiver.unarchiveObjectWithData(self.customFields!){
                 let customFieldsJson = JSON(customFields)

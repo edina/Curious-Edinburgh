@@ -21,6 +21,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var protocolType:String?
     var domain:String?
     var tourName:String?
+    var path:String?
     
     let defaults = NSUserDefaults.standardUserDefaults()
     var tour: String {
@@ -62,6 +63,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if let domain = domain {
             curiousEdinburghAPI.protocolType = self.protocolType
             curiousEdinburghAPI.domain = domain
+            curiousEdinburghAPI.path = path
+            
             curiousEdinburghAPI.syncBlogPosts({
                 NSNotificationCenter.defaultCenter().postNotificationName(Constants.Notifications.SyncComplete, object: nil)
                 self.fetchCurrentObjects()

@@ -64,16 +64,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let homeViewController = mainStoryboard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
         
-        if let urlComponents = NSURLComponents(string: url.absoluteString), host = urlComponents.host, queryItems = urlComponents.queryItems  {
+        if let urlComponents = NSURLComponents(string: url.absoluteString), host = urlComponents.host, path = urlComponents.path ,  queryItems = urlComponents.queryItems  {
             homeViewController.domain = host
+            homeViewController.path = path
             for item in queryItems {
                 if item.name == "protocol" {
                     homeViewController.protocolType = item.value
                 }
                 if item.name == "tour" {
                     homeViewController.tourName = item.value
+                    Constants.defaultTour = item.value!
+                    
+            
                 }
             }
+            
+            
+                
+                print("launch from URL")
+            
+
         }
         
         let rootViewController = self.window!.rootViewController as! UINavigationController

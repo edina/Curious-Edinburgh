@@ -1,4 +1,4 @@
-
+      
 //  CuriousEdinburghAPI.swift
 //  Curious Edinburgh
 //
@@ -17,7 +17,7 @@ class _CuriousEdinburghAPI {
     var dataStack: DATAStack?
     var protocolType:String?
     var domain: String?
-    let path = Constants.API.path
+    var path: String?
     let queryItems = Constants.API.queryItems
     var url:String?
     
@@ -34,22 +34,32 @@ class _CuriousEdinburghAPI {
             httpProtocol = Constants.HTTP_Protocol.secure
         }
         
+        if self.path != nil{
+            
+            self.path = self.path! + Constants.API.path ;
+        }
+        else
+        {
+            self.path = Constants.API.path ;
+        }
+        
+        
         if let domain = self.domain {
-            self.url = "\(httpProtocol)\(domain)\(self.path)\(self.queryItems)"
+            self.url = "\(httpProtocol)\(domain)\(self.path!)\(self.queryItems)"
             defaults.setObject(self.domain, forKey: "lastUsedDomain")
         } else if let domain = defaults.stringForKey("lastUsedDomain"){
-            self.url = "\(httpProtocol)\(domain)\(self.path)"
+            self.url = "\(httpProtocol)\(domain)\(self.path!)"
         } else {
             self.url = "\(Constants.API.default_url)"
         }
         
-        print(self.url)
+        print(self.url!)
         
         Alamofire.request(.GET, self.url!).validate().responseJSON { response in
             switch response.result {
             case .Success(let data):
-//                let json = JSON(data).arrayValue
-//                print(json)
+                //                let json = JSON(data).arrayValue
+                //                print(json)
                 
                 // Persist to Core Data
                 self.dataStack?.performInNewBackgroundContext { backgroundContext in
@@ -69,6 +79,8 @@ class _CuriousEdinburghAPI {
                 NSNotificationCenter.defaultCenter().postNotificationName(Constants.Notifications.RequestUrlError, object: error)
             }
         }
+    
+        
     }
     
     func fetchBlogPostsFromCoreData(tour: String)  -> [BlogPost] {
