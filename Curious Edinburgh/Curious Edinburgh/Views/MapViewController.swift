@@ -121,7 +121,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let image = UIImage(named: Constants.ImageIdentifiers.routingInfoOff)
         showHideRoutingButton.setImage(image, forState: .Normal)
         showHideRoutingButton.hidden = true
+        
+        
+        print(self.tour)
+      
+      //  if let tour = self.defaults.stringForKey(Constants.UseDefaults.tour)
+      //  {
+       //     print(tour)
+       //     self.blogPosts = curiousEdinburghAPI.fetchBlogPostsFromCoreData(tour)
+      //  }
+     //   else
+      //  {
         self.blogPosts = curiousEdinburghAPI.fetchBlogPostsFromCoreData(self.tour)
+       // }
+        
         for post in self.blogPosts {
             mapView.addAnnotation(post)
         }

@@ -30,27 +30,44 @@ class _CuriousEdinburghAPI {
         let defaults = NSUserDefaults.standardUserDefaults()
         
         var httpProtocol = Constants.HTTP_Protocol.insecure
-        if let protocolType = self.protocolType where protocolType.lowercaseString == "secure" {
+      
+        if let protocolType = defaults.stringForKey("protocolType") where protocolType.lowercaseString == "secure" {
             httpProtocol = Constants.HTTP_Protocol.secure
+           
+        }
+        else if let protocolType = defaults.stringForKey("protocolType") where protocolType.lowercaseString == "insecure" {
+            httpProtocol = Constants.HTTP_Protocol.insecure
+           
+        }
+        else
+        {
+            httpProtocol = Constants.HTTP_Protocol.insecure
         }
         
-        if self.path != nil{
-            
-            self.path = self.path! + Constants.API.path ;
+        
+        print(httpProtocol)
+        
+        //static let path = "/wp-json/wp/v2/posts"
+        //static let queryItems = "?per_page=100"
+       
+        
+        // change to extra path
+        
+        if let extraPath = defaults.stringForKey("extraPath")
+        {
+            self.path = extraPath + Constants.API.path
         }
         else
         {
             self.path = Constants.API.path ;
         }
         
+        print(self.path)
         
-        if let domain = self.domain {
+        if let domain = defaults.stringForKey("domain"){
             self.url = "\(httpProtocol)\(domain)\(self.path!)\(self.queryItems)"
-            defaults.setObject(self.domain, forKey: "lastUsedDomain")
-        } else if let domain = defaults.stringForKey("lastUsedDomain"){
-            self.url = "\(httpProtocol)\(domain)\(self.path!)"
         } else {
-            self.url = "\(Constants.API.default_url)"
+            self.url = "\(Constants.API.default_url)\(self.queryItems)"
         }
         
         print(self.url!)

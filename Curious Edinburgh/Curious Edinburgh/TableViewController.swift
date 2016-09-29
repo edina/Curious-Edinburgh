@@ -106,7 +106,9 @@ class TableViewController: UITableViewController {
         
         // Note that strippedContent is temporary until all mainText fields are populated
         if let content = blogPost.mainText ?? blogPost.strippedContent{
-            cell.postDescription.text = content.trunc(240)
+            cell.postDescription.text  =
+            content.stringByReplacingOccurrencesOfString("<br />", withString: "").trunc(240)
+    
         }
         
         self.setCellImage(cell, blogPost: blogPost)

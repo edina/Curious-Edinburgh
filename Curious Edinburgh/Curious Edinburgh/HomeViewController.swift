@@ -81,13 +81,14 @@ class HomeViewController: UIViewController, PagingMenuControllerDelegate {
     
     func setTitleToTourName() {
         let defaults = NSUserDefaults.standardUserDefaults()
+        self.tourName = defaults.stringForKey(Constants.UseDefaults.tour)
         self.navBar.title = getTitle()
     }
     
     func getTitle() -> String {
-        var title = Constants.defaultTour
-        
-        if let tourName = self.tourName {
+       var title = Constants.defaultTour
+       let defaults = NSUserDefaults.standardUserDefaults()
+       if let tourName = defaults.stringForKey(Constants.UseDefaults.tour) {
             title = tourName
         }
         

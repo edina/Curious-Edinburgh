@@ -24,11 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         curiousEdinburghAPI.dataStack = self.dataStack
+     
         curiousEdinburghAPI.syncBlogPosts {
-            NSNotificationCenter.defaultCenter().postNotificationName(Constants.Notifications.SyncComplete, object: nil)
+       
+        NSNotificationCenter.defaultCenter().postNotificationName(Constants.Notifications.SyncComplete, object: nil)
 
             
-//            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.changeNotification(_:)), name:Constants.Notifications.SyncComplete, object: nil)
+      //    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.changeNotification(_:)), name:Constants.Notifications.SyncComplete, object: nil)
 
             
             print("Initial sync completed")
@@ -61,20 +63,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         // Handle urlscheme to retrieve survey id and redirect to HomeViewController
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let homeViewController = mainStoryboard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
+   //     let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+      //  let homeViewController = mainStoryboard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
         
         if let urlComponents = NSURLComponents(string: url.absoluteString), host = urlComponents.host, path = urlComponents.path ,  queryItems = urlComponents.queryItems  {
-            homeViewController.domain = host
-            homeViewController.path = path
+            let defaults = NSUserDefaults.standardUserDefaults()
+          //  homeViewController.domain = host
+            defaults.setObject(host, forKey: "domain")
+          //  homeViewController.path = path
+            
+            defaults.setObject(path, forKey: "extraPath")
+            
             for item in queryItems {
                 if item.name == "protocol" {
-                    homeViewController.protocolType = item.value
+                    //homeViewController.protocolType = item.value
+                    defaults.setObject(item.value, forKey: "protocolType")
+                    
                 }
                 if item.name == "tour" {
-                    homeViewController.tourName = item.value
-                    Constants.defaultTour = item.value!
+                    //homeViewController.tourName = item.value
+                    //Constants.defaultTour = item.value!
                     
+                    defaults.setObject(item.value!, forKey: Constants.UseDefaults.tour)
+                    print(item.value)
+                    
+                 
             
                 }
             }
@@ -86,9 +99,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         }
         
-        let rootViewController = self.window!.rootViewController as! UINavigationController
-        rootViewController.setViewControllers([homeViewController], animated: true)
+       // let rootViewController = self.window!.rootViewController as! UINavigationController
+       //  rootViewController.setViewControllers([homeViewController], animated: true)
+      
         
+        curiousEdinburghAPI.syncBlogPosts {
+          
+            NSNotificationCenter.defaultCenter().postNotificationName(Constants.Notifications.SyncComplete, object: nil)
+            
+            NSNotificationCenter.defaultCenter().postNotificationName(Constants.Notifications.TourSelected, object: nil)
+           
+            print("Launch URL sync completed")
+        
+        }
+
+            
         return true
     }
 
